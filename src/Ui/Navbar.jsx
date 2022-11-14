@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import { Link as RouterLink } from 'react-router-dom'
 
+import { AuthButtons, Logo } from "./Components";
+
 import { AppBar, Box, Button, Divider, Drawer, Grid, IconButton, Link, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material"
 import { FormatListNumberedRounded, GroupsRounded, HomeRounded, LogoutOutlined, MenuOpenOutlined, MenuOutlined, SportsSoccerRounded, StorefrontRounded } from '@mui/icons-material'
-import { AuthButtons } from "../Auth/Components/AuthButtons";
-import { Logo } from "../Auth/Components/Logo";
 
 const navItems = [{ text: "INICIO" }, { text: "PLANTEL" }, { text: "POSICIONES" }, { text: "FIXTURE" }, { text: "TIENDA OFICIAL" }]
 
@@ -42,7 +42,7 @@ export const Navbar = () => {
                             ))}
                         </Box>
 
-                        <Box sx={{ display: {xs: "none", md: "flex" } }}>
+                        <Box sx={{ display: { xs: "none", md: "flex" } }}>
                             <AuthButtons />
                         </Box>
 
@@ -51,6 +51,7 @@ export const Navbar = () => {
             </AppBar >
 
 
+            {/* Responsive Navbar */}
             <Drawer
                 variant="temporary"
                 open={menuState}
