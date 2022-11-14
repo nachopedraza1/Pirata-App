@@ -8,6 +8,7 @@ import { MainRoutes } from "../Main/Routes/MainRoutes"
 export const AppRouter = () => {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/auth/*" element={<AuthRoutes />} />
         <Route path="/*" element={<MainRoutes />} />
