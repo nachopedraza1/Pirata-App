@@ -4,12 +4,8 @@ import { Box, Button, Link, Typography } from '@mui/material'
 
 export const AuthButtons = () => {
 
-
     return (
         <Box display="flex" justifyContent="center" >
-            {/* <IconButton>
-                                <LogoutOutlined sx={{ fontSize: 30 }} color="tertiary" />
-                            </IconButton> */}
             < Link component={RouterLink} to="/auth/login" underline="none" >
                 <Button sx={{ backgroundColor: "whitesmoke", mr: 1, p: "4px 15px" }}>
                     <Typography variant="p">Ingresa</Typography>

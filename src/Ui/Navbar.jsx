@@ -1,17 +1,20 @@
 import { useState } from "react";
-
 import { Link as RouterLink } from 'react-router-dom'
 
 import { AuthButtons, Logo } from "./Components";
 
 import { AppBar, Box, Button, Divider, Drawer, Grid, IconButton, Link, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material"
 import { FormatListNumberedRounded, GroupsRounded, HomeRounded, LogoutOutlined, MenuOpenOutlined, MenuOutlined, SportsSoccerRounded, StorefrontRounded } from '@mui/icons-material'
+import { useSelector } from "react-redux";
+import { UserButtons } from "./Components/UserButtons";
 
 const navItems = [{ text: "INICIO" }, { text: "PLANTEL" }, { text: "POSICIONES" }, { text: "FIXTURE" }, { text: "TIENDA OFICIAL" }]
 
 export const Navbar = () => {
 
     const [menuState, setMenuState] = useState(false);
+
+    const { status } = useSelector(state => state.auth);
 
     return (
         <>
@@ -30,7 +33,7 @@ export const Navbar = () => {
 
                     <Grid container direction="row" wrap="nowrap" justifyContent="space-between" alignItems="center">
 
-                        <Logo />
+                        <Logo color="white" />
 
                         <Box sx={{ position: "absolute", width: "100%", justifyContent: "center", display: { xs: 'none', md: 'flex' } }}>
                             {navItems.map((item) => (
@@ -43,7 +46,7 @@ export const Navbar = () => {
                         </Box>
 
                         <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                            <AuthButtons />
+                            {(status === "not-authenticated") ? <AuthButtons /> : <UserButtons />}
                         </Box>
 
                     </Grid>
@@ -91,7 +94,7 @@ export const Navbar = () => {
 
                 <Divider sx={{ backgroundColor: "white", mb: 2 }} />
 
-                <AuthButtons />
+                {(status === "not-authenticated") ? <AuthButtons /> : <UserButtons />}
             </Drawer>
         </>
     )

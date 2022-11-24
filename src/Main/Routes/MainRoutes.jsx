@@ -5,6 +5,7 @@ import { HomePage } from "../Pages/HomePage"
 export const MainRoutes = () => {
     return (
         <>
+            <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/*" element={<Navigate to="/" />} />
