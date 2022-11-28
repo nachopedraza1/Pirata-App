@@ -74,19 +74,19 @@ export const LoginPage = () => {
                     </Grid>
 
                     <Grid container spacing={1}>
-                        <Grid item xs={6}>
+                        <Grid item xs={12}>
                             <Button type="submit" variant="contained" sx={{ padding: 1 }} fullWidth >
                                 <LoginRounded />
                                 <Typography sx={{ ml: 1 }}>LOGIN</Typography>
                             </Button>
                         </Grid>
 
-                        <Grid item xs={6}>
+                      {/*   <Grid item xs={6}>
                             <Button onClick={() => onLoginWithGoogle()} variant="contained" sx={{ padding: 1 }} fullWidth>
                                 <Google />
                                 <Typography sx={{ ml: 1 }}>GOOGLE</Typography>
                             </Button>
-                        </Grid>
+                        </Grid> */}
 
                         <Grid container justifyContent="end" mt={2}>
                             <Link component={RouterLink} to="/auth/register">

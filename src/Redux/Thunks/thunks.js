@@ -1,6 +1,24 @@
 
-import { googleLogin, loginUser, logoutUser, registerUser } from "../../Firebase/provider";
+import { facebookLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Firebase/provider";
 import { checkingCredentials, login, logout } from "../Slices/authSlice"
+
+
+export const startTwitterLogin = () => {
+    return async (dispatch) => {
+        dispatch(checkingCredentials());
+        const resp = await twitterLogin();
+        console.log(resp);
+    }
+}
+
+export const startFacebookLogin = () => {
+    return async (dispatch) => {
+        dispatch(checkingCredentials());
+        const resp = await facebookLogin();
+        if (!resp.ok) return dispatch(logout(resp.errorMessage));
+        dispatch(login(resp))
+    }
+}
 
 export const startLoginGoogle = () => {
     return async (dispatch) => {

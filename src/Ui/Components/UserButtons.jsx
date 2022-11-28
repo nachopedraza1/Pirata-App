@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Box, Avatar, Menu, MenuItem, ListItemIcon, Divider, Typography, Button } from '@mui/material';
 import { Logout, ManageAccountsOutlined, PersonAdd, Settings } from '@mui/icons-material';
-import { logout } from '../../Redux/Slices/authSlice';
+import { startLogout } from '../../Redux/Thunks';
 
 export const UserButtons = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -20,7 +20,7 @@ export const UserButtons = () => {
     const { photoURL, displayName } = useSelector(state => state.auth);
 
     const onLogout = () => {
-        dispatch(logout())
+        dispatch(startLogout())
     }
 
 
