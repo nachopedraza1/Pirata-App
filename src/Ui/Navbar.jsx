@@ -1,12 +1,11 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link as RouterLink } from 'react-router-dom'
 
-import { AuthButtons, Logo } from "./Components";
+import { AuthButtons, Logo, UserButtons } from "./Components";
 
-import { AppBar, Box, Button, Divider, Drawer, Grid, IconButton, Link, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material"
-import { FormatListNumberedRounded, GroupsRounded, HomeRounded, LogoutOutlined, MenuOpenOutlined, MenuOutlined, SportsSoccerRounded, StorefrontRounded } from '@mui/icons-material'
-import { useSelector } from "react-redux";
-import { UserButtons } from "./Components/UserButtons";
+import { Container, AppBar, Box, Button, Divider, Drawer, Grid, IconButton, Link, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material"
+import { FormatListNumberedRounded, GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, SportsSoccerRounded, StorefrontRounded } from '@mui/icons-material'
 
 const navItems = [{ text: "INICIO" }, { text: "PLANTEL" }, { text: "POSICIONES" }, { text: "FIXTURE" }, { text: "TIENDA OFICIAL" }]
 
@@ -25,32 +24,37 @@ export const Navbar = () => {
                     backgraund: "black"
                 }}
             >
-                <Toolbar>
+                <Container maxWidth="xl" disableGutters>
+                    <Toolbar>
 
-                    <IconButton sx={{ mr: 2, p: 0, display: { md: "none" } }} onClick={() => setMenuState(!menuState)}>
-                        <MenuOutlined sx={{ fontSize: 30 }} color="tertiary" />
-                    </IconButton>
+                        <IconButton sx={{ mr: 2, p: 0, display: { md: "none" } }} onClick={() => setMenuState(!menuState)}>
+                            <MenuOutlined sx={{ fontSize: 30 }} color="tertiary" />
+                        </IconButton>
 
-                    <Grid container direction="row" wrap="nowrap" justifyContent="space-between" alignItems="center">
+                        <Grid container direction="row" wrap="nowrap" justifyContent="space-between" alignItems="center">
 
-                        <Logo color="white" />
+                            <Logo color="white" />
 
-                        <Box sx={{ position: "absolute", width: "100%", justifyContent: "center", display: { xs: 'none', md: 'flex' } }}>
-                            {navItems.map((item) => (
-                                <Link underline="none" key={item.text}>
-                                    <Button sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
-                                        {item.text}
-                                    </Button>
-                                </Link>
-                            ))}
-                        </Box>
+                            <Grid item sx={{ position: "absolute", width: "100%", justifyContent: "center", display: { xs: 'none', md: 'flex' } }}>
+                                {navItems.map((item) => (
+                                    <Link underline="none" key={item.text}>
+                                        <Button sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
+                                            {item.text}
+                                        </Button>
+                                    </Link>
+                                ))}
+                            </Grid>
 
-                        <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                            {(status === "not-authenticated") ? <AuthButtons /> : <UserButtons />}
-                        </Box>
+                            <Grid item >
+                                <Box sx={{ display: { xs: "none", md: "block" } }}>
+                                    {(status === "not-authenticated") && <AuthButtons />}
+                                </Box>
+                                {(status === "authenticated") && <UserButtons />}
+                            </Grid>
+                        </Grid>
 
-                    </Grid>
-                </Toolbar>
+                    </Toolbar>
+                </Container>
             </AppBar >
 
 
@@ -58,13 +62,15 @@ export const Navbar = () => {
             <Drawer
                 variant="temporary"
                 open={menuState}
-                sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: "250px", backgroundColor: "black" } }}
+                sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: "270px", backgroundColor: "black" } }}
                 onClose={() => setMenuState(false)}
             >
-                <Toolbar >
-                    <IconButton sx={{ p: { sm: "0" } }} onClick={() => setMenuState(false)}>
+                <Toolbar sx={{ pl: "24px" }} >
+                    <IconButton sx={{ mr: 2, p: 0 }} onClick={() => setMenuState(!menuState)}>
                         <MenuOpenOutlined sx={{ fontSize: 30, color: "white" }} />
                     </IconButton>
+
+                    <Logo color="white" />
                 </Toolbar>
 
                 <Divider sx={{ backgroundColor: "white" }} />
@@ -93,8 +99,7 @@ export const Navbar = () => {
                 </List>
 
                 <Divider sx={{ backgroundColor: "white", mb: 2 }} />
-
-                {(status === "not-authenticated") ? <AuthButtons /> : <UserButtons />}
+                {(status === "not-authenticated") && <AuthButtons />}
             </Drawer>
         </>
     )

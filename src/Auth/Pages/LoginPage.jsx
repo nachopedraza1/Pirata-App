@@ -4,10 +4,11 @@ import { Link as RouterLink } from "react-router-dom"
 
 import { AuthLayout } from "../Layout/AuthLayout"
 
+import { useForm } from "../../hooks/useForm"
+import { startLogin, startLoginGoogle } from "../../Redux/Thunks"
+
 import { Grid, TextField, Link, Button, Typography, Alert } from "@mui/material"
 import { Google, LoginRounded } from "@mui/icons-material"
-import { startLogin, startLoginGoogle } from "../../Redux/Thunks/thunks"
-import { useForm } from "../../hooks/useForm"
 
 
 const formDataLogin = {
@@ -17,7 +18,7 @@ const formDataLogin = {
 
 export const LoginPage = () => {
 
-    const { status, errorMessage } = useSelector(state => state.auth)
+    const { errorMessage } = useSelector(state => state.auth)
 
     const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -36,7 +37,7 @@ export const LoginPage = () => {
     }
 
     return (
-        <AuthLayout tittle={"Login"}>
+        <AuthLayout tittle={"Iniciar Sesion"}>
             <form onSubmit={onLogin} >
                 <Grid container direction="column">
                     <Grid item xs={12}>

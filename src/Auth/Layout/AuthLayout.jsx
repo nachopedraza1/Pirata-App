@@ -62,7 +62,7 @@ export const AuthLayout = ({ children, tittle }) => {
                     margin: "0 auto",
                     backgroundColor: "white",
                     padding: 3,
-                    borderRadius: 2,
+                    borderRadius: 1,
                 }}
             >
 
