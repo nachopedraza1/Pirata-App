@@ -1,14 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link as RouterLink } from "react-router-dom"
 
 import { AuthLayout } from "../Layout/AuthLayout"
 
 import { useForm } from "../../hooks/useForm"
-import { startLogin, startLoginGoogle } from "../../Redux/Thunks"
+import { startLogin } from "../../Redux/Thunks"
 
 import { Grid, TextField, Link, Button, Typography, Alert } from "@mui/material"
-import { Google, LoginRounded } from "@mui/icons-material"
+import { LoginRounded } from "@mui/icons-material"
+import { checkingCredentials, logout } from "../../Redux/Slices/authSlice"
 
 
 const formDataLogin = {
@@ -26,20 +27,20 @@ export const LoginPage = () => {
 
     const dispatch = useDispatch();
 
-    const onLoginWithGoogle = () => {
-        dispatch(startLoginGoogle())
-    }
-
     const onLogin = (event) => {
         event.preventDefault();
         setFormSubmitted(true);
         dispatch(startLogin(formState))
     }
 
+    useEffect(() => {
+        dispatch(logout())
+    }, []);
+
     return (
         <AuthLayout tittle={"Iniciar Sesion"}>
             <form onSubmit={onLogin} >
-                <Grid container direction="column">
+                <Grid container direction="column" className="animate__animated animate__fadeIn">
                     <Grid item xs={12}>
                         <TextField
                             sx={{ mb: 2 }}
@@ -67,7 +68,7 @@ export const LoginPage = () => {
                     </Grid>
 
                     <Grid item xs={12} mb={1}
-                        display={formSubmitted && !!errorMessage ? "" : "none"}>
+                        display={!!errorMessage ? "" : "none"}>
                         <Alert severity='error' >
                             {errorMessage}
                         </Alert>
@@ -80,13 +81,6 @@ export const LoginPage = () => {
                                 <Typography sx={{ ml: 1 }}>LOGIN</Typography>
                             </Button>
                         </Grid>
-
-                      {/*   <Grid item xs={6}>
-                            <Button onClick={() => onLoginWithGoogle()} variant="contained" sx={{ padding: 1 }} fullWidth>
-                                <Google />
-                                <Typography sx={{ ml: 1 }}>GOOGLE</Typography>
-                            </Button>
-                        </Grid> */}
 
                         <Grid container justifyContent="end" mt={2}>
                             <Link component={RouterLink} to="/auth/register">

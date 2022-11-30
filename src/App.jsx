@@ -1,11 +1,8 @@
-
 import { AppRouter } from "./Routes/AppRouter"
 
-export const App = () => { 
+export const App = () => {
 
   return (
-    <div>
-      <AppRouter />
-    </div>
+    <AppRouter />
   )
 }

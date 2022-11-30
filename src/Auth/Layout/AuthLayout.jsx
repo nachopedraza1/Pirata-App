@@ -1,10 +1,8 @@
 import { Grid, Typography, Divider, Button } from "@mui/material"
-import { CheckingAuth, SocialButtons } from "../../Ui/Components"
+import { CheckingAuth, Logo, SocialButtons } from "../../Ui/Components"
 import { useDispatch, useSelector } from "react-redux"
 import { Facebook, GitHub, Google, Twitter } from "@mui/icons-material"
-import { startFacebookLogin, startTwitterLogin } from "../../Redux/Thunks"
-import { twitterLogin } from "../../Firebase/provider"
-
+import { startFacebookLogin, startGitHubLogin, startLoginGoogle, startTwitterLogin } from "../../Redux/Thunks"
 
 export const AuthLayout = ({ children, tittle }) => {
 
@@ -12,13 +10,22 @@ export const AuthLayout = ({ children, tittle }) => {
 
     const dispatch = useDispatch();
 
+    const onTwitterLogin = () => {
+        dispatch(startTwitterLogin())
+    }
     const onFacebookLogin = () => {
         dispatch(startFacebookLogin())
     }
 
-    const onTwitterLogin = () => {
-        dispatch(startTwitterLogin())
+    const onGoogleLogin = () => {
+        dispatch(startLoginGoogle())
     }
+
+    const onGitHubLogin = () => {
+        dispatch(startGitHubLogin())
+    }
+
+    const isDisabled = tittle === "Registro";
 
     return (
         <Grid
@@ -66,32 +73,56 @@ export const AuthLayout = ({ children, tittle }) => {
                 </Grid>
 
                 <Divider orientation="vertical" flexItem >
-                    OR
+                    <img src="../src/assets/belgrano-calavera-black.png" width="50px" alt="" />
                 </Divider>
 
                 <Grid
+                    className="animate__animated animate__fadeIn"
                     item
                     xs={12}
                     md={5}
                     padding={1}
                 >
-                    <Button onClick={() => onTwitterLogin()} startIcon={<Twitter />} variant="contained" fullWidth sx={{ mb: 2, p: 1 }}>
+                    <Button
+                        startIcon={<Twitter />}
+                        disabled={isDisabled}
+                        onClick={() => onTwitterLogin()}
+                        variant="contained"
+                        fullWidth
+                        sx={{ mb: 2, p: 1 }}>
                         <Typography variant="p"> Twitter </Typography>
                     </Button>
-                    <Button onClick={() => onFacebookLogin()} startIcon={<Facebook />} variant="contained" fullWidth sx={{ mb: 2, p: 1, backgroundColor: "#4267B2" }}>
+                    <Button
+                        startIcon={<Facebook />}
+                        disabled={isDisabled}
+                        onClick={() => onFacebookLogin()}
+                        variant="contained"
+                        fullWidth
+                        sx={{ mb: 2, p: 1, backgroundColor: "#4267B2" }}>
                         <Typography variant="p"> Facebook </Typography>
                     </Button>
-                    <Button startIcon={<Google />} variant="outlined" fullWidth sx={{ mb: 2, p: 1, }}>
+                    <Button
+                        startIcon={<Google />}
+                        disabled={isDisabled}
+                        onClick={() => onGoogleLogin()}
+                        variant="outlined"
+                        fullWidth
+                        sx={{ mb: 2, p: 1, }}>
                         <Typography variant="p"> Google </Typography>
                     </Button>
-                    <Button startIcon={<GitHub />} variant="contained" fullWidth sx={{ mb: 2, p: 1, backgroundColor: "#171515", "&:hover": { backgroundColor: "#171515" } }}>
+                    <Button
+                        startIcon={<GitHub />}
+                        disabled={isDisabled}
+                        onClick={() => onGitHubLogin()}
+                        variant="contained"
+                        fullWidth
+                        sx={{ mb: 2, p: 1, backgroundColor: "#171515", "&:hover": { backgroundColor: "#171515" } }}>
                         <Typography variant="p"> GitHub </Typography>
                     </Button>
                 </Grid>
 
                 <SocialButtons />
             </Grid>
-
 
         </Grid >
     )

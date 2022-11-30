@@ -1,17 +1,17 @@
 
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, updateProfile, FacebookAuthProvider, TwitterAuthProvider } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, updateProfile, FacebookAuthProvider, TwitterAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { FirebaseAuth } from "./config";
 
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const twitterProvider = new TwitterAuthProvider();
+const gitHubProvider = new GithubAuthProvider();
 
 
 export const twitterLogin = async () => {
     try {
-        const resp = await signInWithPopup(FirebaseAuth, twitterProvider);
+        const resp = await signInWithPopup(FirebaseAuth, twitterProvider)
         console.log(resp);
-        return resp;
     } catch (error) {
         console.log(error);
     }
@@ -31,6 +31,17 @@ export const facebookLogin = async () => {
 export const googleLogin = async () => {
     try {
         const resp = await signInWithPopup(FirebaseAuth, googleProvider);
+        const { uid, email, photoURL, displayName } = resp.user;
+        return { ok: true, uid, email, photoURL, displayName }
+    } catch (error) {
+        const errorMessage = error.message;
+        return { ok: false, errorMessage }
+    }
+}
+
+export const githubLogin = async () => {
+    try {
+        const resp = await signInWithPopup(FirebaseAuth, gitHubProvider);
         const { uid, email, photoURL, displayName } = resp.user;
         return { ok: true, uid, email, photoURL, displayName }
     } catch (error) {
