@@ -1,7 +1,9 @@
 
-import { facebookLogin, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Firebase/provider";
-import { providerPosts } from "../Api/providerPosts";
+import { facebookLogin, getMatches, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Firebase/provider";
+import { providerPosts } from "../../Api/providerPosts";
+
 import { checkingCredentials, login, logout } from "../Slices/authSlice"
+import { setMatches } from "../Slices/matchesSlice";
 import { setPosts } from "../Slices/postsSlice";
 
 
@@ -66,16 +68,25 @@ export const startLogout = () => {
         dispatch(logout());
     }
 }
+
 export const onLoadPosts = () => {
     return async (dispatch) => {
         const resp = await providerPosts();
         const posts = resp.map(post => {
-            const { display_url, edge_media_to_caption, edge_media_preview_like } = post.node;
+            const { id, display_url, edge_media_to_caption, edge_media_preview_like, edge_media_to_comment } = post.node;
             const { text } = edge_media_to_caption.edges[0].node;
-            const { count } = edge_media_preview_like;
-            return { display_url, text, count };
+            const { count: comments } = edge_media_to_comment;
+            const { count: likes } = edge_media_preview_like;
+            return { id, display_url, text, likes, comments };
         })
         dispatch(setPosts(posts))
+    }
+}
+
+export const onLoadMatches = () => {
+    return async (dispatch) => {
+        const matches = await getMatches();
+        dispatch(setMatches(matches))
     }
 }
 

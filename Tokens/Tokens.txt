@@ -1,0 +1,17 @@
+Twitter: Belgrano USER ID API : 1112088823
+
+API Key : 2ryiJJlzHObyjUPNUpoQjGPdA
+
+API Key Secret: HPpB5j6iepy2Tlbo6RLnnNYdbNFkN76Yn68j7Rr2L8RzpGc3gq
+
+Client ID: MHc1ZkhqbHBCNTFNdGtzOFZvSzY6MTpjaQ
+
+Client Secret : c883s0uKrKArihoZ0CyzFQKWSF6IPBgzauyFGSGU7fSc-npYFE
+
+Bearer Token: AAAAAAAAAAAAAAAAAAAAAA6EjwEAAAAAP77POgipwzDUKIAngmYAp%2Boo45U%3Dpwis9p17qMrJrVsRT3S4K0hodo4rU1590zvQL4OA2by5nsgMZ1
+
+Access Token : 1950246541-wNPZgB45vqToJcyFjj6v8W5VG8IrwhcEiWIdnzH
+
+Access Token Secret : Wt4a6IqXrc257uMNKwpdIqXrixux6OpGNUgQBHGEVXJnr
+
+

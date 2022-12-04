@@ -3,14 +3,15 @@ import { createSlice } from '@reduxjs/toolkit'
 export const postsSlice = createSlice({
     name: 'posts',
     initialState: {
+        isLoading: true,
         posts: []
     },
     reducers: {
         setPosts: (state, { payload }) => {
+            state.isLoading = false;
             state.posts = payload;
         }
     },
 })
 
-// Action creators are generated for each case reducer function
 export const { setPosts } = postsSlice.actions

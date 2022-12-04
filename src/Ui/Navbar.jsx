@@ -7,7 +7,7 @@ import { AuthButtons, Logo, UserButtons } from "./Components";
 import { Container, AppBar, Box, Button, Divider, Drawer, Grid, IconButton, Link, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material"
 import { FormatListNumberedRounded, GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, SportsSoccerRounded, StorefrontRounded } from '@mui/icons-material'
 
-const navItems = [{ text: "INICIO" }, { text: "PLANTEL" }, { text: "POSICIONES" }, { text: "FIXTURE" }, { text: "TIENDA OFICIAL" }]
+const navItems = [{ text: "INICIO" }, { text: "EQUIPOS" }, { text: "PARTIDOS" }, { text: "TIENDA OFICIAL" }, { text: "QUIENES SOMOS" }]
 
 export const Navbar = () => {
 
@@ -83,10 +83,10 @@ export const Navbar = () => {
                                     <ListItemIcon sx={{ color: "primary.main" }}>
                                         {
                                             (item.text === "INICIO") ? < HomeRounded /> :
-                                                (item.text === "PLANTEL") ? < GroupsRounded /> :
-                                                    (item.text === "POSICIONES") ? < FormatListNumberedRounded /> :
-                                                        (item.text === "FIXTURE") ? < SportsSoccerRounded /> :
-                                                            (item.text === "TIENDA OFICIAL") ? < StorefrontRounded /> : ""
+                                                (item.text === "EQUIPOS") ? < GroupsRounded /> :
+                                                    (item.text === "PARTIDOS") ? < FormatListNumberedRounded /> :
+                                                        (item.text === "TIENDA OFICIAL") ? < SportsSoccerRounded /> :
+                                                            (item.text === "QUIENES SOMOS") ? < StorefrontRounded /> : ""
                                         }
                                     </ListItemIcon>
                                     <Grid container>

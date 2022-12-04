@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useForm } from "../../hooks/useForm"
+import { useForm } from "../../hooks"
 import { Link as RouterLink } from "react-router-dom"
 
 import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material"

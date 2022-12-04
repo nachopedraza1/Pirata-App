@@ -7,7 +7,6 @@ import { store } from './Redux/Store/store'
 import { AppTheme } from './Theme'
 import { App } from './App'
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>

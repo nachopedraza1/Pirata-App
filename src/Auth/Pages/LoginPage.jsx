@@ -4,12 +4,12 @@ import { Link as RouterLink } from "react-router-dom"
 
 import { AuthLayout } from "../Layout/AuthLayout"
 
-import { useForm } from "../../hooks/useForm"
+import { useForm } from "../../hooks"
 import { startLogin } from "../../Redux/Thunks"
 
 import { Grid, TextField, Link, Button, Typography, Alert } from "@mui/material"
 import { LoginRounded } from "@mui/icons-material"
-import { checkingCredentials, logout } from "../../Redux/Slices/authSlice"
+import { logout } from "../../Redux/Slices/authSlice"
 
 
 const formDataLogin = {

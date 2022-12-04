@@ -1,6 +1,7 @@
 
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, updateProfile, FacebookAuthProvider, TwitterAuthProvider, GithubAuthProvider } from "firebase/auth";
-import { FirebaseAuth } from "./config";
+import { collection, getDocs, orderBy, query } from "firebase/firestore/lite";
+import { FirebaseAuth, FirebaseDB } from "./config";
 
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
@@ -77,6 +78,20 @@ export const registerUser = async ({ email, password, displayName }) => {
 
 export const logoutUser = async () => {
     return await FirebaseAuth.signOut();
+}
+
+export const getMatches = async () => {
+    try {
+        const queryRef = collection(FirebaseDB, "matches");
+        const queryOrder = query(queryRef, orderBy("order", "desc"))
+        const { docs } = await getDocs(queryOrder);
+        const matches = docs.map(doc => {
+            return { id: doc.id, ...doc.data() }
+        })
+        return matches;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
