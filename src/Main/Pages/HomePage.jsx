@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { Box, Container, Grid } from "@mui/material";
-import { onLoadMatches } from "../../Redux/Thunks";
+import { onLoadMatches, onLoadPosts } from "../../Redux/Thunks";
 import { Slider, TittleComponent, TwitterContainer, NewsContainer } from "../Components";
 
 export const HomePage = () => {
@@ -10,7 +10,7 @@ export const HomePage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(onLoadMatches())
+        dispatch(onLoadPosts())
     }, [])
 
     return (

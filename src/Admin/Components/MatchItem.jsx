@@ -14,8 +14,8 @@ export const MatchItem = ({ match, onDeteleMatch }) => {
                 bgcolor="#1f2024"
                 borderRadius={1}
             >
-                <Grid item xs={3}>
-                    <img src="../src/assets/Logo.png" alt="" width="100%" />
+                <Grid item xs={3} textAlign="center">
+                    <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "100px" }} />
                 </Grid>
                 <Grid item xs={1}>
                     <Typography variant="h5" color="white" textAlign="center"> {match.puntosLocal} </Typography>
@@ -26,8 +26,8 @@ export const MatchItem = ({ match, onDeteleMatch }) => {
                 <Grid item xs={1}>
                     <Typography variant="h5" color="error" textAlign="center"> {match.puntosRival} </Typography>
                 </Grid>
-                <Grid item xs={3}>
-                    <img src="../src/assets/Logo.png" alt="" width="100%" />
+                <Grid item xs={3} textAlign="center">
+                    <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "100px" }} />
                 </Grid>
                 <Grid item xs={1}>
                     <Button

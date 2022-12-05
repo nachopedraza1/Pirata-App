@@ -22,7 +22,7 @@ export const AddMatches = () => {
 
     const dispatch = useDispatch();
 
-    const { formState, rival, puntosRival, puntosLocal, resultado, onInputChange } = useForm(initialForm);
+    const { formState, rival, puntosRival, puntosLocal, onInputChange } = useForm(initialForm);
 
     const onAddMatch = async (event) => {
         event.preventDefault();
@@ -54,20 +54,27 @@ export const AddMatches = () => {
         <AdminPanelLayout>
             <Grid container spacing={2}>
 
-                <Grid item xs={8} >
+                <Grid item xs={12} lg={8} >
                     <TittleComponent tittle="AGREGAR PARTIDO" />
                     <form onSubmit={onAddMatch}>
                         <Grid container direction="column" bgcolor="#1f2024" borderRadius={1} gap={1} >
-                            <Grid item display="flex" alignItems="center" justifyContent="space-between" padding={2} >
+                            <Grid
+                                item
+                                display="flex"
+                                textAlign="center"
+                                padding={2}
+                                alignItems={{ sm: "center" }}
+                                flexDirection={{ xs: "column", sm: "row" }}>
 
-                                <Grid item xs={2}>
-                                    <img src="../src/assets/Logo.png" alt="" width="95px" />
+                                <Grid item xs={12} md={2} textAlign="center">
+                                    <img src="../src/assets/Logo.png" alt="" width="100px" />
                                 </Grid>
 
-                                <Grid item xs={3}>
+                                <Grid item xs={12} md={3}>
                                     <FormControl fullWidth sx={{ m: 1, maxWidth: "150px" }}>
-                                        <InputLabel>Puntos Local</InputLabel>
+                                        <InputLabel sx={{ color: "white" }}>Puntos Local</InputLabel>
                                         <CustomSelect
+                                            sx={{ color: "white" }}
                                             classes={CustomSelect}
                                             name="puntosLocal"
                                             value={puntosLocal}
@@ -83,14 +90,15 @@ export const AddMatches = () => {
                                     </FormControl>
                                 </Grid>
 
-                                <Grid item xs={1} display="flex" justifyContent="center">
+                                <Grid item xs={12} md={1} display="flex" justifyContent="center">
                                     <img src="../src/assets/swords1.png" alt="" width="40px" />
                                 </Grid>
 
-                                <Grid item xs={3}>
+                                <Grid item xs={12} md={3}>
                                     <FormControl fullWidth sx={{ m: 1, maxWidth: "150px" }}>
-                                        <InputLabel >Puntos Rival</InputLabel>
+                                        <InputLabel sx={{ color: "white" }}>Puntos Rival</InputLabel>
                                         <CustomSelect
+                                            sx={{ color: "white" }}
                                             name="puntosRival"
                                             value={puntosRival}
                                             onChange={onInputChange}
@@ -105,10 +113,11 @@ export const AddMatches = () => {
                                     </FormControl>
                                 </Grid>
 
-                                <Grid item xs={2}>
-                                    <FormControl fullWidth sx={{ m: 1, maxWidth: "130px" }}>
-                                        <InputLabel >Rival</InputLabel>
+                                <Grid item xs={12} md={2}>
+                                    <FormControl fullWidth sx={{ m: 1, maxWidth: "150px" }}>
+                                        <InputLabel sx={{ color: "white" }}>Rival</InputLabel>
                                         <CustomSelect
+                                            sx={{ color: "white" }}
                                             name="rival"
                                             value={rival}
                                             onChange={onInputChange}
@@ -135,7 +144,7 @@ export const AddMatches = () => {
                     </form >
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item xs={12} lg={4}>
                     <TittleComponent tittle="HISTORIAL" />
                     <Grid container direction="column">
                         {
@@ -144,8 +153,7 @@ export const AddMatches = () => {
                     </Grid>
                 </Grid>
 
-            </Grid>
+            </Grid >
         </AdminPanelLayout >
     );
 }
-
