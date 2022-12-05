@@ -1,17 +1,16 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -20,6 +19,21 @@ import { DoubleArrow, EmojiEvents, FiberNew, Groups2, Logout, PersonAdd, Securit
 
 
 const drawerWidth = 240;
+
+'Noticias', 'Equipos', 'Partidos', 'Proximos partidos'
+
+const navlinks1 = [
+    { text: 'Noticias', ref: "addmatches" },
+    { text: 'Equipos', ref: "addmatches" },
+    { text: 'Partidos', ref: "addmatches" },
+    { text: 'Proximos partidos', ref: "addmatches" }
+];
+
+const navlinks2 = [
+    { text: 'Rivales', ref: "addrivals" },
+    { text: 'Postulantes', ref: "addmatches" },
+    { text: 'Ajustes', ref: "addmatches" },
+];
 
 export const AdminPanelLayout = (props) => {
     const { window } = props;
@@ -31,36 +45,36 @@ export const AdminPanelLayout = (props) => {
 
     const drawer = (
         <div>
-            <Toolbar sx={{ backgroundColor: "black", }} />
+            <Toolbar sx={{ backgroundColor: "black", display: { sm: "none" } }} />
             <Divider />
             <List>
-                {['Noticias', 'Equipos', 'Partidos', 'Proximos partidos'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
+                {navlinks1.map((link, index) => (
+                    <ListItem component={Link} to={link.ref} key={link.text} disablePadding >
                         <ListItemButton>
                             <ListItemIcon>
                                 {
-                                    (text === "Noticias") ? <FiberNew /> :
-                                        (text === "Equipos") ? <Groups2 /> :
-                                            (text === "Partidos") ? <EmojiEvents /> : <DoubleArrow />
+                                    (link.text === "Noticias") ? <FiberNew /> :
+                                        (link.text === "Equipos") ? <Groups2 /> :
+                                            (link.text === "Partidos") ? <EmojiEvents /> : <DoubleArrow />
                                 }
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={link.text} />
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
             <Divider />
             <List >
-                {['Rivales', 'Postulantes', 'Ajustes'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
+                {navlinks2.map((link, index) => (
+                    <ListItem component={Link} to={link.ref} key={link.text} disablePadding >
                         <ListItemButton>
                             <ListItemIcon>
                                 {
-                                    (text === "Rivales") ? <Security /> :
-                                        (text === "Postulantes") ? <PersonAdd /> : <Settings />
+                                    (link.text === "Rivales") ? <Security /> :
+                                        (link.text === "Postulantes") ? <PersonAdd /> : <Settings />
                                 }
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={link.text} />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -139,7 +153,13 @@ export const AdminPanelLayout = (props) => {
             <Box
                 bgcolor="#16171b"
                 component="main"
-                sx={{ flexGrow: 1, p: 2, width: { sm: `calc(100% - ${drawerWidth}px)` }, height: "100vh" }}
+                sx={{
+                    flexGrow: 1,
+                    padding: 2,
+                    width: { sm: `calc(100% - ${drawerWidth}px)` },
+                    height: "100%",
+                    minHeight: "100vh"
+                }}
             >
                 <Toolbar />
                 {props.children}
