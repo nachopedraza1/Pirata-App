@@ -41,6 +41,18 @@ export const AddMatches = () => {
     }
 
 
+    const CustomSelect = styled(Select)(() => ({
+        "&.MuiOutlinedInput-root": {
+            "& fieldset": {
+                borderColor: "white"
+            },
+            "& .MuiSvgIcon-root": {
+                color: "white",
+            },
+        },
+        color: "white",
+    }));
+
     return (
         <AdminPanelLayout>
             <Grid container spacing={2}>
@@ -66,6 +78,9 @@ export const AddMatches = () => {
                                         <InputLabel>Puntos Local</InputLabel>
                                         <Select
                                             required={true}
+                                        <InputLabel sx={{ color: "white" }}>Puntos Local</InputLabel>
+                                        <CustomSelect
+                                            required={true}
                                             name="puntosLocal"
                                             value={puntosLocal}
                                             onChange={onInputChange}
@@ -87,6 +102,9 @@ export const AddMatches = () => {
                                     <FormControl fullWidth >
                                         <InputLabel>Puntos Rival</InputLabel>
                                         <Select
+                                            required={true}
+                                        <InputLabel sx={{ color: "white" }}>Puntos Rival</InputLabel>
+                                        <CustomSelect
                                             required={true}
                                             name="puntosRival"
                                             value={puntosRival}
@@ -110,6 +128,9 @@ export const AddMatches = () => {
                                         <InputLabel>Rival</InputLabel>
                                         <Select
                                             required={true}
+                                        <InputLabel sx={{ color: "white" }}>Rival</InputLabel>
+                                        <CustomSelect
+                                            required={true}
                                             name="rival"
                                             value={rival}
                                             onChange={onInputChange}
@@ -127,6 +148,8 @@ export const AddMatches = () => {
                                     <FormControl fullWidth>
                                         <InputLabel sx={{ color: "white" }}>Esport</InputLabel>
                                         <Select
+                                            required={true}
+                                        <CustomSelect
                                             required={true}
                                             name="juego"
                                             value={juego}
