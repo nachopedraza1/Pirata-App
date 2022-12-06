@@ -49,8 +49,8 @@ export const AddMatches = () => {
                 color: "white",
             },
         },
+        color: "white",
     }));
-
 
     return (
         <AdminPanelLayout>
@@ -76,8 +76,7 @@ export const AddMatches = () => {
                                     <FormControl fullWidth>
                                         <InputLabel sx={{ color: "white" }}>Puntos Local</InputLabel>
                                         <CustomSelect
-                                            sx={{ color: "white" }}
-                                            classes={CustomSelect}
+                                            required={true}
                                             name="puntosLocal"
                                             value={puntosLocal}
                                             onChange={onInputChange}
@@ -99,7 +98,7 @@ export const AddMatches = () => {
                                     <FormControl fullWidth >
                                         <InputLabel sx={{ color: "white" }}>Puntos Rival</InputLabel>
                                         <CustomSelect
-                                            sx={{ color: "white" }}
+                                            required={true}
                                             name="puntosRival"
                                             value={puntosRival}
                                             onChange={onInputChange}
@@ -121,7 +120,7 @@ export const AddMatches = () => {
                                     <FormControl fullWidth>
                                         <InputLabel sx={{ color: "white" }}>Rival</InputLabel>
                                         <CustomSelect
-                                            sx={{ color: "white" }}
+                                            required={true}
                                             name="rival"
                                             value={rival}
                                             onChange={onInputChange}
@@ -139,7 +138,7 @@ export const AddMatches = () => {
                                     <FormControl fullWidth>
                                         <InputLabel sx={{ color: "white" }}>Esport</InputLabel>
                                         <CustomSelect
-                                            sx={{ color: "white" }}
+                                            required={true}
                                             name="juego"
                                             value={juego}
                                             onChange={onInputChange}
@@ -156,9 +155,6 @@ export const AddMatches = () => {
                                 <Grid item xs={12} display="flex" justifyContent="end" padding={1}>
                                     <Button type='submit' variant='outlined'>
                                         Agregar
-                                    </Button>
-                                    <Button onClick={() => update()}>
-                                        asd
                                     </Button>
                                 </Grid>
                             </Grid>
