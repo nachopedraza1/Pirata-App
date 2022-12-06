@@ -17,7 +17,10 @@ import Typography from '@mui/material/Typography';
 
 import { DoubleArrow, EmojiEvents, FiberNew, Groups2, Logout, PersonAdd, Security, Settings } from '@mui/icons-material';
 
+
 const drawerWidth = 240;
+
+'Noticias', 'Equipos', 'Partidos', 'Proximos partidos'
 
 const navlinks1 = [
     { text: 'Noticias', ref: "addmatches" },
@@ -45,33 +48,33 @@ export const AdminPanelLayout = (props) => {
             <Toolbar sx={{ backgroundColor: "black", display: { sm: "none" } }} />
             <Divider />
             <List>
-                {navlinks1.map((link, index) => (
-                    <ListItem component={Link} to={`/admincp/${link.ref}`} key={link.text} disablePadding sx={{ color: "inherit" }} >
+                {navlinks1.map(({ text, ref }) => (
+                    <ListItem component={Link} to={`/admincp/${ref}`} key={text} disablePadding sx={{ color: "inherit" }}>
                         <ListItemButton>
                             <ListItemIcon>
                                 {
-                                    (link.text === "Noticias") ? <FiberNew /> :
-                                        (link.text === "Equipos") ? <Groups2 /> :
-                                            (link.text === "Partidos") ? <EmojiEvents /> : <DoubleArrow />
+                                    (text === "Noticias") ? <FiberNew /> :
+                                        (text === "Equipos") ? <Groups2 /> :
+                                            (text === "Partidos") ? <EmojiEvents /> : <DoubleArrow />
                                 }
                             </ListItemIcon>
-                            <ListItemText primary={link.text} />
+                            <ListItemText primary={text} />
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
             <Divider />
             <List >
-                {navlinks2.map((link, index) => (
-                    <ListItem component={Link} to={`/admincp/${link.ref}`} key={link.text} disablePadding sx={{ color: "inherit" }}>
+                {navlinks2.map(({ text, ref }) => (
+                    <ListItem component={Link} to={`/admincp/${ref}`} key={text} disablePadding sx={{ color: "inherit" }}>
                         <ListItemButton>
                             <ListItemIcon>
                                 {
-                                    (link.text === "Rivales") ? <Security /> :
-                                        (link.text === "Postulantes") ? <PersonAdd /> : <Settings />
+                                    (text === "Rivales") ? <Security /> :
+                                        (text === "Postulantes") ? <PersonAdd /> : <Settings />
                                 }
                             </ListItemIcon>
-                            <ListItemText primary={link.text} />
+                            <ListItemText primary={text} />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -112,7 +115,7 @@ export const AdminPanelLayout = (props) => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Admin panel
+                        Responsive drawer
                     </Typography>
                 </Toolbar>
             </AppBar>

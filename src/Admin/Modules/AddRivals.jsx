@@ -1,4 +1,4 @@
-import { Grid, TextField } from "@mui/material";
+import { Grid, Input, InputLabel, TextField } from "@mui/material";
 import { AdminPanelLayout } from "../Layout/AdminPanelLayout";
 
 import { FirebaseDB } from "../../Firebase/config";
@@ -12,20 +12,10 @@ export const AddRivals = () => {
     const update = async () => {
         const washingtonRef = doc(FirebaseDB, "matches", "UMtVpdafbHJxR4fNhGrp");
 
-        // Set the "capital" field of the city 'DC'
         await updateDoc(washingtonRef, {
             juego: "true"
         });
     }
-
-    const WhiteBorderTextField = styled(TextField)(() => ({
-        "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-                borderColor: "white"
-            },
-        },
-        color: "white"
-    }));
 
     return (
         <AdminPanelLayout>
@@ -35,9 +25,13 @@ export const AddRivals = () => {
                     <TittleComponent tittle="AGREGAR RIVAL" />
                     <form >
                         <Grid container direction="column" bgcolor="#1f2024" borderRadius={1} gap={1} >
-                            <WhiteBorderTextField
-                                label="Agregar Rival"
-                            />
+                            <Grid item >
+
+                                <TextField
+                                    fullWidth
+                                    label="Nuevo Rival"
+                                />
+                            </Grid>
                         </Grid>
                     </form >
                 </Grid>
