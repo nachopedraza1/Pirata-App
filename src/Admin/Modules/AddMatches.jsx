@@ -4,13 +4,14 @@ import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore/lite';
 
 import { TittleComponent } from '../../Main/Components';
 import { AdminPanelLayout } from '../Layout/AdminPanelLayout';
-import { Grid, Select, InputLabel, MenuItem, FormControl, Typography, Button, styled, Divider } from '@mui/material';
+import { Grid, Select, InputLabel, MenuItem, FormControl, Button, styled } from '@mui/material';
 import { FirebaseDB } from '../../Firebase/config';
 import { useDispatch, useSelector } from 'react-redux';
 import { onLoadMatches } from '../../Redux/Thunks';
 import { MatchItem } from '../Components/MatchItem';
 
 const initialForm = {
+    juego: "",
     rival: "",
     puntosLocal: "",
     puntosRival: "",
@@ -22,7 +23,7 @@ export const AddMatches = () => {
 
     const dispatch = useDispatch();
 
-    const { formState, rival, puntosRival, puntosLocal, onInputChange } = useForm(initialForm);
+    const { formState, rival, juego, puntosRival, puntosLocal, onInputChange } = useForm(initialForm);
 
     const onAddMatch = async (event) => {
         event.preventDefault();
@@ -48,7 +49,9 @@ export const AddMatches = () => {
                 color: "white",
             },
         },
+        color: "white"
     }));
+
 
     return (
         <AdminPanelLayout>
@@ -59,28 +62,26 @@ export const AddMatches = () => {
                     <form onSubmit={onAddMatch}>
                         <Grid container direction="column" bgcolor="#1f2024" borderRadius={1} gap={1} >
                             <Grid
-                                item
-                                display="flex"
+                                container
                                 textAlign="center"
+                                justifyContent="center"
                                 padding={2}
                                 alignItems={{ sm: "center" }}
-                                flexDirection={{ xs: "column", sm: "row" }}>
+                            >
 
-                                <Grid item xs={12} md={2} textAlign="center">
+                                <Grid item xs={12} md={2} textAlign="center" padding={1}>
                                     <img src="../src/assets/Logo.png" alt="" width="100px" />
                                 </Grid>
 
-                                <Grid item xs={12} md={3}>
-                                    <FormControl fullWidth sx={{ m: 1, maxWidth: "150px" }}>
+                                <Grid item xs={12} md={3} padding={1}>
+                                    <FormControl fullWidth>
                                         <InputLabel sx={{ color: "white" }}>Puntos Local</InputLabel>
                                         <CustomSelect
-                                            sx={{ color: "white" }}
-                                            classes={CustomSelect}
+                                            required={true}
                                             name="puntosLocal"
                                             value={puntosLocal}
                                             onChange={onInputChange}
                                             label="Puntos Local"
-                                            placeholder="Puntos Local"
                                         >
                                             <MenuItem value={0}>0</MenuItem>
                                             <MenuItem value={1}>1</MenuItem>
@@ -90,20 +91,19 @@ export const AddMatches = () => {
                                     </FormControl>
                                 </Grid>
 
-                                <Grid item xs={12} md={1} display="flex" justifyContent="center">
+                                <Grid item xs={12} md={2} display="flex" justifyContent="center" padding={1}>
                                     <img src="../src/assets/swords1.png" alt="" width="40px" />
                                 </Grid>
 
-                                <Grid item xs={12} md={3}>
-                                    <FormControl fullWidth sx={{ m: 1, maxWidth: "150px" }}>
+                                <Grid item xs={12} md={3} padding={1}>
+                                    <FormControl fullWidth >
                                         <InputLabel sx={{ color: "white" }}>Puntos Rival</InputLabel>
                                         <CustomSelect
-                                            sx={{ color: "white" }}
+                                            required={true}
                                             name="puntosRival"
                                             value={puntosRival}
                                             onChange={onInputChange}
                                             label="Puntos Rival"
-                                            placeholder="Puntos Rival"
                                         >
                                             <MenuItem value={0}>0</MenuItem>
                                             <MenuItem value={1}>1</MenuItem>
@@ -113,16 +113,19 @@ export const AddMatches = () => {
                                     </FormControl>
                                 </Grid>
 
-                                <Grid item xs={12} md={2}>
-                                    <FormControl fullWidth sx={{ m: 1, maxWidth: "150px" }}>
+                                <Grid item xs={12} md={2} textAlign="center" padding={1}>
+                                    <img src="../src/assets/Logo.png" alt="" width="100px" />
+                                </Grid>
+
+                                <Grid item xs={12} md={4} padding={1}>
+                                    <FormControl fullWidth>
                                         <InputLabel sx={{ color: "white" }}>Rival</InputLabel>
                                         <CustomSelect
-                                            sx={{ color: "white" }}
+                                            required={true}
                                             name="rival"
                                             value={rival}
                                             onChange={onInputChange}
                                             label="Rival"
-                                            placeholder="Rival"
                                         >
                                             <MenuItem value="Faze">Faze</MenuItem>
                                             <MenuItem value="Isurus">Isurus</MenuItem>
@@ -131,15 +134,32 @@ export const AddMatches = () => {
                                         </CustomSelect>
                                     </FormControl>
                                 </Grid>
+
+                                <Grid item xs={12} md={4} padding={1}>
+                                    <FormControl fullWidth>
+                                        <InputLabel sx={{ color: "white" }}>Esport</InputLabel>
+                                        <CustomSelect
+                                            required={true}
+                                            name="juego"
+                                            value={juego}
+                                            onChange={onInputChange}
+                                            label="Esport"
+                                        >
+                                            <MenuItem value="CSGO">Counter Strike</MenuItem>
+                                            <MenuItem value="CSGO1">Counter Strike</MenuItem>
+                                            <MenuItem value="CSGO2">Counter Strike</MenuItem>
+
+                                        </CustomSelect>
+                                    </FormControl>
+                                </Grid>
+
+                                <Grid item xs={12} display="flex" justifyContent="end" padding={1}>
+                                    <Button type='submit' variant='outlined'>
+                                        Agregar
+                                    </Button>
+                                </Grid>
                             </Grid>
 
-                            <Divider sx={{ color: "white" }} />
-
-                            <Grid item display="flex" justifyContent="end">
-                                <Button type='submit' variant='contained' sx={{ m: 1, mb: 2 }}>
-                                    Agregar
-                                </Button>
-                            </Grid>
                         </Grid>
                     </form >
                 </Grid>
