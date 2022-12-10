@@ -1,5 +1,7 @@
 export * from "./Logo";
-export * from "./AuthButtons";
-export * from "./SocialButtons";
-export * from "./CheckingAuth";
+export * from "./Glitch";
 export * from "./UserButtons";
+export * from "./AuthButtons";
+export * from "./CheckingAuth";
+export * from "./SocialButtons";
+

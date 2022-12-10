@@ -1,10 +1,9 @@
 
-import { facebookLogin, getMatches, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Firebase/provider";
-import { providerPosts } from "../../Api/providerPosts";
+import { facebookLogin, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Auth/Providers/providersAuth";
 
-import { checkingCredentials, login, logout } from "../Slices/authSlice"
-import { setMatches } from "../Slices/matchesSlice";
-import { setPosts } from "../Slices/postsSlice";
+import { checkingCredentials, login, logout, setEsports, setMatches, setPosts, setRivals } from "../Slices"
+import { getEsports, getMatches, getRivals, providerPosts } from "../../Main/Providers/providersData";
+
 
 
 export const startTwitterLogin = () => {
@@ -89,5 +88,23 @@ export const onLoadMatches = () => {
         dispatch(setMatches(matches))
     }
 }
+
+export const onLoadRivals = () => {
+    return async (dispatch) => {
+        const rivals = await getRivals();
+        dispatch(setRivals(rivals))
+    }
+}
+
+export const onLoadEsports = () => {
+    return async (dispatch) => {
+        const esports = await getEsports();
+        dispatch(setEsports(esports))
+    }
+}
+
+
+
+
 
 

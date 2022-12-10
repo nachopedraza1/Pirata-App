@@ -1,33 +1,49 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 
-import { Box, Container, Grid } from "@mui/material";
-import { onLoadMatches, onLoadPosts } from "../../Redux/Thunks";
-import { Slider, TittleComponent, TwitterContainer, NewsContainer } from "../Components";
+import { Box, Container, Grid, Link, } from "@mui/material";
+import { TittleComponent, TwitterContainer, NewsContainer, MatchContainer, BannerHome, Slider } from "../Components";
+import { MainLayout } from "../Layout/MainLayout";
 
 export const HomePage = () => {
 
-    const dispatch = useDispatch();
-
     useEffect(() => {
-        dispatch(onLoadPosts())
-    }, [])
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
-        <Box sx={{ backgroundColor: "#16171b" }}>
-            <Slider />
-            <Container maxWidth="lg" disableGutters>
+        <MainLayout>
+
+            <Slider desktopIMG="bannerHome.png" mobileIMG="bannerHomeMobile.png" />
+
+            <Container maxWidth="lg" >
+
+                <BannerHome />
+
                 <Grid container justifyContent="center" spacing={2}>
-                    <Grid item xs={11} md={8}>
+                    <Grid item xs={12} md={8}>
                         <TittleComponent tittle={"ULTIMAS NOTICIAS"} />
                         <NewsContainer />
                     </Grid>
-                    <Grid item xs={11} md={4}>
+                    <Grid item xs={12} md={4}>
                         <TittleComponent tittle={"TWEETS"} />
                         <TwitterContainer />
+                        <TittleComponent tittle={"ULTIMOS PARTIDOS"} />
+                        <MatchContainer />
+                        <Link href="https://republicadealberdi.ar/" target="_blank" rel="noreferrer">
+                            <Box sx={{
+                                width: "100%",
+                                height: "150px",
+                                backgroundImage: `url(${"../src/assets/republicadealverdi.jpg"})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                border: "1px solid white",
+                                margin: "15px 0 15px 0px"
+                            }}>
+                            </Box>
+                        </Link>
                     </Grid>
                 </Grid>
-            </Container>
-        </Box>
+            </Container >
+        </MainLayout>
     )
 }

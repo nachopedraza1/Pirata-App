@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink } from "react-router-dom"
 
-import { AuthButtons, Logo, UserButtons } from "./Components";
+import { AuthButtons, UserButtons } from "./Components";
 
-import { Container, AppBar, Box, Button, Divider, Drawer, Grid, IconButton, Link, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material"
-import { FormatListNumberedRounded, GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, SportsSoccerRounded, StorefrontRounded } from '@mui/icons-material'
+import { Container, AppBar, Box, Button, Divider, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Link } from "@mui/material"
+import { FormatListNumberedRounded, GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, NearMe, SportsEsports } from '@mui/icons-material'
 
-const navItems = [{ text: "INICIO" }, { text: "EQUIPOS" }, { text: "PARTIDOS" }, { text: "TIENDA OFICIAL" }, { text: "QUIENES SOMOS" }]
+const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "/" }, { text: "PARTIDOS", ref: "/" }, { text: "CONTACTO", ref: "/" }]
 
 export const Navbar = () => {
 
@@ -24,25 +24,33 @@ export const Navbar = () => {
                     backgraund: "black"
                 }}
             >
-                <Container maxWidth="xl" disableGutters>
+                <Container maxWidth="lg" disableGutters >
                     <Toolbar>
 
                         <IconButton sx={{ mr: 2, p: 0, display: { md: "none" } }} onClick={() => setMenuState(!menuState)}>
                             <MenuOutlined sx={{ fontSize: 30 }} color="tertiary" />
                         </IconButton>
 
-                        <Grid container direction="row" wrap="nowrap" justifyContent="space-between" alignItems="center">
+                        <Grid container width="93%" display={{ xs: "flex", md: "none" }} position="absolute" justifyContent="center" zIndex="-1">
+                            <img src="../src/assets/Logo.png" alt="" width="70px" />
+                        </Grid>
 
-                            <Logo color="white" />
+                        <Grid container direction="row" wrap="nowrap" justifyContent={{ xs: "center", md: "space-between" }} alignItems="center">
 
-                            <Grid item sx={{ position: "absolute", width: "100%", justifyContent: "center", display: { xs: 'none', md: 'flex' } }}>
-                                {navItems.map((item) => (
-                                    <Link underline="none" key={item.text}>
-                                        <Button sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
-                                            {item.text}
-                                        </Button>
-                                    </Link>
-                                ))}
+                            <Grid container alignItems="center" gap={2}>
+                                <Grid item display={{ xs: "none", md: "flex" }} >
+                                    <img src="../src/assets/Logo.png" alt="" width="80px" />
+                                </Grid>
+
+                                <Grid item sx={{ display: { xs: 'none', md: 'flex', borderLeft: "2px solid #2192FF", paddingLeft: "5px" } }}>
+                                    {navItems.map((item) => (
+                                        <Link component={RouterLink} to={`/${item.ref}`} underline="none" key={item.text}>
+                                            <Button sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
+                                                {item.text}
+                                            </Button>
+                                        </Link>
+                                    ))}
+                                </Grid>
                             </Grid>
 
                             <Grid item >
@@ -65,28 +73,28 @@ export const Navbar = () => {
                 sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: "270px", backgroundColor: "black" } }}
                 onClose={() => setMenuState(false)}
             >
-                <Toolbar sx={{ pl: "24px" }} >
+                <Toolbar sx={{ pl: "24px", justifyContent: "space-between" }} >
                     <IconButton sx={{ mr: 2, p: 0 }} onClick={() => setMenuState(!menuState)}>
                         <MenuOpenOutlined sx={{ fontSize: 30, color: "white" }} />
                     </IconButton>
 
-                    <Logo color="white" />
+                    <img src="../src/assets/Logo.png" alt="" width="60px" />
                 </Toolbar>
 
                 <Divider sx={{ backgroundColor: "white" }} />
 
-                <List sx={{ p: 1 }}>
+                <List sx={{ p: 1, flexDirection: "column" }}>
                     {
                         navItems.map(item => (
-                            <ListItem key={item.text} disablePadding sx={{ color: "white" }} >
+                            <ListItem component={RouterLink} to={`/${item.ref}`} key={item.text} disablePadding sx={{ color: "white" }}  >
                                 <ListItemButton>
                                     <ListItemIcon sx={{ color: "primary.main" }}>
                                         {
                                             (item.text === "INICIO") ? < HomeRounded /> :
-                                                (item.text === "EQUIPOS") ? < GroupsRounded /> :
-                                                    (item.text === "PARTIDOS") ? < FormatListNumberedRounded /> :
-                                                        (item.text === "TIENDA OFICIAL") ? < SportsSoccerRounded /> :
-                                                            (item.text === "QUIENES SOMOS") ? < StorefrontRounded /> : ""
+                                                (item.text === "EL PROYECTO") ? < GroupsRounded /> :
+                                                    (item.text === "ESPORTS") ? < SportsEsports /> :
+                                                        (item.text === "PARTIDOS") ? < FormatListNumberedRounded /> :
+                                                            < NearMe />
                                         }
                                     </ListItemIcon>
                                     <Grid container>

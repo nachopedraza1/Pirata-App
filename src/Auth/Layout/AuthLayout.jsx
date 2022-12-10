@@ -1,8 +1,9 @@
-import { Grid, Typography, Divider, Button } from "@mui/material"
-import { CheckingAuth, Logo, SocialButtons } from "../../Ui/Components"
 import { useDispatch, useSelector } from "react-redux"
-import { Facebook, GitHub, Google, Twitter } from "@mui/icons-material"
 import { startFacebookLogin, startGitHubLogin, startLoginGoogle, startTwitterLogin } from "../../Redux/Thunks"
+
+import { CheckingAuth, SocialButtons } from "../../Ui/Components"
+import { Grid, Typography, Divider, Button } from "@mui/material"
+import { Facebook, GitHub, Google, Twitter } from "@mui/icons-material"
 
 export const AuthLayout = ({ children, tittle }) => {
 
@@ -33,22 +34,21 @@ export const AuthLayout = ({ children, tittle }) => {
             direction="row"
             alignItems="center"
             justifyContent="center"
-            sx={
-                {
-                    minHeight: "100vh",
-                    width: "100%",
-                    height: "100%",
-                    backgroundColor: "primary.main",
-                    backgroundImage: "url(../src/assets/bg-login-2.jpg)",
-                    backgroundSize: "cover",
-                    backgroundAttachment: "fixed",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "right",
-                }
-            }
+            sx={{
+                minHeight: "100vh",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "primary.main",
+                backgroundImage: "url(../src/assets/bg-texture-01.jpg)",
+                backgroundSize: "cover",
+                backgroundAttachment: "fixed",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "right",
+            }}
         >
 
             <Grid
+                position="relative"
                 container
                 justifyContent="space-around"
                 alignItems="center"
@@ -57,8 +57,14 @@ export const AuthLayout = ({ children, tittle }) => {
                     padding: 2,
                     margin: 2,
                     borderRadius: 1,
-                    maxWidth: { xs: "450px", md: "970px" }
+                    maxWidth: { xs: "450px", md: "970px" },
+                    marginTop:{xs:"80px", md:"0px"}
                 }}>
+
+                <Grid position="absolute" top="-60px" >
+                    <img src="../src/assets/Logo.png" alt="" width="150px" />
+                </Grid>
+
                 <Grid
                     item
                     xs={12}

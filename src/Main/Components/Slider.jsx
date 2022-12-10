@@ -1,29 +1,28 @@
-import { Carousel } from 'react-bootstrap';
+import { Container, Grid } from "@mui/material"
 
-export const Slider = () => {
+export const Slider = ({ desktopIMG, mobileIMG }) => {
     return (
-        <Carousel style={{marginTop:"56px",marginBottom:"10px"}}>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="../src/assets/Banner-2shadow.png"
-                    alt="First slide"
-                />
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="../src/assets/Banner-2shadow.png"
-                    alt="Second slide"
-                />
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="../src/assets/Banner-3shadow.png"
-                    alt="Third slide"
-                />
-            </Carousel.Item>
-        </Carousel>
-    );
+        <Grid container>
+            <Grid
+                item
+                marginTop={2}
+                display={{ sm: "none"}}
+                sx={{
+                    width: "100%",
+                    height: "100vh",
+                    backgroundImage: `url(../src/assets/${mobileIMG})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "bottom",
+                    backgroundRepeat: "no-repeat",
+                }}>
+            </Grid>
+            <Container maxWidth="lg">
+
+                <Grid item paddingTop={7} display={{ xs: "none", sm: "block" }} >
+                    <img src={`../src/assets/${desktopIMG}`} alt="" width="100%" />
+                </Grid>
+            </Container>
+        </Grid>
+
+    )
 }

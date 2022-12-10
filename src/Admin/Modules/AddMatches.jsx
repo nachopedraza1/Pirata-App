@@ -1,14 +1,15 @@
-
-import { useForm } from '../../hooks';
-import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore/lite';
-
-import { TittleComponent } from '../../Main/Components';
-import { AdminPanelLayout } from '../Layout/AdminPanelLayout';
-import { Grid, Select, InputLabel, MenuItem, FormControl, Button, styled } from '@mui/material';
-import { FirebaseDB } from '../../Firebase/config';
 import { useDispatch, useSelector } from 'react-redux';
 import { onLoadMatches } from '../../Redux/Thunks';
-import { MatchItem } from '../Components/MatchItem';
+import { FirebaseDB } from '../../Firebase/config';
+import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore/lite';
+
+import { useForm } from '../../hooks';
+
+import { MatchItem } from '../Components';
+import { TittleComponent } from '../../Main/Components';
+import { AdminPanelLayout } from '../Layout/AdminPanelLayout';
+
+import { Grid, Select, InputLabel, MenuItem, FormControl, Button } from '@mui/material';
 
 const initialForm = {
     juego: "",
@@ -19,7 +20,7 @@ const initialForm = {
 
 export const AddMatches = () => {
 
-    const { matches } = useSelector(state => state.matches);
+    const { matches, rivals, esports } = useSelector(state => state.mainData);
 
     const dispatch = useDispatch();
 
@@ -28,10 +29,10 @@ export const AddMatches = () => {
     const onAddMatch = async (event) => {
         event.preventDefault();
 
-        const match = { ...formState, order: matches.length + 1 }
+        const match = { ...formState, logoRival, order: matches.length + 1 }
 
-        const reference = collection(FirebaseDB, "matches");
-        await addDoc(reference, match);
+        const queryRef = collection(FirebaseDB, "matches");
+        await addDoc(queryRef, match);
         dispatch(onLoadMatches());
     }
 
@@ -40,18 +41,7 @@ export const AddMatches = () => {
         dispatch(onLoadMatches());
     }
 
-
-    const CustomSelect = styled(Select)(() => ({
-        "&.MuiOutlinedInput-root": {
-            "& fieldset": {
-                borderColor: "white"
-            },
-            "& .MuiSvgIcon-root": {
-                color: "white",
-            },
-        },
-        color: "white",
-    }));
+    const { logoRival } = rivals.find(logo => logo.teamName === rival) || {};
 
     return (
         <AdminPanelLayout>
@@ -59,8 +49,8 @@ export const AddMatches = () => {
 
                 <Grid item xs={12} lg={8} >
                     <TittleComponent tittle="AGREGAR PARTIDO" />
-                    <form onSubmit={onAddMatch}>
-                        <Grid container direction="column" bgcolor="#1f2024" borderRadius={1} gap={1} >
+                    <form onSubmit={onAddMatch} >
+                        <Grid container direction="column" bgcolor="backgraunds.main" borderRadius={1} gap={1} >
                             <Grid
                                 container
                                 textAlign="center"
@@ -77,9 +67,6 @@ export const AddMatches = () => {
                                     <FormControl fullWidth>
                                         <InputLabel>Puntos Local</InputLabel>
                                         <Select
-                                            required={true}
-                                        <InputLabel sx={{ color: "white" }}>Puntos Local</InputLabel>
-                                        <CustomSelect
                                             required={true}
                                             name="puntosLocal"
                                             value={puntosLocal}
@@ -103,9 +90,6 @@ export const AddMatches = () => {
                                         <InputLabel>Puntos Rival</InputLabel>
                                         <Select
                                             required={true}
-                                        <InputLabel sx={{ color: "white" }}>Puntos Rival</InputLabel>
-                                        <CustomSelect
-                                            required={true}
                                             name="puntosRival"
                                             value={puntosRival}
                                             onChange={onInputChange}
@@ -120,7 +104,7 @@ export const AddMatches = () => {
                                 </Grid>
 
                                 <Grid item xs={12} md={2} textAlign="center" padding={1}>
-                                    <img src="../src/assets/Logo.png" alt="" width="100px" />
+                                    <img src={logoRival} alt="" style={{ maxWidth: "70px" }} />
                                 </Grid>
 
                                 <Grid item xs={12} md={4} padding={1}>
@@ -128,18 +112,14 @@ export const AddMatches = () => {
                                         <InputLabel>Rival</InputLabel>
                                         <Select
                                             required={true}
-                                        <InputLabel sx={{ color: "white" }}>Rival</InputLabel>
-                                        <CustomSelect
-                                            required={true}
                                             name="rival"
                                             value={rival}
                                             onChange={onInputChange}
                                             label="Rival"
                                         >
-                                            <MenuItem value="Faze">Faze</MenuItem>
-                                            <MenuItem value="Isurus">Isurus</MenuItem>
-                                            <MenuItem value="Telecom T1">Telecom T1</MenuItem>
-                                            <MenuItem value="Astralis">Astralis</MenuItem>
+                                            {
+                                                rivals.map(rival => (<MenuItem value={rival.teamName} key={rival.id} >{rival.teamName}</MenuItem>))
+                                            }
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -149,16 +129,14 @@ export const AddMatches = () => {
                                         <InputLabel sx={{ color: "white" }}>Esport</InputLabel>
                                         <Select
                                             required={true}
-                                        <CustomSelect
-                                            required={true}
                                             name="juego"
                                             value={juego}
                                             onChange={onInputChange}
                                             label="Esport"
                                         >
-                                            <MenuItem value="CSGO">Counter Strike</MenuItem>
-                                            <MenuItem value="CSGO1">Counter Strike</MenuItem>
-                                            <MenuItem value="CSGO2">Counter Strike</MenuItem>
+                                            {
+                                                esports.map(item => (<MenuItem value={item.game} key={item.id}> {item.game} </MenuItem>))
+                                            }
 
                                         </Select>
                                     </FormControl>

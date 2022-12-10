@@ -2,11 +2,13 @@ import { useState } from "react"
 import { useForm } from "../../hooks"
 import { Link as RouterLink } from "react-router-dom"
 
-import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material"
-
-import { AuthLayout } from "../Layout/AuthLayout"
 import { useDispatch, useSelector } from "react-redux"
 import { startRegisterUser } from "../../Redux/Thunks/thunks"
+
+import { AuthLayout } from "../Layout/AuthLayout"
+import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material"
+
+import styled from "styled-components"
 
 const formData = {
     displayName: "",
@@ -19,6 +21,23 @@ const formValidations = {
     email: [(value) => value.includes("@"), "Ingresa un Email valido."],
     password: [(value) => value.length >= 6, "La contraseñas debe tener 6 caracteres."],
 }
+
+const TextFieldAuth = styled(TextField)({
+    '& label': {
+        color: '#6c757d',
+    },
+    '& .MuiOutlinedInput-root': {
+        "& fieldset": {
+            borderColor: "rgb(192, 192, 192)"
+        }, '&:hover fieldset': {
+            borderColor: 'rgb(192, 192, 192)',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: "#2192FF",
+        },
+        color: "#6c757d",
+    },
+});
 
 export const RegisterPage = () => {
 
@@ -44,7 +63,7 @@ export const RegisterPage = () => {
             <form onSubmit={onSubmit}>
                 <Grid container className="animate__animated animate__fadeIn">
                     <Grid item xs={12}>
-                        <TextField
+                        <TextFieldAuth
                             sx={{ mb: 2 }}
                             type="text"
                             placeholder="Nombre de Usuario"
@@ -59,7 +78,7 @@ export const RegisterPage = () => {
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField
+                        <TextFieldAuth
                             sx={{ mb: 2 }}
                             type="text"
                             placeholder="Ingresa tu Email"
@@ -74,7 +93,7 @@ export const RegisterPage = () => {
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField
+                        <TextFieldAuth
                             sx={{ mb: 2 }}
                             type="password"
                             placeholder="Ingresa una Contraseña"

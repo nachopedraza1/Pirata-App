@@ -1,6 +1,8 @@
-import { Grid } from "@mui/material";
 import { useState } from "react";
 import { TwitterTimelineEmbed } from "react-twitter-embed";
+
+import { Grid } from "@mui/material";
+
 import { LoadingData } from "./LoadingData";
 
 export const TwitterContainer = () => {
@@ -9,7 +11,7 @@ export const TwitterContainer = () => {
 
     return (
         <>
-            <Grid item className="twitterContainer" style={{ marginTop: "10px", backgroundColor: "#1f2024", borderRadius: "5px" }} >
+            <Grid item className="twitterContainer" sx={{ marginTop: "10px", backgroundColor: "backgraunds.main", borderRadius: "5px" }} >
                 <div className="twitter-embed">
                     <TwitterTimelineEmbed
                         sourceType="widget"

@@ -8,14 +8,14 @@ export const TittleComponent = ({ tittle }) => {
             sx={{
                 width: "100%",
                 height: "50px",
-                backgroundColor: "#1f2024",
+                backgroundColor: "backgraunds.main",
                 borderLeft: "5px solid",
                 borderColor: "primary.main",
                 borderRadius: "5px",
                 marginBottom: "10px",
                 marginTop: "10px"
             }}>
-            <Typography variant="h6" color="white" ml={2}> {tittle} </Typography>
+            <Typography variant="h6" color="white" ml={2} fontFamily="Aldrich"> {tittle} </Typography>
         </Box>
     )
 }

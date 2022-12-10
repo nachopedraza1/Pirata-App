@@ -4,7 +4,10 @@ import { createTheme } from "@mui/material";
 export const PirataTheme = createTheme({
     components: {
         MuiCssBaseline: {
-            styleOverrides: `@font-face {font-family: Poppins;src: url(../src/assets/Fonts/Poppins-SemiBold.ttf)}`,
+            styleOverrides: `
+            @font-face {font-family: Poppins;src: url(../src/assets/Fonts/Poppins-SemiBold.ttf)}
+            @font-face {font-family: Poppins-reg;src: url(../src/assets/Fonts/Poppins-Regular.ttf)}
+            @font-face {font-family: Aldrich;src: url(../src/assets/Fonts/Aldrich-Regular.ttf)}`,
         },
         MuiOutlinedInput: {
             styleOverrides: {
@@ -53,9 +56,14 @@ export const PirataTheme = createTheme({
         },
         background: {
             main: "black"
-        }
+        },
+        backgraunds: {
+            main: "#1f2024",
+            secondary: "#292c31",
+            black: "#16171b",
+        },
     },
     typography: {
-        fontFamily: "Poppins",
+        fontFamily: ["Aldrich", "Poppins-reg", "Poppins",]
     },
 });

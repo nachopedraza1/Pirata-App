@@ -11,7 +11,7 @@ export const MatchItem = ({ match, onDeteleMatch }) => {
                 padding={1}
                 alignItems="center"
                 justifyContent="space-between"
-                bgcolor="#1f2024"
+                bgcolor="backgraunds.main"
                 borderRadius={1}
             >
                 <Grid item xs={3} textAlign="center">
@@ -27,7 +27,7 @@ export const MatchItem = ({ match, onDeteleMatch }) => {
                     <Typography variant="h5" color="error" textAlign="center"> {match.puntosRival} </Typography>
                 </Grid>
                 <Grid item xs={3} textAlign="center">
-                    <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "100px" }} />
+                    <img src={match.logoRival} alt="" width="100%" style={{ maxWidth: "70px" }} />
                 </Grid>
                 <Grid item xs={1}>
                     <Button

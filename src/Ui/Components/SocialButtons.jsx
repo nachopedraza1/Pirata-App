@@ -1,29 +1,13 @@
-import { FacebookRounded, Instagram, Twitter, YouTube } from '@mui/icons-material'
-import { Grid, IconButton } from '@mui/material'
+import "../../Theme/scss/socialMedia.scss";
 
 export const SocialButtons = () => {
     return (
-        <Grid container gap={1} justifyContent="center" mt={2}>
-            <Grid item sx={{ backgroundColor: "#1DA1F2", borderRadius: "50%" }}>
-                <IconButton>
-                    <Twitter fontSize='medium' sx={{ color: "white" }} />
-                </IconButton>
-            </Grid>
-            <Grid item sx={{ backgroundColor: "#4267B2", borderRadius: "50%" }}>
-                <IconButton>
-                    <FacebookRounded fontSize='medium' sx={{ color: "white" }} />
-                </IconButton>
-            </Grid>
-            <Grid item sx={{ backgroundColor: "#FF0000", borderRadius: "50%" }}>
-                <IconButton>
-                    <YouTube fontSize='medium' sx={{ color: "white" }} />
-                </IconButton>
-            </Grid>
-            <Grid item sx={{ backgroundColor: "#E1306C", borderRadius: "50%" }}>
-                <IconButton>
-                    <Instagram fontSize='medium' sx={{ color: "white" }} />
-                </IconButton>
-            </Grid>
-        </Grid >
+        <ul>
+            <li><a href="#"><i className="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i className="fab fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i className="fab fa-youtube" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i className="fab fa-twitch" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i className="fab fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
     )
 }

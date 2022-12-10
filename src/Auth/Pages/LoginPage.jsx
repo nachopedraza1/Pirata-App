@@ -2,20 +2,40 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link as RouterLink } from "react-router-dom"
 
-import { AuthLayout } from "../Layout/AuthLayout"
-
-import { useForm } from "../../hooks"
+import { logout } from "../../Redux/Slices"
 import { startLogin } from "../../Redux/Thunks"
 
+import { useForm } from "../../hooks"
+
+import { AuthLayout } from "../Layout/AuthLayout"
 import { Grid, TextField, Link, Button, Typography, Alert } from "@mui/material"
 import { LoginRounded } from "@mui/icons-material"
-import { logout } from "../../Redux/Slices/authSlice"
+
+import styled from "styled-components"
 
 
 const formDataLogin = {
     email: "",
     password: ""
 }
+
+const TextFieldAuth = styled(TextField)({
+    '& label': {
+        color: '#6c757d',
+    },
+    '& .MuiOutlinedInput-root': {
+        "& fieldset": {
+            borderColor: "rgb(192, 192, 192)"
+        }, '&:hover fieldset': {
+            borderColor: 'rgb(192, 192, 192)',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: "#2192FF",
+        },
+        color: '#6c757d',
+    },
+});
+
 
 export const LoginPage = () => {
 
@@ -42,7 +62,7 @@ export const LoginPage = () => {
             <form onSubmit={onLogin} >
                 <Grid container direction="column" className="animate__animated animate__fadeIn">
                     <Grid item xs={12}>
-                        <TextField
+                        <TextFieldAuth
                             sx={{ mb: 2 }}
                             type="email"
                             placeholder="Email"
@@ -55,7 +75,7 @@ export const LoginPage = () => {
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField
+                        <TextFieldAuth
                             sx={{ mb: 2 }}
                             type="password"
                             placeholder="Contraseña"

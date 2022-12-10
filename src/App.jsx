@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
+import { onLoadEsports, onLoadMatches, onLoadPosts, onLoadRivals } from "./Redux/Thunks";
 
-import { onLoadMatches } from "./Redux/Thunks"
 import { AppRouter } from "./Routes/AppRouter"
 
 export const App = () => {
@@ -10,6 +10,9 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(onLoadMatches())
+    dispatch(onLoadRivals())
+    dispatch(onLoadEsports())
+    dispatch(onLoadPosts())
   }, [])
 
   return (

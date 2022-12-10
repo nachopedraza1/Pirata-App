@@ -15,22 +15,22 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-import { DoubleArrow, EmojiEvents, FiberNew, Groups2, Logout, PersonAdd, Security, Settings } from '@mui/icons-material';
+import { DoubleArrow, EmojiEvents, FiberNew, Groups2, Logout, MenuOpenOutlined, PersonAdd, Security, Settings, SportsEsports } from '@mui/icons-material';
 
 
 const drawerWidth = 240;
 
-'Noticias', 'Equipos', 'Partidos', 'Proximos partidos'
 
 const navlinks1 = [
-    { text: 'Noticias', ref: "addmatches" },
-    { text: 'Equipos', ref: "addmatches" },
-    { text: 'Partidos', ref: "addmatches" },
-    { text: 'Proximos partidos', ref: "addmatches" }
+    { text: 'Publicar Noticia', ref: "addmatches" },
+    { text: 'Publicar Equipo', ref: "addteams" },
+    { text: 'Publicar Partido', ref: "addmatches" },
+    { text: 'Publicar Fecha', ref: "addmatches" }
 ];
 
 const navlinks2 = [
-    { text: 'Rivales', ref: "addrivals" },
+    { text: 'Agregar Rivales', ref: "addrivals" },
+    { text: 'Agregar Esports', ref: "addesports" },
     { text: 'Postulantes', ref: "addmatches" },
     { text: 'Ajustes', ref: "addmatches" },
 ];
@@ -45,17 +45,22 @@ export const AdminPanelLayout = (props) => {
 
     const drawer = (
         <div>
-            <Toolbar sx={{ backgroundColor: "black", display: { sm: "none" } }} />
+            <Toolbar sx={{ backgroundColor: "black", display: { sm: "none" }, justifyContent: "space-between" }}>
+                <IconButton sx={{ mr: 2, p: 0 }} onClick={handleDrawerToggle}>
+                    <MenuOpenOutlined sx={{ fontSize: 30, color: "white" }} />
+                </IconButton>
+                <img src="../src/assets/Logo.png" alt="" width="65px" />
+            </Toolbar>
             <Divider />
-            <List>
+            <List sx={{ flexDirection: "column" }}>
                 {navlinks1.map(({ text, ref }) => (
                     <ListItem component={Link} to={`/admincp/${ref}`} key={text} disablePadding sx={{ color: "inherit" }}>
                         <ListItemButton>
                             <ListItemIcon>
                                 {
-                                    (text === "Noticias") ? <FiberNew /> :
-                                        (text === "Equipos") ? <Groups2 /> :
-                                            (text === "Partidos") ? <EmojiEvents /> : <DoubleArrow />
+                                    (text === "Publicar Noticia") ? <FiberNew /> :
+                                        (text === "Publicar Equipo") ? <Groups2 /> :
+                                            (text === "Publicar Partido") ? <EmojiEvents /> : <DoubleArrow />
                                 }
                             </ListItemIcon>
                             <ListItemText primary={text} />
@@ -64,14 +69,15 @@ export const AdminPanelLayout = (props) => {
                 ))}
             </List>
             <Divider />
-            <List >
+            <List sx={{ flexDirection: "column" }}>
                 {navlinks2.map(({ text, ref }) => (
                     <ListItem component={Link} to={`/admincp/${ref}`} key={text} disablePadding sx={{ color: "inherit" }}>
                         <ListItemButton>
                             <ListItemIcon>
                                 {
-                                    (text === "Rivales") ? <Security /> :
-                                        (text === "Postulantes") ? <PersonAdd /> : <Settings />
+                                    (text === "Agregar Rivales") ? <Security /> :
+                                        (text === "Agregar Esports") ? <SportsEsports /> :
+                                            (text === "Postulantes") ? <PersonAdd /> : <Settings />
                                 }
                             </ListItemIcon>
                             <ListItemText primary={text} />
@@ -115,7 +121,7 @@ export const AdminPanelLayout = (props) => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Responsive drawer
+                        Admin Panel
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -151,7 +157,7 @@ export const AdminPanelLayout = (props) => {
                 </Drawer>
             </Box>
             <Box
-                bgcolor="#16171b"
+                bgcolor="backgraunds.black"
                 component="main"
                 sx={{
                     flexGrow: 1,
