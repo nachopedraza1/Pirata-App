@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Box, Button, Container, Grid, Link, Typography } from "@mui/material"
 import { Logo, Glitch } from "../../Ui/Components";
 
+
 export const ProjectPage = () => {
 
     useEffect(() => {
@@ -81,17 +82,14 @@ export const ProjectPage = () => {
                                         padding: 0
                                     }} >
 
-                                    <Grid container justifyContent="space-between" alignItems="center" height={200}>
-                                        <Grid item xs={3} sx={{
-                                            width: "100%",
-                                            height: "100%",
-                                            backgroundColor: "primary.main",
-                                            clipPath: "polygon(0 0, 100% 0, 90% 100%, 0% 100%)",
-                                            paddingRight: "60px",
-                                            maxWidth: "300px"
-                                        }}></Grid>
+                                    <Grid container justifyContent="space-between" alignItems="center" height={140}>
+                                        <Grid item xs={3}>
+                                           
+                                        </Grid>
+                                        <Grid item xs={9} >
+                                            <Typography variant="h5" fontFamily="Aldrich" color="white">NUESTRO DISCORD</Typography>
+                                        </Grid>
 
-                                        <Typography variant="h5" fontFamily="Aldrich" color="white">NUESTRO DISCORD</Typography>
                                     </Grid>
                                 </Button>
                             </Grid>
