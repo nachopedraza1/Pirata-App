@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import { collection, getDocs, limit, orderBy, query } from "firebase/firestore/lite";
+import { collection, doc, getDocs, limit, orderBy, query } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../Firebase/config";
 
 export const providerPosts = async () => {
@@ -60,6 +60,20 @@ export const getEsports = async () => {
             return { id: doc.id, ...doc.data() }
         })
         return esports;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getUpcomingMatches = async () => {
+    try {
+        const queryRef = collection(FirebaseDB, "upcomingMatches");
+        const queryOrder = query(queryRef, orderBy("order", "desc"));
+        const { docs } = await getDocs(queryOrder);
+        const upcomingMatches = docs.map(doc => {
+            return { id: doc.id, ...doc.data() }
+        })
+        return upcomingMatches;
     } catch (error) {
         console.log(error);
     }

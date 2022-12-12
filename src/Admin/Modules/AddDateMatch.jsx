@@ -1,10 +1,9 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material"
 
 import { useForm } from "../../hooks"
 
-import { AdminPanelLayout } from "../Layout/AdminPanelLayout"
 import { TittleComponent } from "../../Main/Components"
 
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers"
@@ -12,6 +11,9 @@ import { useState } from "react"
 
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import moment from "moment/moment"
+import { addDoc, collection } from "firebase/firestore/lite"
+import { FirebaseDB } from "../../Firebase/config"
+import { onLoadUpcomingMatches } from "../../Redux/Thunks"
 
 const initialForm = {
     rival: "",
@@ -21,7 +23,9 @@ const initialForm = {
 
 export const AddDateMatch = () => {
 
-    const { rivals, esports } = useSelector(state => state.mainData);
+    const dispatch = useDispatch();
+
+    const { rivals, esports, upcomingMatches } = useSelector(state => state.mainData);
 
     const { formState, onInputChange, rival, game, plataform } = useForm(initialForm);
 
@@ -36,8 +40,15 @@ export const AddDateMatch = () => {
         const dateMatch = {
             ...formState,
             date: date + " " + time,
+            order: upcomingMatches.length + 1,
         }
+
+        const queryref = collection(FirebaseDB, "upcomingMatches");
+        await addDoc(queryref, dateMatch)
+        dispatch(onLoadUpcomingMatches())
     }
+
+    console.log("asd");
 
     return (
         <Grid container spacing={2}>

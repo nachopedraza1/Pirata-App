@@ -8,7 +8,7 @@ import { AppTheme } from './Theme'
 import { App } from './App'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+
     <Provider store={store}>
       <BrowserRouter>
         <AppTheme>
@@ -16,5 +16,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </AppTheme>
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+
 )

@@ -3,12 +3,20 @@ import { useEffect } from "react";
 import { MainLayout } from "../Layout/MainLayout";
 import { Box, Container, Grid, Link, } from "@mui/material";
 import { TittleComponent, TwitterContainer, NewsContainer, MatchContainer, BannerHome, Slider } from "../Components";
+import { useDispatch, useSelector } from "react-redux";
+import { onLoadMatches, onLoadPosts, onLoadUpcomingMatches } from "../../Redux/Thunks";
+
 
 export const HomePage = () => {
+
+    const dispatch = useDispatch();
+
+   
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
 
     return (
         <MainLayout>

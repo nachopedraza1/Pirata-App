@@ -1,8 +1,9 @@
 
 import { facebookLogin, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Auth/Providers/providersAuth";
 
-import { checkingCredentials, login, logout, setEsports, setMatches, setPosts, setRivals } from "../Slices"
-import { getEsports, getMatches, getRivals, providerPosts } from "../../Main/Providers/providersData";
+import { checkingCredentials, login, logout, setEsports, setMatches, setPosts, setRivals, setUpcomingMatches } from "../Slices"
+import { getEsports, getMatches, getRivals, getUpcomingMatches, providerPosts } from "../../Main/Providers/providersData";
+import { useEffect } from "react";
 
 
 
@@ -102,6 +103,14 @@ export const onLoadEsports = () => {
         dispatch(setEsports(esports))
     }
 }
+
+export const onLoadUpcomingMatches = () => {
+    return async (dispatch) => {
+        const upcomingMatches = await getUpcomingMatches();
+        dispatch(setUpcomingMatches(upcomingMatches))
+    }
+}
+
 
 
 
