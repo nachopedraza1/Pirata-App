@@ -33,18 +33,18 @@ export const BannerHome = () => {
                     <Typography variant="p" color="white" fontFamily="Poppins-reg"> Belgrano Esports es el espacio de encuentro y competencia de los y las gamers piratas de todo el país y el mundo. Hoy nuestros planteles buscan llegar a lo más alto en:</Typography>
                 </Grid>
 
-                <Grid item display="flex" justifyContent="center" alignItems="center">
-                    <Grid item xs={3}>
+                <Grid item display="flex" flexWrap="wrap" justifyContent="center" alignItems="center">
+                    <Grid item xs={6} sm={3}>
                         <img src="../src/assets/esports/logo-lol.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={6} sm={3}>
                         <img src="../src/assets/esports/logo-fifa.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={6} sm={3}>
                         <img src="../src/assets/esports/logo-freefire.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                     </Grid>
-                    <Grid item xs={3}>
-                        <img src="../src/assets/esports/logo-counter-strike.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
+                    <Grid item xs={6} sm={3}>
+                        <img src="../src/assets/esports/formula1.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                     </Grid>
                 </Grid>
             </Grid>

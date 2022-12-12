@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useMemo } from "react";
 import { useDispatch } from "react-redux"
 import { onLoadEsports, onLoadMatches, onLoadPosts, onLoadRivals } from "./Redux/Thunks";
 
@@ -8,12 +8,15 @@ export const App = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useMemo(() => {
     dispatch(onLoadMatches())
     dispatch(onLoadRivals())
     dispatch(onLoadEsports())
     dispatch(onLoadPosts())
+    console.log("asd");
   }, [])
+
+
 
   return (
     <AppRouter />

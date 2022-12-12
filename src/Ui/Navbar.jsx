@@ -15,6 +15,10 @@ export const Navbar = () => {
 
     const { status } = useSelector(state => state.auth);
 
+    const handleDrawerToggle = () => {
+        setMenuState(!menuState);
+    };
+
     return (
         <>
             <AppBar
@@ -71,10 +75,10 @@ export const Navbar = () => {
                 variant="temporary"
                 open={menuState}
                 sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: "270px", backgroundColor: "black" } }}
-                onClose={() => setMenuState(false)}
+                onClose={handleDrawerToggle}
             >
                 <Toolbar sx={{ pl: "24px", justifyContent: "space-between" }} >
-                    <IconButton sx={{ mr: 2, p: 0 }} onClick={() => setMenuState(!menuState)}>
+                    <IconButton sx={{ mr: 2, p: 0 }} onClick={handleDrawerToggle}>
                         <MenuOpenOutlined sx={{ fontSize: 30, color: "white" }} />
                     </IconButton>
 
@@ -83,11 +87,11 @@ export const Navbar = () => {
 
                 <Divider sx={{ backgroundColor: "white" }} />
 
-                <List sx={{ p: 1, flexDirection: "column" }}>
+                <List sx={{ p: 1 }}>
                     {
                         navItems.map(item => (
                             <ListItem component={RouterLink} to={`/${item.ref}`} key={item.text} disablePadding sx={{ color: "white" }}  >
-                                <ListItemButton>
+                                <ListItemButton onClick={handleDrawerToggle}>
                                     <ListItemIcon sx={{ color: "primary.main" }}>
                                         {
                                             (item.text === "INICIO") ? < HomeRounded /> :

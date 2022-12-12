@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -25,7 +25,7 @@ const navlinks1 = [
     { text: 'Publicar Noticia', ref: "addmatches" },
     { text: 'Publicar Equipo', ref: "addteams" },
     { text: 'Publicar Partido', ref: "addmatches" },
-    { text: 'Publicar Fecha', ref: "addmatches" }
+    { text: 'Publicar Fecha', ref: "adddate" }
 ];
 
 const navlinks2 = [
@@ -36,12 +36,13 @@ const navlinks2 = [
 ];
 
 export const AdminPanelLayout = (props) => {
-    const { window } = props;
+    const { window, children } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
 
     const drawer = (
         <div>
@@ -52,10 +53,10 @@ export const AdminPanelLayout = (props) => {
                 <img src="../src/assets/Logo.png" alt="" width="65px" />
             </Toolbar>
             <Divider />
-            <List sx={{ flexDirection: "column" }}>
+            <List >
                 {navlinks1.map(({ text, ref }) => (
-                    <ListItem component={Link} to={`/admincp/${ref}`} key={text} disablePadding sx={{ color: "inherit" }}>
-                        <ListItemButton>
+                    <ListItem component={RouterLink} to={`/admincp/${ref}`} key={text} disablePadding sx={{ color: "inherit" }}>
+                        <ListItemButton onClick={handleDrawerToggle}>
                             <ListItemIcon>
                                 {
                                     (text === "Publicar Noticia") ? <FiberNew /> :
@@ -69,10 +70,10 @@ export const AdminPanelLayout = (props) => {
                 ))}
             </List>
             <Divider />
-            <List sx={{ flexDirection: "column" }}>
+            <List >
                 {navlinks2.map(({ text, ref }) => (
-                    <ListItem component={Link} to={`/admincp/${ref}`} key={text} disablePadding sx={{ color: "inherit" }}>
-                        <ListItemButton>
+                    <ListItem component={RouterLink} to={`/admincp/${ref}`} key={text} disablePadding sx={{ color: "inherit" }}>
+                        <ListItemButton onClick={handleDrawerToggle}>
                             <ListItemIcon>
                                 {
                                     (text === "Agregar Rivales") ? <Security /> :
@@ -101,7 +102,7 @@ export const AdminPanelLayout = (props) => {
 
     return (
         <Box sx={{ display: 'flex' }}>
-
+            
             <AppBar
                 position="fixed"
                 sx={{
@@ -125,6 +126,7 @@ export const AdminPanelLayout = (props) => {
                     </Typography>
                 </Toolbar>
             </AppBar>
+
             <Box
                 component="nav"
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -156,6 +158,7 @@ export const AdminPanelLayout = (props) => {
                     {drawer}
                 </Drawer>
             </Box>
+
             <Box
                 bgcolor="backgraunds.black"
                 component="main"
@@ -168,8 +171,9 @@ export const AdminPanelLayout = (props) => {
                 }}
             >
                 <Toolbar />
-                {props.children}
+                {children}
             </Box>
+
         </Box>
     );
 }

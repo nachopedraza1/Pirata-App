@@ -43,58 +43,55 @@ export const AddRivals = () => {
     }
 
     return (
-        <AdminPanelLayout>
-            <Grid container spacing={2}>
+        <Grid container spacing={2}>
 
-                <Grid item xs={12} lg={8} >
-                    <TittleComponent tittle="AGREGAR RIVAL" />
-                    <form autoComplete="off" onSubmit={onSubmit}>
-                        <Grid
-                            container
-                            justifyContent="space-between"
-                            alignItems="center"
-                            bgcolor="backgraunds.main"
-                            borderRadius={1}
-                            gap={1} >
+            <Grid item xs={12} lg={8} >
+                <TittleComponent tittle="AGREGAR RIVAL" />
+                <form autoComplete="off" onSubmit={onSubmit}>
+                    <Grid
+                        container
+                        justifyContent="space-between"
+                        alignItems="center"
+                        bgcolor="backgraunds.main"
+                        borderRadius={1}
+                        gap={1} >
 
-                            <Grid item xs={6} display="flex" alignItems="center" justifyContent="center" padding={2} >
-                                <TextField
-                                    required={true}
-                                    fullWidth
-                                    placeholder="Nombre del Rival"
-                                    label="Rival"
-                                    name="rival"
-                                    value={rival}
-                                    onChange={onInputChange}
-                                />
+                        <Grid item xs={6} display="flex" alignItems="center" justifyContent="center" padding={2} >
+                            <TextField
+                                required={true}
+                                fullWidth
+                                placeholder="Nombre del Rival"
+                                label="Rival"
+                                name="rival"
+                                value={rival}
+                                onChange={onInputChange}
+                            />
 
-                                <IconButton color="primary" aria-label="upload picture" component="label" sx={{ m: 1 }} disabled={!rival}>
-                                    <input hidden accept="image/*" multiple type="file" onChange={uploadImg} />
-                                    <PhotoCamera fontSize="medium" />
-                                </IconButton>
-
-                            </Grid>
-
-                            <Grid item xs={3} padding={2} display="flex" justifyContent="end">
-                                <Button variant="outlined" type="submit" disabled={!imageURL}>
-                                    Actualizar
-                                </Button>
-                            </Grid>
-
+                            <IconButton color="primary" aria-label="upload picture" component="label" sx={{ m: 1 }} disabled={!rival}>
+                                <input hidden accept="image/*" multiple type="file" onChange={uploadImg} />
+                                <PhotoCamera fontSize="medium" />
+                            </IconButton>
                         </Grid>
-                    </form >
-                </Grid>
 
-                <Grid item xs={12} lg={4}>
-                    <TittleComponent tittle="RIVALES" />
-                    <Grid container direction="column">
-                        {
-                            rivals.map(rival => (<RivalItem key={rival.id} rival={rival} onDeteleRival={onDeteleRival} />))
-                        }
+                        <Grid item xs={3} padding={2} display="flex" justifyContent="end">
+                            <Button variant="outlined" type="submit" disabled={!imageURL}>
+                                Actualizar
+                            </Button>
+                        </Grid>
+
                     </Grid>
-                </Grid>
+                </form >
+            </Grid>
 
-            </Grid >
-        </AdminPanelLayout >
+            <Grid item xs={12} lg={4}>
+                <TittleComponent tittle="RIVALES" />
+                <Grid container direction="column">
+                    {
+                        rivals.map(rival => (<RivalItem key={rival.id} rival={rival} onDeteleRival={onDeteleRival} />))
+                    }
+                </Grid>
+            </Grid>
+
+        </Grid >
     )
 }

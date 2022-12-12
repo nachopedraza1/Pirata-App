@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
+import { MainLayout } from "../Layout/MainLayout";
 import { Box, Container, Grid, Link, } from "@mui/material";
 import { TittleComponent, TwitterContainer, NewsContainer, MatchContainer, BannerHome, Slider } from "../Components";
-import { MainLayout } from "../Layout/MainLayout";
 
 export const HomePage = () => {
 
