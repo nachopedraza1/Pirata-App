@@ -5,7 +5,7 @@ import { Email, Phone } from '@mui/icons-material'
 
 import { Glitch, Logo, SocialButtons } from './Components'
 
-const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "/" }, { text: "PARTIDOS", ref: "/" }, { text: "CONTACTO", ref: "/" }]
+const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "PARTIDOS", ref: "/" }, { text: "CONTACTO", ref: "/" }]
 
 export const Footer = () => {
     return (

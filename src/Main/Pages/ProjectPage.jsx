@@ -1,7 +1,13 @@
+import "../../Theme/scss/socialMedia.scss"
+
 import { useEffect } from "react";
 
-import { Box, Button, Container, Grid, Link, Typography } from "@mui/material"
+import { SocialBanner } from "../Components";
 import { Logo, Glitch } from "../../Ui/Components";
+
+import { Box, Container, Grid, Link, Typography } from "@mui/material"
+
+import { faTwitch, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 
 export const ProjectPage = () => {
@@ -10,9 +16,8 @@ export const ProjectPage = () => {
         window.scrollTo(0, 0);
     }, []);
 
-
     return (
-        <Grid container >
+        <Grid container>
             {/* <Slider desktopIMG="bannerProject.jpg" mobileIMG="bannerProjectMobile.png" /> */}
             <Grid
                 container
@@ -36,7 +41,7 @@ export const ProjectPage = () => {
                         opacity: 0.5,
                     }} />
 
-                <Grid container justifyContent="center" alignItems="center" zIndex={1} gap={10} >
+                <Grid container justifyContent="center" alignItems="center" zIndex={1}>
                     <Grid item>
                         <Typography color="white" variant="h3" fontFamily="Aldrich" >NOSOTROS</Typography>
                     </Grid>
@@ -49,7 +54,7 @@ export const ProjectPage = () => {
                 </Box>
             </Grid>
 
-            <Box width="100%" bgcolor="backgraunds.black">
+            <Box width="100%" bgcolor="backgraunds.black" paddingBottom={10}>
                 <Container maxWidth="lg" id="team">
                     <Grid container justifyContent="center" paddingTop={10}>
                         <Grid item xs={12} sm={11} md={8} lg={7} padding={3} borderRadius={2} bgcolor="backgraunds.main">
@@ -70,31 +75,11 @@ export const ProjectPage = () => {
                             <Glitch />
                         </Grid>
 
-                        <Grid container justifyContent="center" paddingTop={3}>
-
-                            <Grid item xs={12} sm={11} md={8} lg={7}>
-                                <Button
-                                    fullWidth
-                                    sx={{
-                                        backgroundImage: `url(${"../src/assets/nuestrodiscord.png"})`,
-                                        backgroundSize: "cover",
-                                        backgroundPosition: "center",
-                                        padding: 0
-                                    }} >
-
-                                    <Grid container justifyContent="space-between" alignItems="center" height={140}>
-                                        <Grid item xs={3}>
-                                           
-                                        </Grid>
-                                        <Grid item xs={9} >
-                                            <Typography variant="h5" fontFamily="Aldrich" color="white">NUESTRO DISCORD</Typography>
-                                        </Grid>
-
-                                    </Grid>
-                                </Button>
-                            </Grid>
-
-
+                        <Grid container justifyContent="center" paddingTop={3} gap={3}>
+                            <SocialBanner type="twitch" icon={faTwitch} color="#6441a5" banner="bg-twitch" />
+                            <SocialBanner type="twitter" icon={faTwitter} color="#1DA1F2" banner="bg-twitter" />
+                            <SocialBanner type="instagram" icon={faInstagram} color="#C13584" banner="bg-instagram" />
+                            <SocialBanner type="youtube" icon={faYoutube} color="red" banner="bg-youtube" />
                         </Grid>
                     </Grid>
                 </Container >
