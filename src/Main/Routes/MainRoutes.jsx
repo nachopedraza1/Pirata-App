@@ -1,13 +1,15 @@
+
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Footer, Navbar } from "../../Ui"
+import { Preloader } from "../../Ui/Components"
 
-import { HomePage, ProjectPage } from "../Pages"
-import { TeamsPage } from "../Pages/TeamsPage"
-
+import { HomePage, ProjectPage, TeamsPage } from "../Pages"
 
 export const MainRoutes = () => {
+
     return (
         <>
+            <Preloader />
             <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />

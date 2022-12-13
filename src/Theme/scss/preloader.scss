@@ -1,0 +1,23 @@
+.loading-div {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: #16171b;
+    z-index: 99999;
+    color: #fff;
+    line-height: 100vh;
+    text-align: center;
+    opacity: 0;
+    transition: 1.3s all;
+}
+
+.loading-div.show {
+    opacity: 1;
+    transition: 1.3s all;
+}
+
+.active {
+    z-index: -1;
+}

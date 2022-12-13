@@ -1,10 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { MainLayout } from "../Layout/MainLayout";
 import { Box, Container, Grid, Link, } from "@mui/material";
-import { TittleComponent, TwitterContainer, NewsContainer, MatchContainer, BannerHome, Slider } from "../Components";
-import { UpcomingMatchesContainer } from "../Components/UpcomingMatchesContainer";
-
+import { TittleComponent, TwitterContainer, NewsContainer, MatchContainer, BannerHome, Slider, UpcomingMatchesContainer } from "../Components";
 
 export const HomePage = () => {
 
@@ -18,7 +16,6 @@ export const HomePage = () => {
             <Slider desktopIMG="bannerHome.png" mobileIMG="bannerHomeMobile.png" />
 
             <Container maxWidth="lg" >
-
                 <BannerHome />
 
                 <Grid container justifyContent="center" spacing={2}>

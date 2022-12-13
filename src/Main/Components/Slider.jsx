@@ -6,7 +6,9 @@ export const Slider = ({ desktopIMG, mobileIMG }) => {
             <Grid
                 item
                 marginTop={2}
-                display={{ sm: "none"}}
+                display={{ xs: "flex", sm: "none" }}
+                justifyContent="center"
+                alignItems="center"
                 sx={{
                     width: "100%",
                     height: "100vh",
@@ -15,11 +17,13 @@ export const Slider = ({ desktopIMG, mobileIMG }) => {
                     backgroundPosition: "bottom",
                     backgroundRepeat: "no-repeat",
                 }}>
+                <img src="src/assets/logoheader.gif" alt="" width="100%"/>
             </Grid>
             <Container maxWidth="lg">
 
-                <Grid item paddingTop={7} display={{ xs: "none", sm: "block" }} >
+                <Grid item paddingTop={7} display={{ xs: "none", sm: "flex" }} textAlign="center" justifyContent="center" alignItems="center" >
                     <img src={`../src/assets/${desktopIMG}`} alt="" width="100%" />
+                    <img src="src/assets/logoheader.gif" alt="" width="45%" style={{ position: "absolute",maxWidth:"550px" }} />
                 </Grid>
             </Container>
         </Grid>

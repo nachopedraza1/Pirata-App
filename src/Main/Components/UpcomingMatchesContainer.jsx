@@ -14,7 +14,7 @@ export const UpcomingMatchesContainer = () => {
             <TittleComponent tittle="PROXIMOS PARTIDOS" />
             <Grid container>
                 {
-                    isLoading ? <LoadingData /> : upcomingMatches.slice(0, 6).map(match => {
+                    isLoading ? <LoadingData /> : upcomingMatches.slice(0, 4).map(match => {
                         return <UpcomingMatchesItem match={match} key={match.id} />
                     })
                 }
