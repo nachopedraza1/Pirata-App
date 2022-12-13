@@ -6,7 +6,6 @@ import { useForm } from "../../hooks"
 import { TittleComponent } from "../../Main/Components"
 import { onLoadEsports } from "../../Redux/Thunks"
 import { EsportItem } from "../Components/EsportItem"
-import { AdminPanelLayout } from "../Layout/AdminPanelLayout"
 
 const initialState = {
     game: "",

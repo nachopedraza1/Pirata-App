@@ -11,8 +11,8 @@ import { TittleComponent } from '../../Main/Components';
 import { Grid, Select, InputLabel, MenuItem, FormControl, Button } from '@mui/material';
 
 const initialForm = {
-    juego: "",
-    rival: "",
+    game: "",
+    teamName: "",
     puntosLocal: "",
     puntosRival: "",
 }
@@ -23,7 +23,7 @@ export const AddMatches = () => {
 
     const dispatch = useDispatch();
 
-    const { formState, rival, juego, puntosRival, puntosLocal, onInputChange } = useForm(initialForm);
+    const { formState, teamName, game, puntosRival, puntosLocal, onInputChange } = useForm(initialForm);
 
     const onAddMatch = async (event) => {
         event.preventDefault();
@@ -40,7 +40,7 @@ export const AddMatches = () => {
         dispatch(onLoadMatches());
     }
 
-    const { logoRival } = rivals.find(logo => logo.teamName === rival) || {};
+    const { logoRival } = rivals.find(logo => logo.teamName === teamName) || {};
 
     return (
         <Grid container spacing={2}>
@@ -110,8 +110,8 @@ export const AddMatches = () => {
                                     <InputLabel>Rival</InputLabel>
                                     <Select
                                         required={true}
-                                        name="rival"
-                                        value={rival}
+                                        name="teamName"
+                                        value={teamName}
                                         onChange={onInputChange}
                                         label="Rival"
                                     >
@@ -127,8 +127,8 @@ export const AddMatches = () => {
                                     <InputLabel sx={{ color: "white" }}>Esport</InputLabel>
                                     <Select
                                         required={true}
-                                        name="juego"
-                                        value={juego}
+                                        name="game"
+                                        value={game}
                                         onChange={onInputChange}
                                         label="Esport"
                                     >

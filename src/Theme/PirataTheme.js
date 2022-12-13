@@ -7,7 +7,8 @@ export const PirataTheme = createTheme({
             styleOverrides: `
             @font-face {font-family: Poppins;src: url(../src/assets/Fonts/Poppins-SemiBold.ttf)}
             @font-face {font-family: Poppins-reg;src: url(../src/assets/Fonts/Poppins-Regular.ttf)}
-            @font-face {font-family: Aldrich;src: url(../src/assets/Fonts/Aldrich-Regular.ttf)}`,
+            @font-face {font-family: Aldrich;src: url(../src/assets/Fonts/Aldrich-Regular.ttf)}
+            @font-face {font-family: Oswald;src: url(../src/assets/Fonts/oswald.bold.ttf)}`,
         },
         MuiOutlinedInput: {
             styleOverrides: {
@@ -64,6 +65,6 @@ export const PirataTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: ["Aldrich", "Poppins-reg", "Poppins",]
+        fontFamily: ["Aldrich", "Poppins-reg", "Oswald", "Poppins",]
     },
 });

@@ -41,7 +41,8 @@ export const AddDateMatch = () => {
 
         const dateMatch = {
             ...formState,
-            date: date + " " + time,
+            date,
+            time,
             order: upcomingMatches.length + 1,
         }
 

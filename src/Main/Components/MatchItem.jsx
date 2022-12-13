@@ -17,7 +17,7 @@ export const MatchItem = ({ match }) => {
             </Grid>
             <Grid container alignItems="center" justifyContent="space-between" padding={1}>
                 <Grid item xs={1}>
-                    <img src={`../src/assets/esports/${match.juego}.png`} alt="" width="130%" />
+                    <img src={`../src/assets/esports/${match.game}.png`} alt="" width="130%" />
                 </Grid>
                 <Grid item xs={3} textAlign="center">
                     <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "70px" }} />
