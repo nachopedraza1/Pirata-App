@@ -1,5 +1,5 @@
 import { DeleteForever } from "@mui/icons-material"
-import { Button, Divider, Grid, Typography } from "@mui/material"
+import { Button, Divider, Grid, IconButton, Tooltip, Typography } from "@mui/material"
 
 export const EsportItem = ({ esport, onDeteleEsport }) => {
     return (
@@ -23,7 +23,11 @@ export const EsportItem = ({ esport, onDeteleEsport }) => {
                         onClick={() => onDeteleEsport(esport.id)}
                         variant="text"
                         sx={{ padding: 0, minWidth: "100%" }} >
-                        <DeleteForever color="error" />
+                        <Tooltip title="Eliminar Juego" arrow>
+                            <IconButton sx={{ padding: 0 }}>
+                                <DeleteForever color="error" />
+                            </IconButton>
+                        </Tooltip>
                     </Button>
                 </Grid>
             </Grid>

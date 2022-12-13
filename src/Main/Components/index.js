@@ -7,3 +7,5 @@ export * from './NewsContainer';
 export * from './MatchContainer';
 export * from './TittleComponent';
 export * from './TwitterContainer';
+export * from './UpcomingMatchesItem';
+export * from './UpcomingMatchesContainer';

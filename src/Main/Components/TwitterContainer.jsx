@@ -4,6 +4,7 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { Grid } from "@mui/material";
 
 import { LoadingData } from "./LoadingData";
+import { TittleComponent } from "./TittleComponent";
 
 export const TwitterContainer = () => {
 
@@ -11,6 +12,7 @@ export const TwitterContainer = () => {
 
     return (
         <>
+            <TittleComponent tittle={"TWEETS"} />
             <Grid item className="twitterContainer" sx={{ marginTop: "10px", backgroundColor: "backgraunds.main", borderRadius: "5px" }} >
                 <div className="twitter-embed">
                     <TwitterTimelineEmbed

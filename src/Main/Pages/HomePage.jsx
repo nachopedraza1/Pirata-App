@@ -3,20 +3,14 @@ import { useEffect } from "react";
 import { MainLayout } from "../Layout/MainLayout";
 import { Box, Container, Grid, Link, } from "@mui/material";
 import { TittleComponent, TwitterContainer, NewsContainer, MatchContainer, BannerHome, Slider } from "../Components";
-import { useDispatch, useSelector } from "react-redux";
-import { onLoadMatches, onLoadPosts, onLoadUpcomingMatches } from "../../Redux/Thunks";
+import { UpcomingMatchesContainer } from "../Components/UpcomingMatchesContainer";
 
 
 export const HomePage = () => {
 
-    const dispatch = useDispatch();
-
-   
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
 
     return (
         <MainLayout>
@@ -33,9 +27,7 @@ export const HomePage = () => {
                         <NewsContainer />
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <TittleComponent tittle={"TWEETS"} />
                         <TwitterContainer />
-                        <TittleComponent tittle={"ULTIMOS PARTIDOS"} />
                         <MatchContainer />
                         <Link href="https://republicadealberdi.ar/" target="_blank" rel="noreferrer">
                             <Box sx={{
@@ -49,6 +41,7 @@ export const HomePage = () => {
                             }}>
                             </Box>
                         </Link>
+                        <UpcomingMatchesContainer />
                     </Grid>
                 </Grid>
             </Container >

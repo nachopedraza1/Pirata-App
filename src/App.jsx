@@ -8,23 +8,13 @@ export const App = () => {
 
   const dispatch = useDispatch();
 
-/*   useMemo(() => {
+  useEffect(() => {
     dispatch(onLoadMatches())
     dispatch(onLoadRivals())
     dispatch(onLoadEsports())
     dispatch(onLoadPosts())
     dispatch(onLoadUpcomingMatches());
-  }, []) */
-
- /*  useEffect(() => {
-    dispatch(onLoadMatches())
-    dispatch(onLoadRivals())
-    dispatch(onLoadEsports())
-    dispatch(onLoadPosts())
-    dispatch(onLoadUpcomingMatches());
-  }, []) */
-
-
+  }, [])
 
   return (
     <AppRouter />

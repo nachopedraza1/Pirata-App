@@ -1,19 +1,21 @@
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material"
+import { onLoadUpcomingMatches } from "../../Redux/Thunks"
 
 import { useForm } from "../../hooks"
 
+import { addDoc, collection, deleteDoc, doc } from "firebase/firestore/lite"
+import { FirebaseDB } from "../../Firebase/config"
+
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
+
+
 import { TittleComponent } from "../../Main/Components"
+import { DateItem } from "../Components"
 
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers"
-import { useState } from "react"
-
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import moment from "moment/moment"
-import { addDoc, collection } from "firebase/firestore/lite"
-import { FirebaseDB } from "../../Firebase/config"
-import { onLoadUpcomingMatches } from "../../Redux/Thunks"
 
 const initialForm = {
     rival: "",
@@ -48,12 +50,15 @@ export const AddDateMatch = () => {
         dispatch(onLoadUpcomingMatches())
     }
 
-    console.log("asd");
+    const onDeteleDate = async (id) => {
+        await deleteDoc(doc(FirebaseDB, "upcomingMatches", `${id}`))
+        dispatch(onLoadUpcomingMatches());
+    }
 
     return (
         <Grid container spacing={2}>
 
-            <Grid item xs={12} lg={8} >
+            <Grid item xs={12} lg={7} >
                 <TittleComponent tittle="AGREGAR FECHA" />
                 <form autoComplete="off" onSubmit={onAddMatchDate}>
                     <Grid container direction="column" bgcolor="backgraunds.main" borderRadius={1} gap={1}  >
@@ -136,10 +141,12 @@ export const AddDateMatch = () => {
                 </form >
             </Grid>
 
-            <Grid item xs={12} lg={4}>
+            <Grid item xs={12} lg={5}>
                 <TittleComponent tittle="FECHAS" />
                 <Grid container direction="column">
-
+                    {
+                        upcomingMatches.map(match => (<DateItem key={match.id} match={match} onDeteleDate={onDeteleDate} />))
+                    }
                 </Grid>
             </Grid>
 

@@ -1,5 +1,5 @@
 import { DeleteForever } from "@mui/icons-material"
-import { Button, Divider, Grid, Typography } from "@mui/material"
+import { Button, Divider, Grid, IconButton, Tooltip, Typography } from "@mui/material"
 
 
 export const MatchItem = ({ match, onDeteleMatch }) => {
@@ -15,7 +15,7 @@ export const MatchItem = ({ match, onDeteleMatch }) => {
                 borderRadius={1}
             >
                 <Grid item xs={3} textAlign="center">
-                    <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "100px" }} />
+                    <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "70px" }} />
                 </Grid>
                 <Grid item xs={1}>
                     <Typography variant="h5" color="white" textAlign="center"> {match.puntosLocal} </Typography>
@@ -27,14 +27,18 @@ export const MatchItem = ({ match, onDeteleMatch }) => {
                     <Typography variant="h5" color="error" textAlign="center"> {match.puntosRival} </Typography>
                 </Grid>
                 <Grid item xs={3} textAlign="center">
-                    <img src={match.logoRival} alt="" width="100%" style={{ maxWidth: "70px" }} />
+                    <img src={match.logoRival} alt="" width="100%" style={{ maxWidth: "50px" }} />
                 </Grid>
                 <Grid item xs={1}>
                     <Button
                         variant="text"
                         onClick={() => onDeteleMatch(match.id)}
                         sx={{ padding: 0, minWidth: "100%" }} >
-                        <DeleteForever color="error" />
+                        <Tooltip title="Eliminar Partido" arrow>
+                            <IconButton sx={{ padding: 0 }}>
+                                <DeleteForever color="error" />
+                            </IconButton>
+                        </Tooltip>
                     </Button>
                 </Grid>
             </Grid>
