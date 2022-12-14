@@ -8,7 +8,11 @@ import { useForm } from '../../hooks';
 import { MatchItem } from '../Components';
 import { TittleComponent } from '../../Main/Components';
 
-import { Grid, Select, InputLabel, MenuItem, FormControl, Button } from '@mui/material';
+import { Grid, Select, InputLabel, MenuItem, FormControl, Button, TextField } from '@mui/material';
+import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { useState } from 'react';
+import moment from 'moment/moment';
 
 const initialForm = {
     game: "",
@@ -19,16 +23,21 @@ const initialForm = {
 
 export const AddMatches = () => {
 
-    const { matches, rivals, esports } = useSelector(state => state.mainData);
-
     const dispatch = useDispatch();
 
+    const { matches, rivals, esports } = useSelector(state => state.mainData);
+
     const { formState, teamName, game, puntosRival, puntosLocal, onInputChange } = useForm(initialForm);
+
+    const [dateMatch, setDateMatch] = useState(null);
+
+    const date = moment(dateMatch).format('ll');
+    const time = moment(dateMatch).format('LT');
 
     const onAddMatch = async (event) => {
         event.preventDefault();
 
-        const match = { ...formState, logoRival, order: matches.length + 1 }
+        const match = { ...formState, logoRival, date, time, order: matches.length + 1 }
 
         const queryRef = collection(FirebaseDB, "matches");
         await addDoc(queryRef, match);
@@ -56,6 +65,55 @@ export const AddMatches = () => {
                             padding={2}
                             alignItems={{ sm: "center" }}
                         >
+
+                            <Grid item xs={12} md={4} padding={1}>
+                                <FormControl fullWidth>
+                                    <InputLabel>Rival</InputLabel>
+                                    <Select
+                                        required={true}
+                                        name="teamName"
+                                        value={teamName}
+                                        onChange={onInputChange}
+                                        label="Rival"
+                                    >
+                                        {
+                                            rivals.map(rival => (<MenuItem value={rival.teamName} key={rival.id} >{rival.teamName}</MenuItem>))
+                                        }
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+
+                            <Grid item xs={12} md={4} padding={1}>
+                                <FormControl fullWidth>
+                                    <InputLabel sx={{ color: "white" }}>Esport</InputLabel>
+                                    <Select
+                                        required={true}
+                                        name="game"
+                                        value={game}
+                                        onChange={onInputChange}
+                                        label="Esport"
+                                    >
+                                        {
+                                            esports.map(item => (<MenuItem value={item.game} key={item.id}> {item.game} </MenuItem>))
+                                        }
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+
+                            <Grid item xs={12} sm={4}>
+                                <LocalizationProvider dateAdapter={AdapterMoment}>
+                                    <DateTimePicker
+                                        inputProps={{ placeholder: 'Seleciona Fecha y Hora' }}
+                                        renderInput={(props) => <TextField fullWidth sx={{ "& .MuiSvgIcon-root": { color: "white" } }} {...props} />}
+                                        label="Fecha y Hora"
+                                        value={dateMatch}
+                                        onChange={(newDateMatch) => {
+                                            setDateMatch(newDateMatch);
+                                        }}
+
+                                    />
+                                </LocalizationProvider>
+                            </Grid>
 
                             <Grid item xs={12} md={2} textAlign="center" padding={1}>
                                 <img src="../src/assets/Logo.png" alt="" width="100px" />
@@ -103,41 +161,6 @@ export const AddMatches = () => {
 
                             <Grid item xs={12} md={2} textAlign="center" padding={1}>
                                 <img src={logoRival} alt="" style={{ maxWidth: "70px" }} />
-                            </Grid>
-
-                            <Grid item xs={12} md={4} padding={1}>
-                                <FormControl fullWidth>
-                                    <InputLabel>Rival</InputLabel>
-                                    <Select
-                                        required={true}
-                                        name="teamName"
-                                        value={teamName}
-                                        onChange={onInputChange}
-                                        label="Rival"
-                                    >
-                                        {
-                                            rivals.map(rival => (<MenuItem value={rival.teamName} key={rival.id} >{rival.teamName}</MenuItem>))
-                                        }
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-
-                            <Grid item xs={12} md={4} padding={1}>
-                                <FormControl fullWidth>
-                                    <InputLabel sx={{ color: "white" }}>Esport</InputLabel>
-                                    <Select
-                                        required={true}
-                                        name="game"
-                                        value={game}
-                                        onChange={onInputChange}
-                                        label="Esport"
-                                    >
-                                        {
-                                            esports.map(item => (<MenuItem value={item.game} key={item.id}> {item.game} </MenuItem>))
-                                        }
-
-                                    </Select>
-                                </FormControl>
                             </Grid>
 
                             <Grid item xs={12} display="flex" justifyContent="end" padding={1}>

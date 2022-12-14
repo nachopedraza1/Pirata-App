@@ -13,9 +13,9 @@ export const MatchContainer = () => {
     return (
         <>
             <TittleComponent tittle={"ULTIMOS PARTIDOS"} />
-            <Grid container>
+            <Grid container bgcolor="backgraunds.secondary" padding={1} borderRadius={1}>
                 {
-                    isLoading ? <LoadingData /> : matches.slice(0, 4).map(match => {
+                    isLoading ? <LoadingData /> : matches.slice(0, 3).map(match => {
                         return <MatchItem match={match} key={match.id} />
                     })
                 }

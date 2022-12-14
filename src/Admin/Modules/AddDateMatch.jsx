@@ -33,7 +33,7 @@ export const AddDateMatch = () => {
 
     const [dateMatch, setDateMatch] = useState(null);
 
-    const date = moment(dateMatch).format('L');
+    const date = moment(dateMatch).format('ll');
     const time = moment(dateMatch).format('LT');
 
     const onAddMatchDate = async (event) => {

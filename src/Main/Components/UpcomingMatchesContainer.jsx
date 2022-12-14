@@ -12,9 +12,9 @@ export const UpcomingMatchesContainer = () => {
     return (
         <>
             <TittleComponent tittle="PROXIMOS PARTIDOS" />
-            <Grid container>
+            <Grid container bgcolor="backgraunds.secondary" padding={1} borderRadius={1}>
                 {
-                    isLoading ? <LoadingData /> : upcomingMatches.slice(0, 4).map(match => {
+                    isLoading ? <LoadingData /> : upcomingMatches.slice(0, 3).map(match => {
                         return <UpcomingMatchesItem match={match} key={match.id} />
                     })
                 }

@@ -6,8 +6,8 @@ export const MainLayout = ({ children }) => {
             width: "100%",
             minHeight: "100vh",
             backgroundAttachment: "fixed",
-            /* backgroundColor: "backgraunds.black", */
-            backgroundImage: `url(${"../src/assets/bg-texture-01.jpg"})`,
+            backgroundColor: "backgraunds.black",
+           /*  backgroundImage: `url(${"../src/assets/bg-texture-01.jpg"})`, */
             /* backgroundImage: `url(${"../src/assets/Login.jpg"})`, */
             backgroundSize: "cover",
             backgroundPosition: "bottom",

@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import { useEffect } from "react";
 import { MainLayout } from "../Layout/MainLayout";
 import { Box, Container, Grid, Link, } from "@mui/material";
 import { TittleComponent, TwitterContainer, NewsContainer, MatchContainer, BannerHome, Slider, UpcomingMatchesContainer } from "../Components";
@@ -8,7 +7,7 @@ export const HomePage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [])
 
     return (
         <MainLayout>
@@ -25,7 +24,7 @@ export const HomePage = () => {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <TwitterContainer />
-                        <MatchContainer />
+                        <UpcomingMatchesContainer />
                         <Link href="https://republicadealberdi.ar/" target="_blank" rel="noreferrer">
                             <Box sx={{
                                 width: "100%",
@@ -38,7 +37,7 @@ export const HomePage = () => {
                             }}>
                             </Box>
                         </Link>
-                        <UpcomingMatchesContainer />
+                        <MatchContainer />
                     </Grid>
                 </Grid>
             </Container >

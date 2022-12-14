@@ -13,14 +13,14 @@ export const TwitterContainer = () => {
     return (
         <>
             <TittleComponent tittle={"TWEETS"} />
-            <Grid item className="twitterContainer" sx={{ marginTop: "10px", backgroundColor: "backgraunds.main", borderRadius: "5px" }} >
+            <Grid item className="twitterContainer" mb={2} sx={{ backgroundColor: "backgraunds.secondary", borderRadius: "5px" }} >
                 <div className="twitter-embed">
                     <TwitterTimelineEmbed
                         sourceType="widget"
                         screenName="CABesportsok"
                         options={{
                             width: "100%",
-                            height: "500px",
+                            height: "520px",
                         }}
                         theme="dark"
                         noHeader="false"
