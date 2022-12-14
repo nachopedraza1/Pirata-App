@@ -1,5 +1,6 @@
 export * from './Slider';
 export * from './NewItem';
+export * from './TabMatches';
 export * from './BannerHome';
 export * from './LoadingData';
 export * from './SocialBanner';

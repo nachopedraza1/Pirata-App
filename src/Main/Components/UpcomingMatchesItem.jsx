@@ -12,16 +12,17 @@ export const UpcomingMatchesItem = ({ match }) => {
 
     return (
         <Grid
+            className="animate__animated animate__fadeIn"
             container
             direction="column"
             fontFamily="Poppins-reg"
             bgcolor="backgraunds.main"
             borderRadius={1}
-            marginBottom={2}
+            margin="5px"
         >
             <Grid container alignItems="start" padding={2} borderBottom="1px solid gray">
                 <Grid item xs={8} display="flex" flexDirection="column">
-                    <Typography variant="p" color="gray" fontFamily="Oswald" > COUNTER STRIKE </Typography>
+                    <Typography variant="p" color="gray" fontFamily="Oswald" > {match.game} </Typography>
                     <Typography variant="p" color="gray" fontFamily="Poppins-reg" > VPA league 2022</Typography>
                 </Grid>
                 <Grid item xs={4} display="flex" flexDirection="column" textAlign="end">
@@ -30,7 +31,7 @@ export const UpcomingMatchesItem = ({ match }) => {
                 </Grid>
             </Grid>
             <Grid container >
-                <Grid item xs={8} display="flex" justifyContent="center" alignItems="center" gap={1}>
+                <Grid item xs={8} display="flex" justifyContent="space-around" alignItems="center" gap={1}>
                     <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "65px" }} />
                     <svg width="40" height="56" viewBox="0 0 40 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.7188 29.1289L18.5703 8.5625H24.957L12.5547 37H6.71484L3.25781 8.5625H9.33203L10.7188 29.1289Z" fill="white"></path>

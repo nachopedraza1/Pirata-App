@@ -27,7 +27,7 @@ export const AddMatches = () => {
 
     const { matches, rivals, esports } = useSelector(state => state.mainData);
 
-    const { formState, teamName, game, puntosRival, puntosLocal, onInputChange } = useForm(initialForm);
+    const { formState, teamName, game, puntosRival, puntosLocal, plataform, onInputChange } = useForm(initialForm);
 
     const [dateMatch, setDateMatch] = useState(null);
 
@@ -60,13 +60,12 @@ export const AddMatches = () => {
                     <Grid container direction="column" bgcolor="backgraunds.main" borderRadius={1} gap={1} >
                         <Grid
                             container
-                            textAlign="center"
                             justifyContent="center"
                             padding={2}
                             alignItems={{ sm: "center" }}
                         >
 
-                            <Grid item xs={12} md={4} padding={1}>
+                            <Grid item xs={12} md={6} padding={1}>
                                 <FormControl fullWidth>
                                     <InputLabel>Rival</InputLabel>
                                     <Select
@@ -83,7 +82,7 @@ export const AddMatches = () => {
                                 </FormControl>
                             </Grid>
 
-                            <Grid item xs={12} md={4} padding={1}>
+                            <Grid item xs={12} md={6} padding={1}>
                                 <FormControl fullWidth>
                                     <InputLabel sx={{ color: "white" }}>Esport</InputLabel>
                                     <Select
@@ -100,7 +99,25 @@ export const AddMatches = () => {
                                 </FormControl>
                             </Grid>
 
-                            <Grid item xs={12} sm={4}>
+                            <Grid item xs={12} md={6} padding={1}>
+                                <FormControl fullWidth>
+                                    <InputLabel>Plataforma</InputLabel>
+                                    <Select
+                                        required={true}
+                                        name="plataform"
+                                        value={plataform}
+                                        label="plataforma"
+                                        onChange={onInputChange}
+                                    >
+                                        <MenuItem value="PC">PC</MenuItem>
+                                        <MenuItem value="XBOX">XBOX</MenuItem>
+                                        <MenuItem value="PLAY">PLAY</MenuItem>
+                                        <MenuItem value="MOBILE">MOBILE</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+
+                            <Grid item xs={12} sm={6} padding={1}>
                                 <LocalizationProvider dateAdapter={AdapterMoment}>
                                     <DateTimePicker
                                         inputProps={{ placeholder: 'Seleciona Fecha y Hora' }}

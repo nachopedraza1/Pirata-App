@@ -11,16 +11,18 @@ export const MatchItem = ({ match }) => {
 
     return (
         <Grid
+            className="animate__animated animate__fadeIn"
             container
             direction="column"
             fontFamily="Poppins-reg"
             bgcolor="backgraunds.main"
             borderRadius={1}
-            marginBottom={2}
+            margin="5px"
         >
-            <Grid container alignItems="start" padding={2} borderBottom="1px solid gray">
-                <Grid item xs={8}>
-                    <Typography variant="p" color="gray" fontFamily="Oswald" >COUNTER STRIKE</Typography>
+            <Grid container alignItems="start" padding={2} borderBottom={`1px solid ${bgcolor}`}>
+                <Grid item xs={8} display="flex" flexDirection="column">
+                    <Typography variant="p" color="gray" fontFamily="Oswald" > {match.game} </Typography>
+                    <Typography variant="p" color="gray" fontFamily="Poppins-reg" > VPA league 2022</Typography>
                 </Grid>
                 <Grid item xs={4} display="flex" flexDirection="column" textAlign="end">
                     <Typography variant="p" color="gray" fontSize="1.6 rem" fontFamily="Oswald" > {match.time} AR </Typography>
@@ -28,13 +30,17 @@ export const MatchItem = ({ match }) => {
                 </Grid>
             </Grid>
             <Grid container >
-                <Grid item xs={8} display="flex" justifyContent="center" alignItems="center" gap={1}>
+                <Grid item xs={8} display="flex" justifyContent="space-around" alignItems="center">
                     <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "65px" }} />
-                    <img src="../src/assets/swords1.png" alt="" width="30px" />
+                    <Typography color={bgcolor}> {match.puntosLocal} </Typography>
+                    <Typography color={bgcolor}> : </Typography>
+                    <Typography color={bgcolor}> {match.puntosRival} </Typography>
                     <img src={match.logoRival} alt="" width="100%" style={{ maxWidth: "55px" }} />
                 </Grid>
                 <Grid item xs={4}>
                     <Button
+                        endIcon={<FontAwesomeIcon icon={faTwitch} />}
+                        disabled
                         variant="contained"
                         fullWidth
                         sx={{
@@ -43,10 +49,9 @@ export const MatchItem = ({ match }) => {
                             padding: "25px",
                             maxWidth: "300px",
                             justifyContent: "center",
-                            backgroundColor: bgcolor,
                         }}
                     >
-                        {equated ? "EMPATE" : isWinMatch ? "VICTORIA" : "DERROTA"}
+                        WATCH
                     </Button>
                 </Grid>
             </Grid>

@@ -15,7 +15,7 @@ export const TittleComponent = ({ tittle }) => {
                 marginBottom: "10px",
                 marginTop: "10px"
             }}>
-            <Typography variant="h6" color="white" ml={2} fontFamily="Aldrich"> {tittle} </Typography>
+            <Typography variant="h6" color="white" ml={2} fontFamily="Aldrich" data-aos="fade-left"> {tittle} </Typography>
         </Box>
     )
 }

@@ -21,6 +21,7 @@
     "@mui/styled-engine-sc": "^5.10.16",
     "@mui/x-date-pickers": "^5.0.10",
     "@reduxjs/toolkit": "^1.9.1",
+    "aos": "^2.3.4",
     "axios": "^1.2.0",
     "firebase": "^9.14.0",
     "moment": "^2.29.4",

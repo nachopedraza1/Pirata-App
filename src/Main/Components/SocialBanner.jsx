@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const SocialBanner = ({ type, icon, color, banner }) => {
     return (
-        <Grid item xs={12} sm={11} md={8} lg={7}>
+        <Grid item xs={12} sm={11} md={8} lg={7} data-aos="fade">
             <Button
                 fullWidth
                 sx={{

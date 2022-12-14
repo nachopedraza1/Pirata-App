@@ -3,7 +3,6 @@ import { useSelector } from "react-redux"
 
 import { LoadingData } from "./LoadingData";
 import { MatchItem } from "./MatchItem";
-import { TittleComponent } from "./TittleComponent";
 
 
 export const MatchContainer = () => {
@@ -12,7 +11,6 @@ export const MatchContainer = () => {
 
     return (
         <>
-            <TittleComponent tittle={"ULTIMOS PARTIDOS"} />
             <Grid container bgcolor="backgraunds.secondary" padding={1} borderRadius={1}>
                 {
                     isLoading ? <LoadingData /> : matches.slice(0, 3).map(match => {

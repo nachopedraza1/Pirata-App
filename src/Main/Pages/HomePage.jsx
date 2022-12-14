@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { MainLayout } from "../Layout/MainLayout";
 import { Box, Container, Grid, Link, } from "@mui/material";
-import { TittleComponent, TwitterContainer, NewsContainer, MatchContainer, BannerHome, Slider, UpcomingMatchesContainer } from "../Components";
+import { TittleComponent, TwitterContainer, NewsContainer, BannerHome, Slider, TabMatches } from "../Components";
 
 export const HomePage = () => {
 
@@ -24,7 +24,7 @@ export const HomePage = () => {
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <TwitterContainer />
-                        <UpcomingMatchesContainer />
+                        <TabMatches />
                         <Link href="https://republicadealberdi.ar/" target="_blank" rel="noreferrer">
                             <Box sx={{
                                 width: "100%",
@@ -37,7 +37,6 @@ export const HomePage = () => {
                             }}>
                             </Box>
                         </Link>
-                        <MatchContainer />
                     </Grid>
                 </Grid>
             </Container >

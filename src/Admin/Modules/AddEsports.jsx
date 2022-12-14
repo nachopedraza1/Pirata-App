@@ -62,12 +62,12 @@ export const AddEsports = () => {
                                             label="Juego"
                                             onChange={onInputChange}
                                         >
-                                            <MenuItem value="FREEFIRE">FREE FIRE</MenuItem>
-                                            <MenuItem value="FORMULA1">FORMULA 1</MenuItem>
-                                            <MenuItem value="CSGO">CSGO</MenuItem>
-                                            <MenuItem value="FIFA">FIFA</MenuItem>
-                                            <MenuItem value="PES">PES</MenuItem>
-                                            <MenuItem value="LOL">LOL</MenuItem>
+                                            <MenuItem value="FREEFIRE BATTLEGROUNDS">FREEFIRE BATTLEGROUNDS</MenuItem>
+                                            <MenuItem value="LEAGUE OF LEGENDS">LEAGUE OF LEGENDS</MenuItem>
+                                            <MenuItem value="COUNTER-STRIKE">COUNTER-STRIKE</MenuItem>
+                                            <MenuItem value="FORMULA 1">FORMULA 1</MenuItem>
+                                            <MenuItem value="FIFA 23">FIFA 23</MenuItem>
+                                            <MenuItem value="PES 23">PES 23</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </FormControl>

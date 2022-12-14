@@ -57,9 +57,9 @@ export const ProjectPage = () => {
             <Box width="100%" bgcolor="backgraunds.black" paddingBottom={10}>
                 <Container maxWidth="lg" id="team">
                     <Grid container justifyContent="center" paddingTop={10}>
-                        <Grid item xs={12} sm={11} md={8} lg={7} padding={3} borderRadius={2} bgcolor="backgraunds.main">
+                        <Grid item xs={12} sm={11} md={8} lg={7} padding={3} borderRadius={2} bgcolor="backgraunds.main" data-aos="fade">
                             <Logo size="170px" pb={"20px"} />
-                            <Typography variant="p" color="white" fontFamily="Poppins-reg" >
+                            <Typography variant="p" color="white" fontFamily="Poppins-reg">
                                 Belgrano Esports es el espacio de la comunidad pirata dedicado al gaming, la tecnología digital y las competencias online.
                                 <br /><br />
                                 Estamos dando los primeros pasos de un proyecto a largo plazo y queremos crear la comundiad de esports más grande del interior del país.
