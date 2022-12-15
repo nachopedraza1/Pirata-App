@@ -16,8 +16,16 @@ export const TeamsPage = () => {
             <Toolbar />
             <Container maxWidth="lg">
                 <Grid container justifyContent="center">
-                    <Grid item xs={12}>
-                        <Typography variant="h3" mt={5} fontFamily="Aldrich" color="white">ESPORTS</Typography>
+                    <Grid item xs={12} textAlign="center">
+                        <Typography
+                            variant="h3"
+                            mt={5}
+                            mb={5}
+                            fontFamily="Aldrich"
+                            color="white"
+                            className="animate__animated animate__fadeInDown">
+                            ESPORTS
+                        </Typography>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3} className="animate__animated animate__fadeInDown" >
                         <Box textAlign="center" className="team-selection-item team-selection-item--style-1">
@@ -25,7 +33,7 @@ export const TeamsPage = () => {
                                 <Box className="team-selection-item__thumbnail-inner">
                                     <img src="../src/assets/thumbnail.jpg" alt="" />
                                 </Box>
-                                <img className="team-selection-item__logo team-selection-item__logo--middle" src="../src/assets/esports/lol.png" alt="" />
+                                <img className="team-selection-item__logo team-selection-item__logo--middle" src="../src/assets/esports/LEAGUE OF LEGENDS.png" alt="" />
                             </a>
                         </Box>
                     </Grid>
@@ -35,7 +43,7 @@ export const TeamsPage = () => {
                                 <Box className="team-selection-item__thumbnail-inner">
                                     <img src="../src/assets/thumbnail.jpg" alt="" />
                                 </Box>
-                                <img className="team-selection-item__logo team-selection-item__logo--middle" src="../src/assets/esports/fifa.png" alt="" />
+                                <img className="team-selection-item__logo team-selection-item__logo--middle" src="../src/assets/esports/FIFA 23.png" alt="" />
                             </a>
                         </Box>
                     </Grid>
@@ -45,7 +53,7 @@ export const TeamsPage = () => {
                                 <Box className="team-selection-item__thumbnail-inner">
                                     <img src="../src/assets/thumbnail.jpg" alt="" />
                                 </Box>
-                                <img className="team-selection-item__logo team-selection-item__logo--middle" src="../src/assets/esports/freefire.png" alt="" />
+                                <img className="team-selection-item__logo team-selection-item__logo--middle" src="../src/assets/esports/FREEFIRE BATTLEGROUNDS.png" alt="" />
                             </a>
                         </Box>
                     </Grid>
@@ -55,7 +63,7 @@ export const TeamsPage = () => {
                                 <Box className="team-selection-item__thumbnail-inner">
                                     <img src="../src/assets/thumbnail.jpg" alt="" />
                                 </Box>
-                                <img className="team-selection-item__logo team-selection-item__logo--middle" src="../src/assets/esports/formula1.png" alt="" />
+                                <img className="team-selection-item__logo team-selection-item__logo--middle" src="../src/assets/esports/FORMULA 1.png" alt="" />
                             </a>
                         </Box>
                     </Grid>

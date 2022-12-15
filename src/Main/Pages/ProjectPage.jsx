@@ -43,13 +43,13 @@ export const ProjectPage = () => {
 
                 <Grid container justifyContent="center" alignItems="center" zIndex={1}>
                     <Grid item>
-                        <Typography color="white" variant="h3" fontFamily="Aldrich" >NOSOTROS</Typography>
+                        <Typography color="white" variant="h3" fontFamily="Aldrich" className="animate__animated animate__fadeInDown">NOSOTROS</Typography>
                     </Grid>
                 </Grid>
 
                 <Box position="absolute" bottom={50} zIndex={1}>
                     <Link href="#team">
-                        <img src="../src/assets/arrow.png" alt="" width="100%" />
+                        <img src="../src/assets/arrow.png" alt="" width="100%" className="animate__animated animate__fadeInUp" />
                     </Link>
                 </Box>
             </Grid>
