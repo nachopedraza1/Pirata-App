@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { MainLayout } from "../Layout/MainLayout";
 import { Box, Container, Grid, Link, } from "@mui/material";
-import { TittleComponent, TwitterContainer, NewsContainer, BannerHome, Slider, TabMatches } from "../Components";
+import { TittleComponent, TwitterContainer, NewsContainer, BannerHome, TabMatches } from "../Components";
 
 export const HomePage = () => {
 
@@ -10,18 +10,17 @@ export const HomePage = () => {
     }, [])
 
     return (
-        <MainLayout>
-
-            <Slider desktopIMG="bannerHome.png" mobileIMG="bannerHomeMobile.png" />
-
+        <MainLayout bgImg="../src/assets/background1.png">
             <Container maxWidth="lg" >
                 <BannerHome />
 
-                <Grid container justifyContent="center" spacing={2}>
+                <Grid container justifyContent="center" spacing={2} id="home" pt={6}>
+
                     <Grid item xs={12} md={8}>
                         <TittleComponent tittle={"ULTIMAS NOTICIAS"} />
                         <NewsContainer />
                     </Grid>
+
                     <Grid item xs={12} md={4}>
                         <TwitterContainer />
                         <TabMatches />
@@ -32,12 +31,13 @@ export const HomePage = () => {
                                 backgroundImage: `url(${"../src/assets/republicadealverdi.jpg"})`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
-                                border: "1px solid white",
+                                borderRadius: "5px",
                                 margin: "15px 0 15px 0px"
                             }}>
                             </Box>
                         </Link>
                     </Grid>
+
                 </Grid>
             </Container >
         </MainLayout>

@@ -16,16 +16,15 @@ export const MatchItem = ({ match }) => {
             direction="column"
             fontFamily="Poppins-reg"
             bgcolor="backgraunds.main"
-            borderRadius={1}
             margin="5px"
         >
             <Grid container alignItems="start" padding={2} borderBottom={`1px solid ${bgcolor}`}>
                 <Grid item xs={8} display="flex" flexDirection="column">
-                    <Typography variant="p" color="gray" fontFamily="Oswald" > {match.game} </Typography>
+                    <Typography variant="p" color="white" fontFamily="Oswald" > {match.game} </Typography>
                     <Typography variant="p" color="gray" fontFamily="Poppins-reg" > VPA league 2022</Typography>
                 </Grid>
                 <Grid item xs={4} display="flex" flexDirection="column" textAlign="end">
-                    <Typography variant="p" color="gray" fontSize="1.6 rem" fontFamily="Oswald" > {match.time} AR </Typography>
+                    <Typography variant="p" color="white" fontSize="1.6 rem" fontFamily="Oswald" > {match.time} AR </Typography>
                     <Typography variant="p" color="gray" fontSize="1.1 rem" fontFamily="Poppins-reg" > {match.date} </Typography>
                 </Grid>
             </Grid>

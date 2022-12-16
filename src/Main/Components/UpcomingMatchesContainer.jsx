@@ -10,7 +10,7 @@ export const UpcomingMatchesContainer = () => {
 
     return (
         <>
-            <Grid container bgcolor="backgraunds.secondary" padding={1} borderRadius={1}>
+            <Grid container bgcolor="backgraunds.secondary" padding={1}>
                 {
                     isLoading ? <LoadingData /> : upcomingMatches.slice(0, 3).map(match => {
                         return <UpcomingMatchesItem match={match} key={match.id} />

@@ -1,32 +1,30 @@
-import { Button, Divider, Grid, Typography } from "@mui/material"
+import { Box, Button, Divider, Grid, Link, Typography } from "@mui/material"
 
 export const BannerHome = () => {
     return (
         <Grid
+            className="animate__animated animate__fadeIn"
             container
-            marginTop={2}
             flexDirection="column"
-            sx={{
-                backgroundImage: `url(${"../src/assets/Login.jpg"})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-
-            }}
+            alignItems="center"
+            height="100vh"
         >
-            <Button
-                className="animate__animated animate__fadeIn"
-                variant="contained"
-                sx={{
-                    borderRadius: "0px",
-                    clipPath: "polygon(0 0, 100% 0, 90% 100%, 0% 100%)",
-                    padding: "20px",
-                    paddingRight: "60px",
-                    maxWidth: "300px"
-                }}>
-                Sumate a nuestro equipo!
-            </Button>
+            <Grid container sx={{
+                width: "100%",
+                minHeight: "30vh",
+                backgroundImage: `url("src/assets/logoheader.gif")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundSize: "450px",
+                backgroundRepeat: "no-repeat",
+                display: "flex",
+                justifyContent: "end",
+                alignItems: "center",
+            }}>
+                <img src="../src/assets/logocabrepublica.png" alt="" width="250px" />
+            </Grid>
 
-            <Grid container flexDirection="column" alignItems="center" textAlign="center" padding={4} gap={5} className="animate__animated animate__fadeIn">
+            <Grid container flexDirection="column" justifyContent="center" alignItems="center" textAlign="center" padding={2} gap={3}>
 
                 <Grid item xs={12} md={6}>
                     <Typography variant="h4" color="white" fontFamily="Aldrich">BELGRANO ESPORTS</Typography>
@@ -48,7 +46,15 @@ export const BannerHome = () => {
                         <img src="../src/assets/esports/formula 1.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                     </Grid>
                 </Grid>
+
             </Grid>
+
+            <Grid position="absolute" bottom={50}>
+                <Link href="#home">
+                    <img src="../src/assets/arrow.png" alt="" width="100%" className="animate__animated animate__fadeInUp" />
+                </Link>
+            </Grid>
+
         </Grid>
     )
 }

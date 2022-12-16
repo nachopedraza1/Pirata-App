@@ -11,7 +11,7 @@ export const MatchContainer = () => {
 
     return (
         <>
-            <Grid container bgcolor="backgraunds.secondary" padding={1} borderRadius={1}>
+            <Grid container bgcolor="backgraunds.secondary" padding={1}>
                 {
                     isLoading ? <LoadingData /> : matches.slice(0, 3).map(match => {
                         return <MatchItem match={match} key={match.id} />

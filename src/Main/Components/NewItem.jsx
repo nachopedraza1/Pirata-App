@@ -5,7 +5,7 @@ export const NewItem = ({ post }) => {
 
     return (
         <Grid item xs={12} sm={6}>
-            <Card sx={{ backgroundColor: "backgraunds.secondary" }}>
+            <Card sx={{ backgroundColor: "backgraunds.secondary", borderRadius: "0px" }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"

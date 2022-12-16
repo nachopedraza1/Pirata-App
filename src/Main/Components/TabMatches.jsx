@@ -21,7 +21,7 @@ const TabPanel = (props) => {
 
 
 export const TabMatches = () => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(1);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -35,28 +35,28 @@ export const TabMatches = () => {
                     display="flex"
                     alignItems="center"
                     justifyContent="space-between"
+                    padding=" 32px 0px"
                     sx={{
                         width: "100%",
                         height: "50px",
-                        backgroundColor: "backgraunds.main",
+                        backgroundColor: "backgraunds.secondary",
                         borderLeft: "5px solid",
                         borderColor: "primary.main",
-                        borderRadius: "5px",
-                        marginBottom: "10px",
-                        marginTop: "10px"
+                        marginBottom: "13px",
+                        marginTop: "13px"
                     }}>
                     <Tabs value={value} onChange={handleChange}>
-                        <Tab label="PROXIMOS PARTIDOS" sx={{ fontFamily: "Aldrich", color: "white" }} />
-                        <Tab label="ULTIMOS PARTIDOS" sx={{ fontFamily: "Aldrich", color: "white" }} />
+                        <Tab label="ULTIMOS PARTIDOS" sx={{ fontFamily: "Aldrich", color: "white" }} disableRipple />
+                        <Tab label="PROXIMOS PARTIDOS" sx={{ fontFamily: "Aldrich", color: "white" }} disableRipple />
                     </Tabs>
                 </Box>
 
             </Box>
             <TabPanel value={value} index={0}>
-                <UpcomingMatchesContainer />
+                <MatchContainer />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <MatchContainer />
+                <UpcomingMatchesContainer />
             </TabPanel>
         </Box>
     );

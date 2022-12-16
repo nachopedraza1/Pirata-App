@@ -5,7 +5,7 @@ import { Email, Phone } from '@mui/icons-material'
 
 import { Glitch, Logo, SocialButtons } from './Components'
 
-const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "PARTIDOS", ref: "/" }, { text: "CONTACTO", ref: "/" }]
+const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "PARTIDOS", ref: "matches" }, { text: "CONTACTO", ref: "/" }]
 
 export const Footer = () => {
     return (
@@ -16,7 +16,7 @@ export const Footer = () => {
                         <Logo size="150px" />
                     </Grid>
                     <Grid item xs={12} md={6} display="flex" flexDirection="column" alignItems="center" position="relative">
-                        <List sx={{ justifyContent: "center", flexWrap: "wrap" }}>
+                        <List sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
                             {navItems.map((item) => (
                                 <Link component={RouterLink} to={`/${item.ref}`} underline="none" key={item.text}>
                                     <Button sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
@@ -26,7 +26,7 @@ export const Footer = () => {
                             ))}
                         </List>
 
-                        <List sx={{ justifyContent: "center", flexWrap: "wrap", position: "absolute", top: "80%" }}>
+                        <List sx={{ display: "flex",justifyContent: "center", flexWrap: "wrap", position: "absolute", top: "80%" }}>
                             <Link underline="none" >
                                 <Button size='small' startIcon={<Email sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" }, fontSize: "12px" }}>
                                     belgranoesports@gmail.com

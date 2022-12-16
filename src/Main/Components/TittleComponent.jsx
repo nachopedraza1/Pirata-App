@@ -5,17 +5,17 @@ export const TittleComponent = ({ tittle }) => {
         <Box
             display="flex"
             alignItems="center"
+            padding={4}
             sx={{
                 width: "100%",
                 height: "50px",
-                backgroundColor: "backgraunds.main",
+                backgroundColor: "backgraunds.secondary",
                 borderLeft: "5px solid",
                 borderColor: "primary.main",
-                borderRadius: "5px",
-                marginBottom: "10px",
-                marginTop: "10px"
+                marginBottom: "13px",
+                marginTop: "13px",
             }}>
-            <Typography variant="h6" color="white" ml={2} fontFamily="Aldrich" data-aos="fade-left"> {tittle} </Typography>
+            <Typography variant="h6" color="white" fontFamily="Aldrich" data-aos="fade-left"> {tittle} </Typography>
         </Box>
     )
 }

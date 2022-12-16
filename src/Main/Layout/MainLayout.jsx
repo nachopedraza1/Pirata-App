@@ -1,20 +1,22 @@
-import { Box } from "@mui/material"
+import { Box, Toolbar } from "@mui/material"
 
-export const MainLayout = ({ children }) => {
+export const MainLayout = ({ children, bgColor, bgImg }) => {
     return (
-        <Box sx={{
-            width: "100%",
-            minHeight: "100vh",
-            backgroundAttachment: "fixed",
-              backgroundColor: "backgraunds.black",
-            /* backgroundImage: `url(${"../src/assets/background.jpg"})`, */
-            /* backgroundImage: `url(${"../src/assets/Login.jpg"})`, */
-            backgroundSize: "cover",
-            backgroundPosition: "bottom",
-            backgroundRepeat: "no-repeat",
-            paddingBottom: "70px"
-        }}>
-            {children}
-        </Box>
+        <>
+            <Toolbar />
+            <Box sx={{
+                width: "100%",
+                minHeight: "100vh",
+                backgroundAttachment: "fixed",
+                backgroundColor: bgColor,
+                backgroundImage: `url(${bgImg})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                paddingBottom: "70px"
+            }}>
+                {children}
+            </Box>
+        </>
     )
 }
