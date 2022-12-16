@@ -18,7 +18,6 @@ export const ProjectPage = () => {
 
     return (
         <Grid container>
-            {/* <Slider desktopIMG="bannerProject.jpg" mobileIMG="bannerProjectMobile.png" /> */}
             <Grid
                 container
                 width="100%"

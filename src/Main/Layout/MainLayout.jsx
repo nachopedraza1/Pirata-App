@@ -1,9 +1,8 @@
-import { Box, Toolbar } from "@mui/material"
+import { Box, Container } from "@mui/material"
 
 export const MainLayout = ({ children, bgColor, bgImg }) => {
     return (
         <>
-            <Toolbar />
             <Box sx={{
                 width: "100%",
                 minHeight: "100vh",
@@ -15,7 +14,9 @@ export const MainLayout = ({ children, bgColor, bgImg }) => {
                 backgroundRepeat: "no-repeat",
                 paddingBottom: "70px"
             }}>
-                {children}
+                <Container maxWidth="lg">
+                    {children}
+                </Container>
             </Box>
         </>
     )

@@ -9,4 +9,5 @@ export * from './MatchContainer';
 export * from './TittleComponent';
 export * from './TwitterContainer';
 export * from './UpcomingMatchesItem';
+export * from './MatchHistoryContainer';
 export * from './UpcomingMatchesContainer';

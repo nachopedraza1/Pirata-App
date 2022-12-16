@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { MainLayout } from "../Layout/MainLayout";
-import { Box, Container, Grid, Link, } from "@mui/material";
+import { Box, Grid, Link, } from "@mui/material";
 import { TittleComponent, TwitterContainer, NewsContainer, BannerHome, TabMatches } from "../Components";
 
 export const HomePage = () => {
@@ -10,9 +10,12 @@ export const HomePage = () => {
     }, [])
 
     return (
-        <MainLayout bgImg="../src/assets/background1.png">
-            <Container maxWidth="lg" >
-                <BannerHome />
+        <>
+            <BannerHome />
+
+            <img src="../src/assets/Linea.png" alt="" width="100%" />
+
+            <MainLayout bgColor="backgraunds.black">
 
                 <Grid container justifyContent="center" spacing={2} id="home" pt={6}>
 
@@ -39,7 +42,8 @@ export const HomePage = () => {
                     </Grid>
 
                 </Grid>
-            </Container >
-        </MainLayout>
+
+            </MainLayout>
+        </>
     )
 }
