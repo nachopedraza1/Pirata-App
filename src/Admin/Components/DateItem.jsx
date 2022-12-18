@@ -16,8 +16,16 @@ export const DateItem = ({ match, onDeteleDate }) => {
             bgcolor="backgraunds.main"
             borderBottom="1px solid gray"
         >
-            <Grid container bgcolor="#16171b">
+            <Grid container bgcolor="#16171b" justifyContent="space-between">
                 <Typography variant="p" p={1} color="white"> {match.date} / {match.time} / {match.plataform} </Typography>
+                <Button
+                    variant="text"
+                    onClick={() => onDeteleDate(match.id)}
+                    sx={{ padding: 0 }} >
+                    <Tooltip title="Eliminar Fecha" arrow>
+                        <DeleteForever color="error" />
+                    </Tooltip>
+                </Button>
             </Grid>
             <Grid container alignItems="center" justifyContent="space-between" padding={1} position="relative">
                 <Grid item xs={1}>
@@ -34,19 +42,6 @@ export const DateItem = ({ match, onDeteleDate }) => {
                 </Grid>
                 <Grid item xs={3} textAlign="center">
                     <img src={logoRival} alt="" width="100%" style={{ maxWidth: "60px" }} />
-                </Grid>
-                <Grid item xs={1}>
-                    <Button
-                        fullWidth
-                        variant="text"
-                        onClick={() => onDeteleDate(match.id)}
-                        sx={{ padding: 0 }} >
-                        <Tooltip title="Eliminar Fecha" arrow>
-                            <IconButton sx={{ padding: 0 }}>
-                                <DeleteForever color="error" />
-                            </IconButton>
-                        </Tooltip>
-                    </Button>
                 </Grid>
             </Grid>
         </Grid >

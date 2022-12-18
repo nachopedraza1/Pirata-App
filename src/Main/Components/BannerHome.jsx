@@ -39,7 +39,7 @@ export const BannerHome = () => {
 
                     <Grid item display="flex" flexWrap="wrap" justifyContent="center" alignItems="center" >
                         <Grid item xs={6} sm={3}>
-                            <img src="../src/assets/esports/logo-lol.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
+                            <img src="../src/assets/esports/LEAGUE OF LEGENDS.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                         </Grid>
                         <Grid item xs={6} sm={3}>
                             <img src="../src/assets/esports/logo-fifa.png" alt="" width="100%" style={{ maxWidth: "190px" }} />

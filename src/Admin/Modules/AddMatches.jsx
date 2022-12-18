@@ -1,17 +1,18 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { onLoadMatches } from '../../Redux/Thunks';
-import { FirebaseDB } from '../../Firebase/config';
-import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore/lite';
 
 import { useForm } from '../../hooks';
 
-import { MatchItem } from '../Components';
-import { TittleComponent } from '../../Main/Components';
+import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore/lite';
+import { FirebaseDB } from '../../Firebase/config';
 
 import { Grid, Select, InputLabel, MenuItem, FormControl, Button, TextField } from '@mui/material';
+import { TittleComponent } from "../../Ui/Components";
+import { MatchItem } from '../Components';
+
 import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
-import { useState } from 'react';
 import moment from 'moment/moment';
 
 const initialForm = {
@@ -19,6 +20,7 @@ const initialForm = {
     teamName: "",
     puntosLocal: "",
     puntosRival: "",
+    plataform: "",
 }
 
 export const AddMatches = () => {
@@ -106,8 +108,8 @@ export const AddMatches = () => {
                                         required={true}
                                         name="plataform"
                                         value={plataform}
-                                        label="plataforma"
                                         onChange={onInputChange}
+                                        label="Plataforma"
                                     >
                                         <MenuItem value="PC">PC</MenuItem>
                                         <MenuItem value="XBOX">XBOX</MenuItem>

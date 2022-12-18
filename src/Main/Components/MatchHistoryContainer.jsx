@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material"
-import { TittleComponent } from "./TittleComponent"
+import { TittleComponent } from "../../Ui/Components";
 
 export const MatchHistoryContainer = () => {
     return (

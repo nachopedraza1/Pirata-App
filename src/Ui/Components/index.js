@@ -5,4 +5,5 @@ export * from "./UserButtons";
 export * from "./AuthButtons";
 export * from "./CheckingAuth";
 export * from "./SocialButtons";
+export * from './TittleComponent';
 

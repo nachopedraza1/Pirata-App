@@ -24,9 +24,7 @@ export const EsportItem = ({ esport, onDeteleEsport }) => {
                         variant="text"
                         sx={{ padding: 0, minWidth: "100%" }} >
                         <Tooltip title="Eliminar Juego" arrow>
-                            <IconButton sx={{ padding: 0 }}>
-                                <DeleteForever color="error" />
-                            </IconButton>
+                            <DeleteForever color="error" />
                         </Tooltip>
                     </Button>
                 </Grid>

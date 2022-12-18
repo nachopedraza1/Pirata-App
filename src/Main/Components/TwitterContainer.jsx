@@ -4,7 +4,7 @@ import { TwitterTimelineEmbed } from "react-twitter-embed";
 import { Grid } from "@mui/material";
 
 import { LoadingData } from "./LoadingData";
-import { TittleComponent } from "./TittleComponent";
+import { TittleComponent } from "../../Ui/Components";
 
 export const TwitterContainer = () => {
 

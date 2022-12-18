@@ -25,9 +25,7 @@ export const RivalItem = ({ rival, onDeteleRival }) => {
                         variant="text"
                         sx={{ padding: 0, minWidth: "100%" }} >
                         <Tooltip title="Eliminar Rival" arrow>
-                            <IconButton sx={{ padding: 0 }}>
-                                <DeleteForever color="error" />
-                            </IconButton>
+                            <DeleteForever color="error" />
                         </Tooltip>
                     </Button>
                 </Grid>

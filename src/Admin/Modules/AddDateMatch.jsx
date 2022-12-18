@@ -8,9 +8,7 @@ import { addDoc, collection, deleteDoc, doc } from "firebase/firestore/lite"
 import { FirebaseDB } from "../../Firebase/config"
 
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
-
-
-import { TittleComponent } from "../../Main/Components"
+import { TittleComponent } from "../../Ui/Components";
 import { DateItem } from "../Components"
 
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers"
@@ -59,7 +57,7 @@ export const AddDateMatch = () => {
     return (
         <Grid container spacing={2}>
 
-            <Grid item xs={12} lg={7} >
+            <Grid item xs={12} lg={8} >
                 <TittleComponent tittle="AGREGAR FECHA" />
                 <form autoComplete="off" onSubmit={onAddMatchDate}>
                     <Grid container direction="column" bgcolor="backgraunds.main" borderRadius={1} gap={1}  >
@@ -142,7 +140,7 @@ export const AddDateMatch = () => {
                 </form >
             </Grid>
 
-            <Grid item xs={12} lg={5}>
+            <Grid item xs={12} lg={4}>
                 <TittleComponent tittle="FECHAS" />
                 <Grid container direction="column">
                     {

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
+
 import { MainLayout } from "../Layout/MainLayout";
 import { Box, Grid, Link, } from "@mui/material";
-import { TittleComponent, TwitterContainer, NewsContainer, BannerHome, TabMatches } from "../Components";
+import { TwitterContainer, NewsContainer, BannerHome, TabMatches } from "../Components";
 
 export const HomePage = () => {
 
@@ -20,7 +21,6 @@ export const HomePage = () => {
                 <Grid container justifyContent="center" spacing={2} id="home" pt={6}>
 
                     <Grid item xs={12} md={8}>
-                        <TittleComponent tittle={"ULTIMAS NOTICIAS"} />
                         <NewsContainer />
                     </Grid>
 

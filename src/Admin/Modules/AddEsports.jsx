@@ -1,17 +1,19 @@
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
-import { addDoc, collection, deleteDoc, doc } from "firebase/firestore/lite"
 import { useDispatch, useSelector } from "react-redux"
-import { FirebaseDB } from "../../Firebase/config"
-import { useForm } from "../../hooks"
-import { TittleComponent } from "../../Main/Components"
 import { onLoadEsports } from "../../Redux/Thunks"
+
+import { useForm } from "../../hooks"
+
+import { addDoc, collection, deleteDoc, doc } from "firebase/firestore/lite"
+import { FirebaseDB } from "../../Firebase/config"
+
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material"
+import { TittleComponent } from "../../Ui/Components";
 import { EsportItem } from "../Components/EsportItem"
 
 const initialState = {
     game: "",
     plataform: "",
 }
-
 
 export const AddEsports = () => {
 

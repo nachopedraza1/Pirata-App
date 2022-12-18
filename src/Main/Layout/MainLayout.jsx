@@ -12,7 +12,7 @@ export const MainLayout = ({ children, bgColor, bgImg }) => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                paddingBottom: "70px"
+                paddingBottom: "70px",
             }}>
                 <Container maxWidth="lg">
                     {children}

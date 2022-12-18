@@ -19,9 +19,7 @@ export const MatchItem = ({ match, onDeteleMatch }) => {
                     onClick={() => onDeteleMatch(match.id)}
                     sx={{ padding: 0 }} >
                     <Tooltip title="Eliminar Partido" arrow>
-                        <IconButton sx={{ padding: 0 }}>
-                            <DeleteForever color="error" />
-                        </IconButton>
+                        <DeleteForever color="error" />
                     </Tooltip>
                 </Button>
             </Grid>

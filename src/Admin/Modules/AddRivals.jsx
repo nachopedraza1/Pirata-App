@@ -1,17 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { onLoadRivals } from "../../Redux/Thunks/thunks";
 
-import { FirebaseDB } from "../../Firebase/config";
 import { addDoc, collection, deleteDoc, doc } from "firebase/firestore/lite";
+import { FirebaseDB } from "../../Firebase/config";
 
 import { useForm, useUploadImage } from "../../hooks";
 
-import { AdminPanelLayout } from "../Layout/AdminPanelLayout";
-import { TittleComponent } from "../../Main/Components";
+import { TittleComponent } from "../../Ui/Components";
 import { RivalItem } from "../Components";
 
-import { PhotoCamera } from "@mui/icons-material";
 import { Button, Grid, IconButton, TextField } from "@mui/material";
+import { PhotoCamera } from "@mui/icons-material";
 
 
 const initalForm = {
