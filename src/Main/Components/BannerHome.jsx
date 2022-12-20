@@ -1,4 +1,4 @@
-import { Divider, Grid, Link, Typography } from "@mui/material"
+import { Box, Divider, Grid, Link, Typography } from "@mui/material"
 import { MainLayout } from "../Layout/MainLayout"
 
 
@@ -26,7 +26,9 @@ export const BannerHome = () => {
                     justifyContent: "end",
                     alignItems: "center",
                 }}>
-                    <img src="../src/assets/logocabrepublica.png" alt="" width="250px" />
+                    <Box display={{ xs: "none", md: "flex" }}>
+                        <img src="../src/assets/logocabrepublica.png" alt="" width="250px" />
+                    </Box>
                 </Grid>
 
                 <Grid container display="flex" justifyContent="center" alignItems="center" textAlign="center" padding={2} gap={3}>

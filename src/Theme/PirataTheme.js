@@ -44,6 +44,15 @@ export const PirataTheme = createTheme({
                 }
             }
         },
+        MuiButton:{
+            styleOverrides:{
+                root:{
+                    "&:hover":{
+                        backgroundColor:"transparent"
+                    }
+                }
+            }
+        }
     },
     palette: {
         primary: {

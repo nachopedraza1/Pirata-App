@@ -1,3 +1,5 @@
+import "../../Theme/scss/esportsPage.scss"
+
 import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 
@@ -6,24 +8,32 @@ import { MainLayout } from "../Layout/MainLayout"
 import { CardsTeam } from "../Components"
 import { CardsTeamDetail } from "../Components/CardsTeamDetail"
 
+
 export const TeamsPage = () => {
-
-    const { matches } = useSelector(state => state.mainData);
-
-    const [teamSelected, setTeamSelected] = useState({
-        selected: false,
-        matches: [],
-    });
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    const onClickTeam = (team) => {
+    const { matches, esports } = useSelector(state => state.mainData);
+
+    const [teamSelected, setTeamSelected] = useState({
+        selected: false,
+        team: null,
+        bannerTeam: null,
+        matches: [],
+        players: [],
+    });
+
+    const onClickTeam = (team, bannerTeam) => {
         const matchesFilter = matches.filter(match => match.game === team);
+        const [esport] = esports.filter(esport => esport.game === team);
         setTeamSelected({
             selected: true,
+            team,
+            bannerTeam,
             matches: matchesFilter,
+            players: esport.players,
         });
     }
 
@@ -54,7 +64,7 @@ export const TeamsPage = () => {
             </MainLayout >
 
             {
-                teamSelected.selected && <CardsTeamDetail />
+                teamSelected.selected && <CardsTeamDetail {...teamSelected} />
             }
 
         </>

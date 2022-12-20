@@ -60,7 +60,7 @@ export const AddDateMatch = () => {
             <Grid item xs={12} lg={8} >
                 <TittleComponent tittle="AGREGAR FECHA" />
                 <form autoComplete="off" onSubmit={onAddMatchDate}>
-                    <Grid container direction="column" bgcolor="backgraunds.main" borderRadius={1} gap={1}  >
+                    <Grid container direction="column" bgcolor="backgraunds.main" gap={1}  >
                         <Grid container spacing={2} padding={2}>
                             <Grid item xs={12} sm={6}  >
                                 <FormControl fullWidth>

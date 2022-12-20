@@ -52,7 +52,6 @@ export const AddRivals = () => {
                         justifyContent="space-between"
                         alignItems="center"
                         bgcolor="backgraunds.main"
-                        borderRadius={1}
                         gap={1} >
 
                         <Grid item xs={6} display="flex" alignItems="center" justifyContent="center" padding={2} >

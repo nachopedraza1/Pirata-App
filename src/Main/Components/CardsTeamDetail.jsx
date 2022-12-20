@@ -1,20 +1,63 @@
 import { useEffect } from "react";
-import { Grid } from "@mui/material"
+import { Container, Grid, Typography } from "@mui/material"
 
-export const CardsTeamDetail = () => {
+export const CardsTeamDetail = ({ team, bannerTeam, matches, players }) => {
 
     useEffect(() => {
         document.body.classList.remove("hiddenscroll");
     }, []);
 
     return (
-        <Grid container bgcolor="backgraunds.black" id="teamlol">
-            <img src="../src/assets/linea.png" alt="" width="100%" />
-            <img src="../src/assets/lolbgteams.png" alt="" width="100%" />
+        <>
+            <Grid container bgcolor="backgraunds.black" id="team">
+                <img src="../src/assets/linea.png" alt="" width="100%" />
+                <img src={`../src/assets/${bannerTeam}.png`} alt="" width="100%" />
 
-            <Grid container height="700px">
-
+                <Container maxWidth="lg" sx={{minHeight:"100vh"}} >
+                    {
+                        players.length === 0
+                            ? <Typography variant="h3" className="teams__title">PROXIMAMENTE </Typography>
+                            : <Typography variant="h3" className="teams__title">PLAYERS <span> {team} </span></Typography>
+                    }
+                    <div className="memb__team-list">
+                        {
+                            players.map(player => (
+                                <div className="memb__team-item" key={player.id}>
+                                    <img className=" lazyloaded" src="https://cdn.shopify.com/s/files/1/0548/8554/8183/files/2022-10-27-Pro-Player_Apex_ChaoticMuch.jpg?v=1667906406" data-src="https://cdn.shopify.com/s/files/1/0548/8554/8183/files/2022-10-27-Pro-Player_Apex_ChaoticMuch.jpg?v=1667906406" alt="Chaotic" />
+                                    <div className="memb__team-det">
+                                        <a href="/blogs/team-member/chaotic" className="teammate-profile"></a>
+                                        <div className="teammate-info">
+                                            <h3 className="name"> {player.player} </h3>
+                                            <span className="status">
+                                                <span>Player</span>
+                                            </span>
+                                            <span className="age-loc">
+                                                United Kingdom
+                                            </span>
+                                        </div>
+                                        <div className="teammate-links">
+                                            <nav className="teammate-links-nav">
+                                                <a className=" follow__link" href="https://twitter.com/ChaoticMuch" title="Chaotic on Twitter" target="_blank">
+                                                    <i className="fab fa-twitter"></i>
+                                                </a>
+                                                <a className=" follow__link" href="https://www.youtube.com/channel/UCgjXO8vYQO1_A-9diNrIsAQ" title="Chaotic on YouTube" target="_blank">
+                                                    <i className="fab fa-youtube"></i>
+                                                </a>
+                                                <a className=" follow__link" href="https://www.twitch.tv/ChaoticMuch" title="Chaotic on Twitch" target="_blank">
+                                                    <i className="fab fa-twitch"></i>
+                                                </a>
+                                                <a className=" follow__link" href="https://www.tiktok.com/@chaoticmuch_?lang=en" title="Chaotic on Tiktok" target="_blank">
+                                                    <i className="fab fa-tiktok"></i>
+                                                </a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </Container>
             </Grid>
-        </Grid>
+        </>
     )
 }

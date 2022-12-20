@@ -5,7 +5,7 @@ import { Email, Phone } from '@mui/icons-material'
 
 import { Glitch, Logo, SocialButtons } from './Components'
 
-const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "PARTIDOS", ref: "matches" }, { text: "CONTACTO", ref: "/" }]
+const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "CONTACTO", ref: "/" }]
 
 export const Footer = () => {
     return (
@@ -26,7 +26,7 @@ export const Footer = () => {
                             ))}
                         </List>
 
-                        <List sx={{ display: "flex",justifyContent: "center", flexWrap: "wrap", position: "absolute", top: "80%" }}>
+                        <List sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", position: "absolute", top: "80%" }}>
                             <Link underline="none" >
                                 <Button size='small' startIcon={<Email sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" }, fontSize: "12px" }}>
                                     belgranoesports@gmail.com

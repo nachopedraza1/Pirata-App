@@ -5,9 +5,9 @@ import { Link as RouterLink } from "react-router-dom"
 import { AuthButtons, UserButtons } from "./Components";
 
 import { Container, AppBar, Box, Button, Divider, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Link } from "@mui/material"
-import { FormatListNumberedRounded, GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, NearMe, SportsEsports } from '@mui/icons-material'
+import {  GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, NearMe, SportsEsports } from '@mui/icons-material'
 
-const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "PARTIDOS", ref: "matches" }, { text: "CONTACTO", ref: "/" }]
+const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "CONTACTO", ref: "/" }]
 
 export const Navbar = () => {
 
@@ -97,7 +97,6 @@ export const Navbar = () => {
                                             (item.text === "INICIO") ? < HomeRounded /> :
                                                 (item.text === "EL PROYECTO") ? < GroupsRounded /> :
                                                     (item.text === "ESPORTS") ? < SportsEsports /> :
-                                                        (item.text === "PARTIDOS") ? < FormatListNumberedRounded /> :
                                                             < NearMe />
                                         }
                                     </ListItemIcon>

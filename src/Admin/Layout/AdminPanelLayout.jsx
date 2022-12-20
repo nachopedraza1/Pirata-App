@@ -23,7 +23,6 @@ const drawerWidth = 240;
 
 const navlinks1 = [
     { text: 'Publicar Noticia', ref: "addmatches" },
-    { text: 'Publicar Equipo', ref: "addteams" },
     { text: 'Publicar Partido', ref: "addmatches" },
     { text: 'Publicar Fecha', ref: "adddate" }
 ];
@@ -60,7 +59,6 @@ export const AdminPanelLayout = (props) => {
                             <ListItemIcon>
                                 {
                                     (text === "Publicar Noticia") ? <FiberNew /> :
-                                        (text === "Publicar Equipo") ? <Groups2 /> :
                                             (text === "Publicar Partido") ? <EmojiEvents /> : <DoubleArrow />
                                 }
                             </ListItemIcon>

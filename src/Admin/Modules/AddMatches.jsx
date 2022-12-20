@@ -59,7 +59,7 @@ export const AddMatches = () => {
             <Grid item xs={12} lg={8} >
                 <TittleComponent tittle="AGREGAR PARTIDO" />
                 <form onSubmit={onAddMatch} >
-                    <Grid container direction="column" bgcolor="backgraunds.main" borderRadius={1} gap={1} >
+                    <Grid container direction="column" bgcolor="backgraunds.main" gap={1} >
                         <Grid
                             container
                             justifyContent="center"

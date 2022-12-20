@@ -3,16 +3,17 @@ import { onLoadEsports } from "../../Redux/Thunks"
 
 import { useForm } from "../../hooks"
 
-import { addDoc, collection, deleteDoc, doc } from "firebase/firestore/lite"
+import { addDoc, collection, deleteDoc, doc, updateDoc } from "firebase/firestore/lite"
 import { FirebaseDB } from "../../Firebase/config"
 
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select } from "@mui/material"
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select, } from "@mui/material"
 import { TittleComponent } from "../../Ui/Components";
 import { EsportItem } from "../Components/EsportItem"
 
 const initialState = {
     game: "",
     plataform: "",
+    players: [],
 }
 
 export const AddEsports = () => {
@@ -28,32 +29,44 @@ export const AddEsports = () => {
 
         const esport = { ...formState }
 
-        const queryRef = collection(FirebaseDB, "esports");
-        await addDoc(queryRef, esport);
-        dispatch(onLoadEsports());
+        const exist = esports.find(esport => esport.game === game);
+
+        if (!exist) {
+            const queryRef = collection(FirebaseDB, "esports");
+            await addDoc(queryRef, esport);
+            dispatch(onLoadEsports());
+        } else {
+            console.log("existe");
+        }
     }
 
     const onDeteleEsport = async (id) => {
-        await deleteDoc(doc(FirebaseDB, "esports", `${id}`))
+        await deleteDoc(doc(FirebaseDB, "esports", id))
         dispatch(onLoadEsports());
+    }
+
+    const updateTeam = async (id, players) => {
+        const queryRef = doc(FirebaseDB, "esports", id);
+        await updateDoc(queryRef, {
+            players: players
+        })
     }
 
     return (
         <Grid container spacing={2}>
 
             <Grid item xs={12} lg={8} >
-                <TittleComponent tittle="AGREGAR JUEGO" />
+                <TittleComponent tittle="AGREGAR EQUIPO" />
                 <form autoComplete="off" onSubmit={onAddEsport} >
                     <Grid
                         container
                         direction="column"
                         alignItems="center"
                         bgcolor="backgraunds.main"
-                        borderRadius={1}
                     >
 
                         <Grid container padding={2} spacing={2} >
-                            <Grid item xs={6} >
+                            <Grid item xs={12} sm={6} >
                                 <FormControl fullWidth>
                                     <FormControl fullWidth>
                                         <InputLabel>Juego</InputLabel>
@@ -75,7 +88,7 @@ export const AddEsports = () => {
                                 </FormControl>
                             </Grid>
 
-                            <Grid item xs={6} >
+                            <Grid item xs={12} sm={6} >
                                 <FormControl fullWidth>
                                     <InputLabel>Plataforma</InputLabel>
                                     <Select
@@ -97,7 +110,7 @@ export const AddEsports = () => {
 
                         <Grid container justifyContent="end" padding={2}>
                             <Button variant="outlined" type="submit" >
-                                Actualizar
+                                Agregar
                             </Button>
                         </Grid>
 
@@ -106,10 +119,10 @@ export const AddEsports = () => {
             </Grid>
 
             <Grid item xs={12} lg={4}>
-                <TittleComponent tittle="JUEGOS" />
+                <TittleComponent tittle="EQUIPOS" />
                 <Grid container direction="column">
                     {
-                        esports.map(esport => (<EsportItem key={esport.id} esport={esport} onDeteleEsport={onDeteleEsport} />))
+                        esports.map(esport => (<EsportItem key={esport.id} esport={esport} onDeteleEsport={onDeteleEsport} updateTeam={updateTeam} />))
                     }
                 </Grid>
             </Grid>

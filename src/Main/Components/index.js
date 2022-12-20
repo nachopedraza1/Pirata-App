@@ -4,7 +4,6 @@ export * from './TabMatches';
 export * from './BannerHome';
 export * from './LoadingData';
 export * from './SocialBanner';
-export * from './CarouselNews';
 export * from './NewsContainer';
 export * from './MatchContainer';
 export * from './TwitterContainer';
