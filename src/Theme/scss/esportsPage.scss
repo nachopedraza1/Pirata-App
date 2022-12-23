@@ -1,5 +1,10 @@
 $color_1: #fff;
 
+body::-webkit-scrollbar {
+    width: 0px;
+    background-color: #000000;
+}
+
 .hiddenscroll {
     overflow-y: hidden;
 }
@@ -84,7 +89,6 @@ $color_1: #fff;
     }
 
     .join-now-button {
-        /*      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); */
         padding: 10px;
         width: 150px;
         position: absolute;

@@ -6,6 +6,7 @@ export * from './LoadingData';
 export * from './SocialBanner';
 export * from './NewsContainer';
 export * from './MatchContainer';
+export * from './TwitchContainer';
 export * from './TwitterContainer';
 export * from './UpcomingMatchesItem';
 export * from './MatchHistoryContainer';

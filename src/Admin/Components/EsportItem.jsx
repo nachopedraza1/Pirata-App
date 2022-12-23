@@ -54,7 +54,7 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
                 bgcolor="backgraunds.main"
             >
                 <Grid item xs={2}>
-                    <img src={`../src/assets/esports/${esport.game}.png`} width="50px" alt="" />
+                    <img src={`/assets/images/esports/${esport.game}.png`} width="50px" alt="" />
                 </Grid>
 
                 <Grid item xs={8}>
@@ -83,7 +83,7 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
                 <Grid container sx={styleModal} direction="column" justifyContent="space-between">
 
                     <Grid container justifyContent="center" alignItems="center" >
-                        <img src={`../src/assets/esports/${esport.game}.png`} width="200px" alt="" className="animate__animated animate__fadeInDown" />
+                        <img src={`/assets/images/esports/${esport.game}.png`} width="200px" alt="" className="animate__animated animate__fadeInDown" />
                         <TittleComponent tittle="AGREGAR JUGADOR" />
                         <Grid item xs={10} >
                             <TextField

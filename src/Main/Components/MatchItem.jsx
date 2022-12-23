@@ -18,7 +18,7 @@ export const MatchItem = ({ match }) => {
             bgcolor="backgraunds.main"
             margin="5px"
         >
-            <Grid container alignItems="start" padding={2} borderBottom={`1px solid ${bgcolor}`}>
+            <Grid container alignItems="start" padding={2} borderBottom={`1px solid gray`}>
                 <Grid item xs={8} display="flex" flexDirection="column">
                     <Typography variant="p" color="white" fontFamily="Oswald" > {match.game} </Typography>
                     <Typography variant="p" color="gray" fontFamily="Poppins-reg" > VPA league 2022</Typography>
@@ -30,7 +30,7 @@ export const MatchItem = ({ match }) => {
             </Grid>
             <Grid container >
                 <Grid item xs={8} display="flex" justifyContent="space-around" alignItems="center">
-                    <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "65px" }} />
+                    <img src="/assets/images/Logo.png" alt="" width="100%" style={{ maxWidth: "65px" }} />
                     <Typography color={bgcolor}> {match.puntosLocal} </Typography>
                     <Typography color={bgcolor}> : </Typography>
                     <Typography color={bgcolor}> {match.puntosRival} </Typography>

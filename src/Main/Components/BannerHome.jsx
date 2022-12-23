@@ -4,7 +4,7 @@ import { MainLayout } from "../Layout/MainLayout"
 
 export const BannerHome = () => {
     return (
-        <MainLayout bgImg="../src/assets/background1.png">
+        <MainLayout bgImg="/assets/images/background1.png">
             <Grid
                 className="animate__animated animate__fadeIn"
                 container
@@ -17,8 +17,7 @@ export const BannerHome = () => {
                 <Grid container sx={{
                     width: "100%",
                     minHeight: "30vh",
-                    backgroundImage: `url("src/assets/logoheader.gif")`,
-                    backgroundSize: "cover",
+                    backgroundImage: `url("/assets/images/logoheader.gif")`,
                     backgroundPosition: "center",
                     backgroundSize: "450px",
                     backgroundRepeat: "no-repeat",
@@ -27,7 +26,7 @@ export const BannerHome = () => {
                     alignItems: "center",
                 }}>
                     <Box display={{ xs: "none", md: "flex" }}>
-                        <img src="../src/assets/logocabrepublica.png" alt="" width="250px" />
+                        <img src="/assets/images/logocabrepublica.png" alt="" width="250px" />
                     </Box>
                 </Grid>
 
@@ -41,16 +40,16 @@ export const BannerHome = () => {
 
                     <Grid item display="flex" flexWrap="wrap" justifyContent="center" alignItems="center" >
                         <Grid item xs={6} sm={3}>
-                            <img src="../src/assets/esports/LEAGUE OF LEGENDS.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
+                            <img src="/assets/images/esports/LEAGUE OF LEGENDS.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                         </Grid>
                         <Grid item xs={6} sm={3}>
-                            <img src="../src/assets/esports/logo-fifa.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
+                            <img src="/assets/images/esports/logo-fifa.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                         </Grid>
                         <Grid item xs={6} sm={3}>
-                            <img src="../src/assets/esports/logo-freefire.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
+                            <img src="/assets/images/esports/logo-freefire.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                         </Grid>
                         <Grid item xs={6} sm={3}>
-                            <img src="../src/assets/esports/formula 1.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
+                            <img src="/assets/images/esports/formula 1.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                         </Grid>
                     </Grid>
 
@@ -58,7 +57,7 @@ export const BannerHome = () => {
 
                 <Grid position="absolute" bottom={50}>
                     <Link href="#home">
-                        <img src="../src/assets/arrow.png" alt="" width="100%" className="animate__animated animate__fadeInUp" />
+                        <img src="/assets/images/arrow.png" alt="" width="100%" className="animate__animated animate__fadeInUp" />
                     </Link>
                 </Grid>
             </Grid>

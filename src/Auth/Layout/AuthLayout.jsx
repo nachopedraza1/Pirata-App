@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { startFacebookLogin, startGitHubLogin, startLoginGoogle, startTwitterLogin } from "../../Redux/Thunks"
 
-import { CheckingAuth, SocialButtons } from "../../Ui/Components"
+import { CheckingAuth, SocialButtons, TittleComponent } from "../../Ui/Components"
 import { Grid, Typography, Divider, Button } from "@mui/material"
 import { Facebook, GitHub, Google, Twitter } from "@mui/icons-material"
 
@@ -26,7 +26,7 @@ export const AuthLayout = ({ children, tittle }) => {
         dispatch(startGitHubLogin())
     }
 
-    const isDisabled = tittle === "Registro";
+    const isDisabled = tittle === "REGISTRO";
 
     return (
         <Grid
@@ -38,8 +38,7 @@ export const AuthLayout = ({ children, tittle }) => {
                 minHeight: "100vh",
                 width: "100%",
                 height: "100%",
-                backgroundColor: "primary.main",
-                backgroundImage: "url(../src/assets/bg-texture-01.jpg)",
+                backgroundImage: "url(/assets/images/background1.png)",
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed",
                 backgroundRepeat: "no-repeat",
@@ -53,16 +52,16 @@ export const AuthLayout = ({ children, tittle }) => {
                 justifyContent="space-around"
                 alignItems="center"
                 sx={{
-                    backgroundColor: "white",
+                    backgroundColor: "backgraunds.black",
                     padding: 2,
                     margin: 2,
                     borderRadius: 1,
                     maxWidth: { xs: "450px", md: "970px" },
-                    marginTop:{xs:"80px", md:"0px"}
+                    marginTop: { xs: "80px", md: "0px" }
                 }}>
 
-                <Grid position="absolute" top="-60px" >
-                    <img src="../src/assets/Logo.png" alt="" width="150px" />
+                <Grid position="absolute" top="-60px" zIndex={1} >
+                    <img src="/assets/images/Logo.png" alt="" width="150px" />
                 </Grid>
 
                 <Grid
@@ -72,14 +71,23 @@ export const AuthLayout = ({ children, tittle }) => {
                     padding={1}
                 >
 
-                    <Typography variant="h5" sx={{ mb: 1 }}> {tittle} </Typography>
+                    <Typography variant="h5" sx={{ mb: 1 }} fontFamily="Aldrich" color="white"> {tittle} </Typography>
+                    {/* <TittleComponent tittle={tittle} /> */}
 
                     {(status === "checking") ? <CheckingAuth /> : children}
 
                 </Grid>
 
-                <Divider orientation="vertical" flexItem >
-                    <img src="../src/assets/belgrano-calavera-black.png" width="50px" alt="" />
+                <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{
+                        color: "white",
+                        "&::before, &::after": {
+                            borderColor: "secondary.light",
+                        }
+                    }}>
+                    <img src="/assets/images/belgrano-calavera-white.png" width="50px" alt="" />
                 </Divider>
 
                 <Grid
@@ -96,7 +104,7 @@ export const AuthLayout = ({ children, tittle }) => {
                         variant="contained"
                         fullWidth
                         sx={{ mb: 2, p: 1 }}>
-                        <Typography variant="p"> Twitter </Typography>
+                        Twitter
                     </Button>
                     <Button
                         startIcon={<Facebook />}
@@ -105,16 +113,16 @@ export const AuthLayout = ({ children, tittle }) => {
                         variant="contained"
                         fullWidth
                         sx={{ mb: 2, p: 1, backgroundColor: "#4267B2" }}>
-                        <Typography variant="p"> Facebook </Typography>
+                        Facebook
                     </Button>
                     <Button
                         startIcon={<Google />}
                         disabled={isDisabled}
                         onClick={() => onGoogleLogin()}
-                        variant="outlined"
+                        variant="contained"
                         fullWidth
-                        sx={{ mb: 2, p: 1, }}>
-                        <Typography variant="p"> Google </Typography>
+                        sx={{ mb: 2, p: 1, backgroundColor: "white", color: "primary.main" }}>
+                        Google
                     </Button>
                     <Button
                         startIcon={<GitHub />}
@@ -123,7 +131,7 @@ export const AuthLayout = ({ children, tittle }) => {
                         variant="contained"
                         fullWidth
                         sx={{ mb: 2, p: 1, backgroundColor: "#171515", "&:hover": { backgroundColor: "#171515" } }}>
-                        <Typography variant="p"> GitHub </Typography>
+                        GitHub
                     </Button>
                 </Grid>
 

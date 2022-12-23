@@ -23,7 +23,7 @@ export const Preloader = () => {
             alignItems="center"
         >
             <Grid item xs={3}>
-                <img src="../src/assets/preloadergift.gif" alt="" width="50%" />
+                <img src="/assets/images/preloadergift.gif" alt="" width="50%" />
             </Grid>
         </Grid>
     )

@@ -1,4 +1,4 @@
-import "../../Theme/scss/socialMedia.scss"
+
 
 import { useEffect } from "react";
 
@@ -32,7 +32,7 @@ export const ProjectPage = () => {
                     width="100%"
                     height="100vh"
                     sx={{
-                        backgroundImage: `url(${"src/assets/quienessomos.jpg"})`,
+                        backgroundImage: `url(${"/assets/images/quienessomos.jpg"})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",
@@ -48,7 +48,7 @@ export const ProjectPage = () => {
 
                 <Box position="absolute" bottom={50} zIndex={1}>
                     <Link href="#team">
-                        <img src="../src/assets/arrow.png" alt="" width="100%" className="animate__animated animate__fadeInUp" />
+                        <img src="/assets/images/arrow.png" alt="" width="100%" className="animate__animated animate__fadeInUp" />
                     </Link>
                 </Box>
             </Grid>

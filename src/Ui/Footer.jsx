@@ -19,7 +19,7 @@ export const Footer = () => {
                         <List sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
                             {navItems.map((item) => (
                                 <Link component={RouterLink} to={`/${item.ref}`} underline="none" key={item.text}>
-                                    <Button sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
+                                    <Button disableTouchRipple sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
                                         {item.text}
                                     </Button>
                                 </Link>
@@ -28,12 +28,12 @@ export const Footer = () => {
 
                         <List sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", position: "absolute", top: "80%" }}>
                             <Link underline="none" >
-                                <Button size='small' startIcon={<Email sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" }, fontSize: "12px" }}>
+                                <Button size='small' disableTouchRipple startIcon={<Email sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" }, fontSize: "12px" }}>
                                     belgranoesports@gmail.com
                                 </Button>
                             </Link>
                             <Link underline="none" >
-                                <Button size='small' startIcon={<Phone sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" } }}>
+                                <Button size='small' disableTouchRipple startIcon={<Phone sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" } }}>
                                     0351-3295515
                                 </Button>
                             </Link>
@@ -41,7 +41,7 @@ export const Footer = () => {
                     </Grid>
 
                     <Grid item xs={12} md={3} display="flex" justifyContent="center" paddingTop={{ xs: 5, md: 0 }}>
-                        <img src="../src/assets/logocabrepublica.png" alt="" width="100%" style={{ maxWidth: "250px" }} />
+                        <img src="/assets/images/logocabrepublica.png" alt="" width="100%" style={{ maxWidth: "250px" }} />
                     </Grid>
                 </Grid>
 
@@ -51,7 +51,7 @@ export const Footer = () => {
                         borderColor: "secondary.light",
                     },
                 }} >
-                    <img src="../src/assets/belgrano-calavera-white.png" width="50px" alt="" />
+                    <img src="/assets/images/belgrano-calavera-white.png" width="50px" alt="" />
                 </Divider>
 
 

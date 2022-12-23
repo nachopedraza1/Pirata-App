@@ -86,7 +86,7 @@ export const AddMatches = () => {
 
                             <Grid item xs={12} md={6} padding={1}>
                                 <FormControl fullWidth>
-                                    <InputLabel sx={{ color: "white" }}>Esport</InputLabel>
+                                    <InputLabel >Esport</InputLabel>
                                     <Select
                                         required={true}
                                         name="game"
@@ -135,7 +135,7 @@ export const AddMatches = () => {
                             </Grid>
 
                             <Grid item xs={12} md={2} textAlign="center" padding={1}>
-                                <img src="../src/assets/Logo.png" alt="" width="100px" />
+                                <img src="/assets/images/Logo.png" alt="" width="100px" />
                             </Grid>
 
                             <Grid item xs={12} md={3} padding={1}>
@@ -157,7 +157,7 @@ export const AddMatches = () => {
                             </Grid>
 
                             <Grid item xs={12} md={2} display="flex" justifyContent="center" padding={1}>
-                                <img src="../src/assets/swords1.png" alt="" width="40px" />
+                                <img src="/assets/images/swords1.png" alt="" width="40px" />
                             </Grid>
 
                             <Grid item xs={12} md={3} padding={1}>

@@ -46,11 +46,11 @@ export const CardsTeam = ({ onClickTeam }) => {
                         <Box className="team-page__team-item" position="relative">
                             <Box className="team-page__image-wrapper">
                                 <Box className="responsive-image__wrapper front-image" >
-                                    <img className="responsive-image__image" src="../src/assets/teams-lol-bg.webp" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-lol-bg.webp" alt="" width="100%" />
                                 </Box>
 
                                 <Box className="responsive-image__wrapper back-image">
-                                    <img className="responsive-image__image" src="../src/assets/teams-lol-bg2.webp" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-lol-bg2.webp" alt="" width="100%" />
                                 </Box>
 
                             </Box>
@@ -77,16 +77,16 @@ export const CardsTeam = ({ onClickTeam }) => {
                         <Link href="#team">
                             <Box className="team-page__image-wrapper">
                                 <Box className="responsive-image__wrapper front-image" >
-                                    <img className="responsive-image__image" src="../src/assets/teams-csgo-bg.webp" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-csgo-bg.webp" alt="" width="100%" />
                                 </Box>
 
                                 <Box className="responsive-image__wrapper back-image">
-                                    <img className="responsive-image__image" src="../src/assets/teams-csgo-bg2.webp" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-csgo-bg2.webp" alt="" width="100%" />
                                 </Box>
 
                             </Box>
                             <Box className="logo-wrapper">
-                                <img src="../src/assets/esports/counter-strike.png" alt="Logo" className="logo-image" width="240px" />
+                                <img src="/assets/images/esports/counter-strike.png" alt="Logo" className="logo-image" width="240px" />
                             </Box>
                             <Box className="description-wrapper">
                                 Broken Blade, Jankos, Caps, Flakked, Targamas
@@ -108,16 +108,16 @@ export const CardsTeam = ({ onClickTeam }) => {
                         <Link href="#team">
                             <Box className="team-page__image-wrapper">
                                 <Box className="responsive-image__wrapper front-image" >
-                                    <img className="responsive-image__image" src="../src/assets/teams-freefire-bg.png" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-freefire-bg.png" alt="" width="100%" />
                                 </Box>
 
                                 <Box className="responsive-image__wrapper back-image">
-                                    <img className="responsive-image__image" src="../src/assets/teams-freefire-bg2.png" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-freefire-bg2.png" alt="" width="100%" />
                                 </Box>
 
                             </Box>
                             <Box className="logo-wrapper">
-                                <img src="../src/assets/esports/logo-freefire.png" alt="Logo" className="logo-image" width="250px" />
+                                <img src="/assets/images/esports/logo-freefire.png" alt="Logo" className="logo-image" width="250px" />
                             </Box>
                             <Box className="description-wrapper">
                                 Broken Blade, Jankos, Caps, Flakked, Targamas
@@ -139,16 +139,16 @@ export const CardsTeam = ({ onClickTeam }) => {
                         <Link href="#team">
                             <Box className="team-page__image-wrapper">
                                 <Box className="responsive-image__wrapper front-image" >
-                                    <img className="responsive-image__image" src="../src/assets/teams-fifa-bg.png" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-fifa-bg.png" alt="" width="100%" />
                                 </Box>
 
                                 <Box className="responsive-image__wrapper back-image">
-                                    <img className="responsive-image__image" src="../src/assets/teams-fifa-bg2.png" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-fifa-bg2.png" alt="" width="100%" />
                                 </Box>
 
                             </Box>
                             <Box className="logo-wrapper">
-                                <img src="../src/assets/esports/logo-fifa.png" alt="Logo" className="logo-image" width="250px" />
+                                <img src="/assets/images/esports/logo-fifa.png" alt="Logo" className="logo-image" width="250px" />
                             </Box>
                             <Box className="description-wrapper">
                                 Broken Blade, Jankos, Caps, Flakked, Targamas
@@ -170,16 +170,16 @@ export const CardsTeam = ({ onClickTeam }) => {
                         <Link href="#team">
                             <Box className="team-page__image-wrapper">
                                 <Box className="responsive-image__wrapper front-image" >
-                                    <img className="responsive-image__image" src="../src/assets/teams-f1-bg.png" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-f1-bg.png" alt="" width="100%" />
                                 </Box>
 
                                 <Box className="responsive-image__wrapper back-image">
-                                    <img className="responsive-image__image" src="../src/assets/teams-f1-bg2.png" alt="" width="100%" />
+                                    <img className="responsive-image__image" src="/assets/images/teams-f1-bg2.png" alt="" width="100%" />
                                 </Box>
 
                             </Box>
                             <Box className="logo-wrapper">
-                                <img src="../src/assets/esports/formula 1.png" alt="Logo" className="logo-image" width="250px" />
+                                <img src="/assets/images/esports/formula 1.png" alt="Logo" className="logo-image" width="250px" />
                             </Box>
                             <Box className="description-wrapper">
                                 Broken Blade, Jankos, Caps, Flakked, Targamas

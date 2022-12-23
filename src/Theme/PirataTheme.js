@@ -5,20 +5,20 @@ export const PirataTheme = createTheme({
     components: {
         MuiCssBaseline: {
             styleOverrides: `
-            @font-face {font-family: Poppins;src: url(../src/assets/Fonts/Poppins-SemiBold.ttf)}
-            @font-face {font-family: Poppins-reg;src: url(../src/assets/Fonts/Poppins-Regular.ttf)}
-            @font-face {font-family: Aldrich;src: url(../src/assets/Fonts/Aldrich-Regular.ttf)}
-            @font-face {font-family: Oswald;src: url(../src/assets/Fonts/oswald.bold.ttf)}`,
+            @font-face {font-family: Poppins;src: url(/assets/Fonts/Poppins-SemiBold.ttf)}
+            @font-face {font-family: Poppins-reg;src: url(/assets/Fonts/Poppins-Regular.ttf)}
+            @font-face {font-family: Aldrich;src: url(/assets/Fonts/Aldrich-Regular.ttf)}
+            @font-face {font-family: Oswald;src: url(/assets/Fonts/oswald.bold.ttf)}`,
         },
         MuiOutlinedInput: {
             styleOverrides: {
                 root: {
-                    color: "white",
+                    color: "gray",
                     "&.MuiOutlinedInput-root": {
                         "& fieldset": {
-                            borderColor: "white"
+                            borderColor: "gray"
                         }, '&:hover fieldset': {
-                            borderColor: 'white',
+                            borderColor: 'gray',
                         },
                         '&.Mui-focused fieldset': {
                             borderColor: "#2192FF",
@@ -26,29 +26,29 @@ export const PirataTheme = createTheme({
                     },
                 },
                 notchedOutline: {
-                    borderColor: "white",
+                    borderColor: "gray",
                 },
             }
         },
         MuiInputLabel: {
             styleOverrides: {
                 root: {
-                    color: "white",
+                    color: "gray",
                 }
             }
         },
         MuiSelect: {
             styleOverrides: {
                 icon: {
-                    color: "white",
-                }
+                    color: "gray",
+                },
             }
         },
-        MuiButton:{
-            styleOverrides:{
-                root:{
-                    "&:hover":{
-                        backgroundColor:"transparent"
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    "&:hover": {
+                        backgroundColor: "transparent"
                     }
                 }
             }

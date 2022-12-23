@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TwitterTimelineEmbed } from "react-twitter-embed";
+import { Timeline } from 'react-twitter-widgets'
 
 import { Grid } from "@mui/material";
 
@@ -10,31 +10,25 @@ export const TwitterContainer = () => {
 
     const [loading, setLoading] = useState(true);
 
-
     return (
         <>
             <TittleComponent tittle={"TWEETS"} />
-            <Grid item className="twitterContainer" mb={2} sx={{ backgroundColor: "backgraunds.secondary" }}>
-                <div className="twitter-embed">
-                    <TwitterTimelineEmbed
-                        sourceType="widget"
-                        screenName="CABesportsok"
-                        options={{
-                            width: "100%",
-                            height: "520px",
-                        }}
-                        theme="dark"
-                        noHeader="false"
-                        noFooter="false"
-                        noBorders="true"
-                        transparent="true"
-                        noScrollbar="true"
-                        onLoad={() => setLoading(false)}
-                        tweetLimit={5}
-                    >
-                    </TwitterTimelineEmbed>
-                    {loading && <LoadingData />}
-                </div>
+            <Grid item mb={2} sx={{ backgroundColor: "backgraunds.secondary" }}>
+                <Timeline
+                    dataSource={{
+                        sourceType: 'profile',
+                        screenName: 'CABesportsok',
+                    }}
+                    options={{
+                        width: "100%",
+                        height: "520px",
+                        tweetLimit: 5,
+                        chrome: "noheader, nofooter,noborders,transparent,noscrollbar",
+                        theme: "dark"
+                    }}
+                    onLoad={() => setLoading(false)}
+                />
+                {loading && <LoadingData />}
             </Grid>
         </>
     )

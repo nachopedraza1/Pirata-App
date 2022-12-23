@@ -1,6 +1,6 @@
 
 import axios from "axios";
-import { collection, doc, getDocs, limit, orderBy, query } from "firebase/firestore/lite";
+import { collection, getDocs, orderBy, query } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../Firebase/config";
 
 export const providerPosts = async () => {

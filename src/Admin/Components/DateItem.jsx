@@ -29,10 +29,10 @@ export const DateItem = ({ match, onDeteleDate }) => {
             </Grid>
             <Grid container alignItems="center" justifyContent="space-between" padding={1} position="relative">
                 <Grid item xs={1}>
-                    <img src={`../src/assets/esports/${match.game}.png`} alt="" width="130%" />
+                    <img src={`/assets/images/esports/${match.game}.png`} alt="" width="130%" />
                 </Grid>
                 <Grid item xs={3} textAlign="center">
-                    <img src="../src/assets/Logo.png" alt="" width="100%" style={{ maxWidth: "70px" }} />
+                    <img src="/assets/images/Logo.png" alt="" width="100%" style={{ maxWidth: "70px" }} />
                 </Grid>
                 <Grid item xs={2} display="flex" justifyContent="center">
                     <svg width="40" height="56" viewBox="0 0 40 56" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -12,17 +12,12 @@ export const AppRouter = () => {
     <>
       <Routes>
 
-        {
-          (status === "authenticated")
-            ? <Route path="/*" element={<MainRoutes />} />
-            : <Route path="/auth/*" element={<AuthRoutes />} />
-        }
 
         {
           (status === "not-authenticated")
-            ? <Route path="/*" element={<MainRoutes />} /> : null
+            ? <Route path="/auth/*" element={<AuthRoutes />} /> : null
         }
-
+        <Route path="/*" element={<MainRoutes />} />
         <Route path="/admincp/*" element={<AdminRoutes />} />
 
       </Routes>

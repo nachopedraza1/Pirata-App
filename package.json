@@ -1,5 +1,5 @@
 {
-  "name": "red-pirata-mui",
+  "name": "belgrano-esports",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -26,12 +26,12 @@
     "firebase": "^9.14.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
     "react-owl-carousel": "^2.3.3",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.4",
-    "react-twitter-embed": "^4.0.4",
+    "react-twitch-embed": "^3.0.1",
+    "react-twitter-widgets": "^1.11.0",
     "sass": "^1.56.1",
     "styled-components": "^5.3.6"
   },

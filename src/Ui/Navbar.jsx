@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link as RouterLink } from "react-router-dom"
 
-import { AuthButtons, UserButtons } from "./Components";
+import { AuthButtons, Logo, UserButtons } from "./Components";
 
 import { Container, AppBar, Box, Button, Divider, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Link } from "@mui/material"
-import {  GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, NearMe, SportsEsports } from '@mui/icons-material'
+import { GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, NearMe, SportsEsports } from '@mui/icons-material'
 
 const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "CONTACTO", ref: "/" }]
 
@@ -36,20 +36,20 @@ export const Navbar = () => {
                         </IconButton>
 
                         <Grid container width="93%" display={{ xs: "flex", md: "none" }} position="absolute" justifyContent="center" zIndex="-1">
-                            <img src="../src/assets/Logo.png" alt="" width="70px" />
+                            <img src="/assets/images/Logo.png" alt="" width="70px" />
                         </Grid>
 
                         <Grid container direction="row" wrap="nowrap" justifyContent={{ xs: "center", md: "space-between" }} alignItems="center">
 
                             <Grid container alignItems="center" gap={2}>
                                 <Grid item display={{ xs: "none", md: "flex" }} >
-                                    <img src="../src/assets/Logo.png" alt="" width="80px" />
+                                    <Logo size="65px" />
                                 </Grid>
 
                                 <Grid item sx={{ display: { xs: 'none', md: 'flex', borderLeft: "2px solid #2192FF", paddingLeft: "5px" } }}>
                                     {navItems.map((item) => (
                                         <Link component={RouterLink} to={`/${item.ref}`} underline="none" key={item.text}>
-                                            <Button sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
+                                            <Button disableTouchRipple sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
                                                 {item.text}
                                             </Button>
                                         </Link>
@@ -82,7 +82,7 @@ export const Navbar = () => {
                         <MenuOpenOutlined sx={{ fontSize: 30, color: "white" }} />
                     </IconButton>
 
-                    <img src="../src/assets/Logo.png" alt="" width="60px" />
+                    <Logo size="60px" />
                 </Toolbar>
 
                 <Divider sx={{ backgroundColor: "white" }} />
@@ -97,7 +97,7 @@ export const Navbar = () => {
                                             (item.text === "INICIO") ? < HomeRounded /> :
                                                 (item.text === "EL PROYECTO") ? < GroupsRounded /> :
                                                     (item.text === "ESPORTS") ? < SportsEsports /> :
-                                                            < NearMe />
+                                                        < NearMe />
                                         }
                                     </ListItemIcon>
                                     <Grid container>

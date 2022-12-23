@@ -19,23 +19,6 @@ const formDataLogin = {
     password: ""
 }
 
-const TextFieldAuth = styled(TextField)({
-    '& label': {
-        color: '#6c757d',
-    },
-    '& .MuiOutlinedInput-root': {
-        "& fieldset": {
-            borderColor: "rgb(192, 192, 192)"
-        }, '&:hover fieldset': {
-            borderColor: 'rgb(192, 192, 192)',
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: "#2192FF",
-        },
-        color: '#6c757d',
-    },
-});
-
 
 export const LoginPage = () => {
 
@@ -58,11 +41,12 @@ export const LoginPage = () => {
     }, []);
 
     return (
-        <AuthLayout tittle={"Iniciar Sesion"}>
-            <form onSubmit={onLogin} >
+        <AuthLayout tittle={"INICIAR SESION"}>
+            <form onSubmit={onLogin} autoComplete="off" >
                 <Grid container direction="column" className="animate__animated animate__fadeIn">
                     <Grid item xs={12}>
-                        <TextFieldAuth
+                        <TextField
+                            autoComplete="off"
                             sx={{ mb: 2 }}
                             type="email"
                             placeholder="Email"
@@ -75,7 +59,8 @@ export const LoginPage = () => {
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextFieldAuth
+                        <TextField
+                            autoComplete="off"
                             sx={{ mb: 2 }}
                             type="password"
                             placeholder="Contraseña"

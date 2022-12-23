@@ -59,8 +59,8 @@ export const RegisterPage = () => {
     } = useForm(formData, formValidations);
 
     return (
-        <AuthLayout tittle={"Registro"}>
-            <form onSubmit={onSubmit}>
+        <AuthLayout tittle={"REGISTRO"}>
+            <form onSubmit={onSubmit} autoComplete="off" >
                 <Grid container className="animate__animated animate__fadeIn">
                     <Grid item xs={12}>
                         <TextFieldAuth
@@ -119,7 +119,7 @@ export const RegisterPage = () => {
                     </Button>
 
                     <Grid container direction="row" justifyContent="end" sx={{ mt: 1 }}>
-                        <Typography sx={{ mr: 1 }}>¿Ya tienes cuenta?</Typography>
+                        <Typography sx={{ mr: 1, color: "gray" }}>¿Ya tienes cuenta?</Typography>
                         <Link component={RouterLink} to="/auth/login">
                             Ingresar
                         </Link>
