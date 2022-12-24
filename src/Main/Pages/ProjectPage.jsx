@@ -1,5 +1,3 @@
-
-
 import { useEffect } from "react";
 
 import { SocialBanner } from "../Components";

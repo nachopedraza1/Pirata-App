@@ -3,8 +3,9 @@ import { MainLayout } from "../Layout/MainLayout"
 
 
 export const BannerHome = () => {
+
     return (
-        <MainLayout bgImg="/assets/images/background1.png">
+        <MainLayout bgImg="/assets/images/background1.jpg">
             <Grid
                 className="animate__animated animate__fadeIn"
                 container

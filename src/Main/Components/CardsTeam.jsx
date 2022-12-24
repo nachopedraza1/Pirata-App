@@ -8,18 +8,10 @@ import { Box, Button, Grid, Link } from "@mui/material"
 
 export const CardsTeam = ({ onClickTeam }) => {
 
-    useEffect(() => {
-        document.body.classList.add("hiddenscroll");
-        return () => document.body.classList.remove("hiddenscroll");
-    }, []);
-
-
     return (
         <Grid container alignItems="center" minHeight="100vh" className="animate__animated animate__fadeInDown">
 
             < OwlCarousel
-                className='animate__animated animate__fadeInDown'
-                items="4"
                 responsive={{
                     0: {
                         items: 1,
@@ -196,8 +188,6 @@ export const CardsTeam = ({ onClickTeam }) => {
                     </Box>
                 </Grid>
             </OwlCarousel>
-
-
         </Grid >
     )
 }

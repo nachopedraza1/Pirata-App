@@ -7,6 +7,7 @@ export * from './SocialBanner';
 export * from './NewsContainer';
 export * from './MatchContainer';
 export * from './TwitchContainer';
+export * from './DiscordContainer';
 export * from './TwitterContainer';
 export * from './UpcomingMatchesItem';
 export * from './MatchHistoryContainer';
