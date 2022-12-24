@@ -2,9 +2,9 @@
 import { facebookLogin, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Auth/Providers/providersAuth";
 
 import { checkingCredentials, login, logout, setEsports, setMatches, setPosts, setRivals, setUpcomingMatches } from "../Slices"
-import { getEsports, getMatches, getRivals, getUpcomingMatches, providerPosts } from "../../Main/Providers/providersData";
-import { useEffect } from "react";
+import { getEsports, getMatches, getRivals, getUpcomingMatches, providerImagesPost, providerPosts } from "../../Main/Providers/providersData";
 
+import axios from "axios";
 
 
 export const startTwitterLogin = () => {

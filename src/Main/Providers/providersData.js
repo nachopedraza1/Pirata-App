@@ -25,6 +25,22 @@ export const providerPosts = async () => {
     }
 }
 
+export const providerImagesPost = async () => {
+    const ids = await axios.get("https://graph.instagram.com/6055764874456461/media?access_token=IGQVJYeFNQcFJlNkdSYkFiTEN2UWlYWk5vbnFrc3VvMFBqNTljd3BCNGdqWXpVaV9FWVBvV09qdE5fQ3dQclZAPeWt3Nml4TUNGQUJ4XzhIZAGlGRWpmYXNlUjlnTktkS0tTZAVNJV3Vn")
+    const { data } = ids.data;
+
+    const newArr = data.slice(0, 6).map(item => {
+        axios.get(`https://graph.instagram.com/${item.id}?fields=caption,id,media_url&access_token=IGQVJYeFNQcFJlNkdSYkFiTEN2UWlYWk5vbnFrc3VvMFBqNTljd3BCNGdqWXpVaV9FWVBvV09qdE5fQ3dQclZAPeWt3Nml4TUNGQUJ4XzhIZAGlGRWpmYXNlUjlnTktkS0tTZAVNJV3Vn`)
+            .then(img => {
+                const { media_url } = img.data
+                console.log(media_url);
+            })
+    })
+    console.log(newArr);
+}
+
+providerImagesPost();
+
 export const getMatches = async () => {
     try {
         const queryRef = collection(FirebaseDB, "matches");
