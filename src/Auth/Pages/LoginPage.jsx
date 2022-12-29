@@ -8,10 +8,10 @@ import { startLogin } from "../../Redux/Thunks"
 import { useForm } from "../../hooks"
 
 import { AuthLayout } from "../Layout/AuthLayout"
-import { Grid, TextField, Link, Button, Typography, Alert } from "@mui/material"
-import { LoginRounded } from "@mui/icons-material"
+import { alertError } from "../../Ui/Alerts/Alerts"
+import { AccountCircle, LoginRounded, Visibility, VisibilityOff } from "@mui/icons-material"
+import { Grid, TextField, Link, Button, Typography, Alert, InputAdornment, IconButton } from "@mui/material"
 
-import styled from "styled-components"
 
 
 const formDataLogin = {
@@ -19,10 +19,11 @@ const formDataLogin = {
     password: ""
 }
 
-
 export const LoginPage = () => {
 
     const { errorMessage } = useSelector(state => state.auth)
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -40,6 +41,9 @@ export const LoginPage = () => {
         dispatch(logout())
     }, []);
 
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
     return (
         <AuthLayout tittle={"INICIAR SESION"}>
             <form onSubmit={onLogin} autoComplete="off" >
@@ -55,6 +59,12 @@ export const LoginPage = () => {
                             name="email"
                             value={email}
                             onChange={onInputChange}
+                            InputProps={{
+                                endAdornment:
+                                    <InputAdornment position="end">
+                                        <AccountCircle sx={{ color: "gray" }} />
+                                    </InputAdornment>,
+                            }}
                         />
                     </Grid>
 
@@ -62,13 +72,23 @@ export const LoginPage = () => {
                         <TextField
                             autoComplete="off"
                             sx={{ mb: 2 }}
-                            type="password"
+                            type={showPassword ? 'text' : 'password'}
                             placeholder="Contraseña"
                             label="Contraseña"
                             fullWidth
                             name="password"
                             value={password}
                             onChange={onInputChange}
+                            InputProps={{
+                                endAdornment:
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            onClick={handleClickShowPassword}
+                                            sx={{ p: 0, color: "gray" }}>
+                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>,
+                            }}
                         />
                     </Grid>
 
@@ -81,9 +101,8 @@ export const LoginPage = () => {
 
                     <Grid container spacing={1}>
                         <Grid item xs={12}>
-                            <Button type="submit" variant="contained" sx={{ padding: 1 }} fullWidth >
-                                <LoginRounded />
-                                <Typography sx={{ ml: 1 }}>LOGIN</Typography>
+                            <Button type="submit" variant="contained" sx={{ padding: 1 }} fullWidth startIcon={<LoginRounded />}>
+                                LOGIN
                             </Button>
                         </Grid>
 

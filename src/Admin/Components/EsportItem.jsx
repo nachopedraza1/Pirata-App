@@ -4,15 +4,30 @@ import { useForm } from "../../hooks";
 import { uuidv4 } from "@firebase/util";
 
 import { TittleComponent } from "../../Ui/Components";
-import { DeleteForever, GroupAdd, PersonAddAlt1 } from "@mui/icons-material"
-import { Button, Divider, Grid, Modal, TextField, Tooltip, Typography } from "@mui/material"
 import { PlayerItem } from "./PlayerItem";
+import { DeleteForever, Event, GroupAdd, Instagram, LocationCity, LocationOn, PersonAddAlt1, SportsEsports, Twitter, YouTube } from "@mui/icons-material"
+import { Button, Divider, FormControl, Grid, InputAdornment, InputLabel, MenuItem, Modal, Select, TextField, Tooltip, Typography } from "@mui/material"
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitch } from "@fortawesome/free-brands-svg-icons";
+
+const initialForm = {
+    player: "",
+    country: "",
+    city: "",
+    age: "",
+    rol: "",
+    twitter: "",
+    instagram: "",
+    youtube: "",
+    twitch: "",
+}
 
 export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
 
     const [openModal, setOpenModal] = useState(false);
 
-    const { onInputChange, player } = useForm({ player: "" })
+    const { onInputChange, formState, player, country, city, age, rol, twitter, instagram, youtube, twitch } = useForm(initialForm)
 
     const [players, setPlayers] = useState([]);
 
@@ -21,7 +36,7 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
     }, []);
 
     const AddPlayer = () => {
-        setPlayers([...players, { id: uuidv4(), player }]);
+        setPlayers([...players, { id: uuidv4(), ...formState }]);
     }
 
     const onDeletePlayer = (id) => {
@@ -30,6 +45,11 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
     }
 
 
+    const onSubmit = (event) => {
+        event.preventDefault();
+        AddPlayer(esport.id)
+    }
+
 
     const styleModal = {
         position: 'absolute',
@@ -37,8 +57,7 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: "100%",
-        maxWidth: "700px",
-        height: "95vh",
+        maxWidth: "1300px",
         bgcolor: 'backgraunds.main',
         boxShadow: 25,
         padding: 4,
@@ -74,45 +93,199 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
             <Divider sx={{ color: "white" }} />
 
             <Modal
-                sx={{ m: 2 }}
+                sx={{ m: 2, overflowY: { xs: "scroll", md: "hidden" } }}
                 className="animate__animated animate__fadeIn"
                 open={openModal}
                 onClose={() => setOpenModal(false)}
             >
 
-                <Grid container sx={styleModal} direction="column" justifyContent="space-between">
+                <Grid container sx={styleModal} alignItems="start">
 
-                    <Grid container justifyContent="center" alignItems="center" >
+                    <Grid item xs={12} textAlign="center">
                         <img src={`/assets/images/esports/${esport.game}.png`} width="200px" alt="" className="animate__animated animate__fadeInDown" />
-                        <TittleComponent tittle="AGREGAR JUGADOR" />
-                        <Grid item xs={10} >
-                            <TextField
-                                autoComplete="off"
-                                fullWidth
-                                label="Jugador"
-                                placeholder="Nombre del jugador"
-                                name="player"
-                                value={player}
-                                onChange={onInputChange}
-                            />
-                        </Grid>
-                        <Grid item xs={2} textAlign="center" >
-                            <Button
-                                onClick={() => AddPlayer(esport.id)}
-                                variant="outlined"
-                            >
-                                <PersonAddAlt1 />
-                            </Button>
-                        </Grid>
-
-                        <Grid item xs={12} bgcolor="backgraunds.secondary" mt={2} maxHeight="200px" sx={{overflowY:"scroll", overflowX:"hidden"}}>
-                            {
-                                players.map(player => (<PlayerItem key={player.id} player={player} onDeletePlayer={onDeletePlayer} />))
-                            }
-                        </Grid>
                     </Grid>
 
-                    <Grid container justifyContent="space-between" alignItems="center" mt={3}>
+                    <form onSubmit={onSubmit}>
+                        <Grid container spacing={3} >
+                            <Grid item xs={12} md={6}>
+                                <TittleComponent tittle="AGREGAR JUGADOR" />
+                                <Grid container spacing={2}>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            required={true}
+                                            fullWidth
+                                            label="Jugador"
+                                            placeholder="Nombre del jugador"
+                                            name="player"
+                                            value={player}
+                                            onChange={onInputChange}
+                                            InputProps={{
+                                                endAdornment:
+                                                    <InputAdornment position="end">
+                                                        <SportsEsports sx={{ color: "gray" }} />
+                                                    </InputAdornment>,
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <FormControl fullWidth>
+                                            <InputLabel>Rol</InputLabel>
+                                            <Select
+                                                required={true}
+                                                name="rol"
+                                                value={rol}
+                                                label="Rol"
+                                                onChange={onInputChange}
+                                            >
+                                                <MenuItem value="PLAYER">PLAYER</MenuItem>
+                                                <MenuItem value="MANAGER">MANAGER</MenuItem>
+                                                <MenuItem value="COACH">COACH</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <TextField
+                                            required={true}
+                                            fullWidth
+                                            label="Edad"
+                                            placeholder="Edad jugador"
+                                            name="age"
+                                            value={age}
+                                            onChange={onInputChange}
+                                            InputProps={{
+                                                endAdornment:
+                                                    <InputAdornment position="end">
+                                                        <Event sx={{ color: "gray" }} />
+                                                    </InputAdornment>,
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <TextField
+                                            required={true}
+                                            fullWidth
+                                            label="Pais"
+                                            placeholder="Pais de origen"
+                                            name="country"
+                                            value={country}
+                                            onChange={onInputChange}
+                                            InputProps={{
+                                                endAdornment:
+                                                    <InputAdornment position="end">
+                                                        <LocationOn sx={{ color: "gray" }} />
+                                                    </InputAdornment>,
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <TextField
+                                            required={true}
+                                            fullWidth
+                                            label="Ciudad"
+                                            placeholder="Ciudad"
+                                            name="city"
+                                            value={city}
+                                            onChange={onInputChange}
+                                            InputProps={{
+                                                endAdornment:
+                                                    <InputAdornment position="end">
+                                                        <LocationCity sx={{ color: "gray" }} />
+                                                    </InputAdornment>,
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            variant="filled"
+                                            fullWidth
+                                            label="Twitter"
+                                            placeholder="Twitter Link"
+                                            name="twitter"
+                                            value={twitter}
+                                            onChange={onInputChange}
+                                            InputProps={{
+                                                endAdornment:
+                                                    <InputAdornment position="end">
+                                                        <Twitter sx={{ color: "#00aced" }} />
+                                                    </InputAdornment>,
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            variant="filled"
+                                            fullWidth
+                                            label="Instagram"
+                                            placeholder="Instagram Link"
+                                            name="instagram"
+                                            value={instagram}
+                                            onChange={onInputChange}
+                                            InputProps={{
+                                                endAdornment:
+                                                    <InputAdornment position="end">
+                                                        <Instagram sx={{ color: "#e4405f" }} />
+                                                    </InputAdornment>,
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            variant="filled"
+                                            fullWidth
+                                            label="Twitch"
+                                            placeholder="Twitch Link"
+                                            name="twitch"
+                                            value={twitch}
+                                            onChange={onInputChange}
+                                            InputProps={{
+                                                endAdornment:
+                                                    <InputAdornment position="end">
+                                                        <FontAwesomeIcon color="#6441a5" fontSize="20px" icon={faTwitch} />
+                                                    </InputAdornment>
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            variant="filled"
+                                            fullWidth
+                                            label="YouTube"
+                                            placeholder="YouTube Link"
+                                            name="youtube"
+                                            value={youtube}
+                                            onChange={onInputChange}
+                                            InputProps={{
+                                                endAdornment:
+                                                    <InputAdornment position="end">
+                                                        <YouTube sx={{ color: "red" }} />
+                                                    </InputAdornment>,
+                                            }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} textAlign="end" >
+                                        <Button
+                                            type="submit"
+                                            endIcon={<PersonAddAlt1 />}
+                                            variant="outlined"
+                                        >
+                                            Agregar
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+
+                            <Grid item xs={12} md={6}>
+                                <TittleComponent tittle="JUGADORES" />
+                                <Grid item xs={12} mt={2} maxHeight="200px" sx={{ overflowY: "scroll", overflowX: "hidden" }} className="CustomScrollBar">
+                                    {
+                                        players.map(player => (<PlayerItem key={player.id} player={player} onDeletePlayer={onDeletePlayer} />))
+                                    }
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </form>
+
+                    <Grid container justifyContent="space-between" alignItems="end">
                         <Button
                             onClick={() => onDeteleEsport(esport.id)}
                             variant="outlined"
@@ -126,7 +299,7 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
                             onClick={() => updateTeam(esport.id, players)}
                             variant="outlined"
                         >
-                            Actualizar
+                            Guardar
                         </Button>
                     </Grid>
                 </Grid>

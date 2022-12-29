@@ -1,8 +1,7 @@
 import { DeleteForever } from "@mui/icons-material"
 import { Button, Divider, Grid, Tooltip, Typography } from "@mui/material"
 
-export const RivalItem = ({ rival, onDeteleRival }) => {
-
+export const LeagueItem = ({ league, esport, id, onDeleteLeague }) => {
     return (
         <>
             <Grid
@@ -13,17 +12,17 @@ export const RivalItem = ({ rival, onDeteleRival }) => {
                 bgcolor="backgraunds.main"
             >
                 <Grid item xs={2}>
-                    <img src={rival.logoRival} width="50px" alt="" />
+                    <img src={`/assets/images/esports/${esport}.png`} alt="" width="100%" style={{ maxWidth: "100px" }} />
                 </Grid>
                 <Grid item xs={8}>
-                    <Typography variant="p" color="white"> {(rival.teamName).toUpperCase()} </Typography>
+                    <Typography variant="p" color="white"> {(league).toUpperCase()} </Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Button
-                        onClick={() => onDeteleRival(rival.id)}
+                        onClick={() => onDeleteLeague(id)}
                         variant="text"
                         sx={{ padding: 0, minWidth: "100%" }} >
-                        <Tooltip title="Eliminar Rival" arrow>
+                        <Tooltip title="Eliminar Liga" arrow>
                             <DeleteForever color="error" />
                         </Tooltip>
                     </Button>

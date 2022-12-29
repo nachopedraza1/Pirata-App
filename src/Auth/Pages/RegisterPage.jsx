@@ -6,9 +6,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { startRegisterUser } from "../../Redux/Thunks/thunks"
 
 import { AuthLayout } from "../Layout/AuthLayout"
-import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material"
-
-import styled from "styled-components"
+import { Alert, Button, Grid, IconButton, InputAdornment, Link, TextField, Typography } from "@mui/material"
+import { AccountCircle, Email, HowToReg, Visibility, VisibilityOff } from "@mui/icons-material"
 
 const formData = {
     displayName: "",
@@ -22,28 +21,13 @@ const formValidations = {
     password: [(value) => value.length >= 6, "La contraseñas debe tener 6 caracteres."],
 }
 
-const TextFieldAuth = styled(TextField)({
-    '& label': {
-        color: '#6c757d',
-    },
-    '& .MuiOutlinedInput-root': {
-        "& fieldset": {
-            borderColor: "rgb(192, 192, 192)"
-        }, '&:hover fieldset': {
-            borderColor: 'rgb(192, 192, 192)',
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: "#2192FF",
-        },
-        color: "#6c757d",
-    },
-});
-
 export const RegisterPage = () => {
 
     const { errorMessage } = useSelector(state => state.auth)
 
     const dispatch = useDispatch();
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -52,6 +36,8 @@ export const RegisterPage = () => {
         setFormSubmitted(true);
         dispatch(startRegisterUser(formState))
     }
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
 
     const { formState, onInputChange, displayName,
         email, password, displayNameValidate,
@@ -63,7 +49,7 @@ export const RegisterPage = () => {
             <form onSubmit={onSubmit} autoComplete="off" >
                 <Grid container className="animate__animated animate__fadeIn">
                     <Grid item xs={12}>
-                        <TextFieldAuth
+                        <TextField
                             sx={{ mb: 2 }}
                             type="text"
                             placeholder="Nombre de Usuario"
@@ -74,11 +60,17 @@ export const RegisterPage = () => {
                             onChange={onInputChange}
                             error={!!displayNameValidate && formSubmitted}
                             helperText={formSubmitted && displayNameValidate}
+                            InputProps={{
+                                endAdornment:
+                                    <InputAdornment position="end">
+                                        <AccountCircle sx={{ color: "gray" }} />
+                                    </InputAdornment>,
+                            }}
                         />
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextFieldAuth
+                        <TextField
                             sx={{ mb: 2 }}
                             type="text"
                             placeholder="Ingresa tu Email"
@@ -89,13 +81,19 @@ export const RegisterPage = () => {
                             onChange={onInputChange}
                             error={!!emailValidate && formSubmitted}
                             helperText={formSubmitted && emailValidate}
+                            InputProps={{
+                                endAdornment:
+                                    <InputAdornment position="end">
+                                        <Email sx={{ color: "gray" }} />
+                                    </InputAdornment>,
+                            }}
                         />
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextFieldAuth
+                        <TextField
                             sx={{ mb: 2 }}
-                            type="password"
+                            type={showPassword ? 'text' : 'password'}
                             placeholder="Ingresa una Contraseña"
                             label="Contraseña"
                             fullWidth
@@ -104,6 +102,16 @@ export const RegisterPage = () => {
                             onChange={onInputChange}
                             error={!!passwordValidate && formSubmitted}
                             helperText={formSubmitted && passwordValidate}
+                            InputProps={{
+                                endAdornment:
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            onClick={handleClickShowPassword}
+                                            sx={{ p: 0, color: "gray" }}>
+                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </InputAdornment>,
+                            }}
                         />
                     </Grid>
 
@@ -114,7 +122,7 @@ export const RegisterPage = () => {
                         </Alert>
                     </Grid>
 
-                    <Button type="submit" variant="contained" fullWidth sx={{ p: 1 }}>
+                    <Button type="submit" variant="contained" fullWidth sx={{ p: 1 }} startIcon={<HowToReg />}>
                         Confirmar
                     </Button>
 

@@ -1,14 +1,5 @@
 $color_1: #fff;
 
-body::-webkit-scrollbar {
-    width: 0px;
-    background-color: #000000;
-}
-
-.hiddenscroll {
-    overflow-y: hidden;
-}
-
 .team-page__team-item {
     overflow: hidden;
     position: relative;
@@ -47,7 +38,7 @@ body::-webkit-scrollbar {
         left: 50%;
         transform: translateX(-50%);
         z-index: -1;
-        max-width: 70%;
+        width: 80%;
         opacity: 0;
         transition: all .5s ease-in-out;
         text-align: center;
@@ -308,7 +299,7 @@ $border-top-color_2: #dd1c21;
         }
 
         .age-loc {
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 700;
         }
 

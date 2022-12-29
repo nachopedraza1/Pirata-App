@@ -1,7 +1,6 @@
 import { Box, Divider, Grid, Link, Typography } from "@mui/material"
 import { MainLayout } from "../Layout/MainLayout"
 
-
 export const BannerHome = () => {
 
     return (
@@ -31,15 +30,15 @@ export const BannerHome = () => {
                     </Box>
                 </Grid>
 
-                <Grid container display="flex" justifyContent="center" alignItems="center" textAlign="center" padding={2} gap={3}>
+                <Grid container display="flex" justifyContent="center" alignItems="center" textAlign="center" padding={2}>
 
                     <Grid item xs={12} md={6}>
                         <Typography variant="h4" color="white" fontFamily="Aldrich">BELGRANO ESPORTS</Typography>
                         <Divider sx={{ color: "white", margin: "5px" }} />
-                        <Typography variant="p" color="white" fontFamily="Poppins-reg"> Belgrano Esports es el espacio de encuentro y competencia de los y las gamers piratas de todo el país y el mundo. Hoy nuestros planteles buscan llegar a lo más alto en:</Typography>
+                        <Typography variant="p" color="white" fontFamily="Poppins"> Belgrano Esports es el espacio de encuentro y competencia de los y las gamers piratas de todo el país y el mundo. Hoy nuestros planteles buscan llegar a lo más alto en:</Typography>
                     </Grid>
 
-                    <Grid item display="flex" flexWrap="wrap" justifyContent="center" alignItems="center" >
+                    <Grid item display="flex" flexWrap="wrap" justifyContent="center" alignItems="center" pt={{ sm: 3 }}>
                         <Grid item xs={6} sm={3}>
                             <img src="/assets/images/esports/LEAGUE OF LEGENDS.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                         </Grid>
@@ -50,7 +49,7 @@ export const BannerHome = () => {
                             <img src="/assets/images/esports/logo-freefire.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                         </Grid>
                         <Grid item xs={6} sm={3}>
-                            <img src="/assets/images/esports/formula 1.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
+                            <img src="/assets/images/esports/FORMULA1.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
                         </Grid>
                     </Grid>
 

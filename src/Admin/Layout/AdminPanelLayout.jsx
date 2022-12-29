@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link as RouterLink } from "react-router-dom";
 
 import AppBar from '@mui/material/AppBar';
@@ -15,7 +16,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-import { DoubleArrow, EmojiEvents, FiberNew, Groups2, Logout, MenuOpenOutlined, PersonAdd, Security, Settings, SportsEsports } from '@mui/icons-material';
+import { DoubleArrow, EmojiEvents, FiberNew, Logout, MenuOpenOutlined, PersonAdd, Security, Settings, SportsEsports } from '@mui/icons-material';
+import { startLogout } from '../../Redux/Thunks/thunks';
 
 
 const drawerWidth = 240;
@@ -29,18 +31,26 @@ const navlinks1 = [
 
 const navlinks2 = [
     { text: 'Agregar Rivales', ref: "addrivals" },
+    { text: 'Agregar Liga', ref: "addleague" },
     { text: 'Agregar Esports', ref: "addesports" },
     { text: 'Postulantes', ref: "addmatches" },
     { text: 'Ajustes', ref: "addmatches" },
 ];
 
 export const AdminPanelLayout = (props) => {
+
+    const dispatch = useDispatch();
+
     const { window, children } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
+    const onLogout = () => {
+        dispatch(startLogout())
+    }
 
 
     const drawer = (
@@ -59,7 +69,7 @@ export const AdminPanelLayout = (props) => {
                             <ListItemIcon>
                                 {
                                     (text === "Publicar Noticia") ? <FiberNew /> :
-                                            (text === "Publicar Partido") ? <EmojiEvents /> : <DoubleArrow />
+                                        (text === "Publicar Partido") ? <EmojiEvents /> : <DoubleArrow />
                                 }
                             </ListItemIcon>
                             <ListItemText primary={text} />
@@ -75,8 +85,9 @@ export const AdminPanelLayout = (props) => {
                             <ListItemIcon>
                                 {
                                     (text === "Agregar Rivales") ? <Security /> :
-                                        (text === "Agregar Esports") ? <SportsEsports /> :
-                                            (text === "Postulantes") ? <PersonAdd /> : <Settings />
+                                        (text === "Agregar Liga") ? <EmojiEvents /> :
+                                            (text === "Agregar Esports") ? <SportsEsports /> :
+                                                (text === "Postulantes") ? <PersonAdd /> : <Settings />
                                 }
                             </ListItemIcon>
                             <ListItemText primary={text} />
@@ -90,7 +101,7 @@ export const AdminPanelLayout = (props) => {
                     <ListItemIcon>
                         <Logout color='error' />
                     </ListItemIcon>
-                    <ListItemText>Cerrar Sesion</ListItemText>
+                    <ListItemText onClick={onLogout}>Cerrar Sesion</ListItemText>
                 </ListItemButton>
             </ListItem>
         </div>
@@ -100,7 +111,7 @@ export const AdminPanelLayout = (props) => {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            
+
             <AppBar
                 position="fixed"
                 sx={{

@@ -1,10 +1,8 @@
 
 import { facebookLogin, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Auth/Providers/providersAuth";
 
-import { checkingCredentials, login, logout, setEsports, setMatches, setPosts, setRivals, setUpcomingMatches } from "../Slices"
-import { getEsports, getMatches, getRivals, getUpcomingMatches, providerImagesPost, providerPosts } from "../../Main/Providers/providersData";
-
-import axios from "axios";
+import { checkingCredentials, login, logout, setEsports, setLeagues, setMatches, setPosts, setRivals, setUpcomingMatches } from "../Slices"
+import { getEsports, getLeagues, getMatches, getRivals, getUpcomingMatches, providerPosts } from "../../Main/Providers/providersData";
 
 
 export const startTwitterLogin = () => {
@@ -72,13 +70,7 @@ export const startLogout = () => {
 export const onLoadPosts = () => {
     return async (dispatch) => {
         const resp = await providerPosts();
-        const posts = resp.map(post => {
-            const { id, display_url, edge_media_to_caption, edge_media_preview_like, edge_media_to_comment } = post.node;
-            const { text } = edge_media_to_caption.edges[0].node;
-            const { count: comments } = edge_media_to_comment;
-            const { count: likes } = edge_media_preview_like;
-            return { id, display_url, text, likes, comments };
-        })
+        const posts = resp.slice(0, 6);
         dispatch(setPosts(posts))
     }
 }
@@ -108,6 +100,13 @@ export const onLoadUpcomingMatches = () => {
     return async (dispatch) => {
         const upcomingMatches = await getUpcomingMatches();
         dispatch(setUpcomingMatches(upcomingMatches))
+    }
+}
+
+export const onLoadLeagues = () => {
+    return async (dispatch) => {
+        const leagues = await getLeagues();
+        dispatch(setLeagues(leagues))
     }
 }
 

@@ -7,6 +7,7 @@ export const mainDataSlice = createSlice({
         matches: [],
         rivals: [],
         esports: [],
+        leagues: [],
         upcomingMatches: [],
 
     },
@@ -26,8 +27,12 @@ export const mainDataSlice = createSlice({
         setUpcomingMatches: (state, { payload }) => {
             state.isLoading = false;
             state.upcomingMatches = payload;
+        },
+        setLeagues: (state, { payload }) => {
+            state.isLoading = false;
+            state.leagues = payload;
         }
     },
 })
 
-export const { setMatches, setRivals, setEsports, setUpcomingMatches } = mainDataSlice.actions
+export const { setMatches, setRivals, setEsports, setLeagues, setUpcomingMatches } = mainDataSlice.actions

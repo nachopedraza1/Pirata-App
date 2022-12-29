@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -23,6 +24,7 @@
     "@reduxjs/toolkit": "^1.9.1",
     "aos": "^3.0.0-beta.6",
     "axios": "^1.2.0",
+    "emailjs": "^4.0.1",
     "firebase": "^9.14.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
@@ -33,7 +35,8 @@
     "react-twitch-embed": "^3.0.1",
     "react-twitter-widgets": "^1.11.0",
     "sass": "^1.56.1",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "sweetalert2": "^11.6.16"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

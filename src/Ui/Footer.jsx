@@ -5,7 +5,7 @@ import { Email, Phone } from '@mui/icons-material'
 
 import { Glitch, Logo, SocialButtons } from './Components'
 
-const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "CONTACTO", ref: "/" }]
+const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "CONTACTO", ref: "contact" }]
 
 export const Footer = () => {
     return (
@@ -27,16 +27,15 @@ export const Footer = () => {
                         </List>
 
                         <List sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", position: "absolute", top: "80%" }}>
-                            <Link underline="none" >
-                                <Button size='small' disableTouchRipple startIcon={<Email sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" }, fontSize: "12px" }}>
-                                    belgranoesports@gmail.com
-                                </Button>
-                            </Link>
-                            <Link underline="none" >
-                                <Button size='small' disableTouchRipple startIcon={<Phone sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" } }}>
-                                    0351-3295515
-                                </Button>
-                            </Link>
+
+                            <Button size='small' href='mailto:belgranoegames@gmail.com' disableTouchRipple startIcon={<Email sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" }, fontSize: "12px" }}>
+                                belgranoegames@gmail.com
+                            </Button>
+
+                            <Button size='small' disableTouchRipple startIcon={<Phone sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" } }}>
+                                0351-4967008
+                            </Button>
+
                         </List>
                     </Grid>
 
@@ -58,7 +57,7 @@ export const Footer = () => {
                 <Grid container justifyContent="space-between" padding={3} >
                     <Grid item display="flex" flexDirection="column" alignItems="center" xs={12} >
                         <SocialButtons />
-                        <Typography variant='p' maxWidth="20x" fontSize={10} color="gray">@Copyright.Todos los derechos reservados.</Typography>
+                        <Typography variant='p' maxWidth="20x" fontSize={10} fontWeight="bold" color="gray">@Copyright.Todos los derechos reservados.</Typography>
                         <Glitch />
                     </Grid>
 

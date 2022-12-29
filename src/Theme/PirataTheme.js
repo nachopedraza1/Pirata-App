@@ -1,14 +1,13 @@
 
-import { createTheme } from "@mui/material";
+import { createTheme, drawerClasses } from "@mui/material";
 
 export const PirataTheme = createTheme({
     components: {
         MuiCssBaseline: {
             styleOverrides: `
-            @font-face {font-family: Poppins;src: url(/assets/Fonts/Poppins-SemiBold.ttf)}
-            @font-face {font-family: Poppins-reg;src: url(/assets/Fonts/Poppins-Regular.ttf)}
-            @font-face {font-family: Aldrich;src: url(/assets/Fonts/Aldrich-Regular.ttf)}
-            @font-face {font-family: Oswald;src: url(/assets/Fonts/oswald.bold.ttf)}`,
+            @font-face {font-family: Poppins;src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap'}
+            @font-face {font-family: Aldrich ;src: url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap')}
+            @font-face {font-family: Oswald;src: url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap'}`,
         },
         MuiOutlinedInput: {
             styleOverrides: {
@@ -27,6 +26,13 @@ export const PirataTheme = createTheme({
                 },
                 notchedOutline: {
                     borderColor: "gray",
+                },
+            }
+        },
+        MuiFilledInput: {
+            styleOverrides: {
+                root: {
+                    color: "gray",
                 },
             }
         },
@@ -49,7 +55,15 @@ export const PirataTheme = createTheme({
                 root: {
                     "&:hover": {
                         backgroundColor: "transparent"
-                    }
+                    },
+                    fontWeight: "bold"
+                }
+            }
+        },
+        MuiListItemText: {
+            styleOverrides: {
+                root: {
+                    fontWeight: "bold"
                 }
             }
         }
@@ -74,6 +88,6 @@ export const PirataTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: ["Aldrich", "Poppins-reg", "Oswald", "Poppins",]
+        fontFamily: ["Aldrich", "Oswald", "Poppins",],
     },
 });

@@ -1,6 +1,9 @@
-import { Box, Grid, Typography } from "@mui/material"
-import axios from "axios";
 import { useEffect, useState } from "react";
+
+import axios from "axios";
+
+import { Box, Grid, Typography } from "@mui/material"
+import { Glitch } from "../../Ui/Components";
 
 export const DiscordContainer = () => {
 
@@ -16,10 +19,13 @@ export const DiscordContainer = () => {
     }, []);
 
     return (
-        <Grid container justifyContent="end" mt="15px" position="relative">
-            <img src="assets/images/Unite-web.png" alt="" width="100%" style={{ position: "absolute" }} />
-            <Grid item>
-                <Typography variant="h5" fontFamily="Oswald" zIndex={1}> ONLINE: {membersCount} </Typography>
+        <Grid container mt={2} position="relative" >
+            <Box display={{ xs: "none", md: "block" }}><img src="assets/images/discord-desktop.png" alt="" width="100%" /></Box>
+            <Box display={{ xs: "block", md: "none" }}><img src="assets/images/discord-mobile.png" alt="" width="100%" /></Box>
+            <Grid item position="absolute" right={3} bottom={{ xs: 10, md: -5 }} p={2}>
+                <Typography variant="h5" fontWeight="bold" color="white">
+                    ONLINE: {membersCount}
+                </Typography>
             </Grid>
         </Grid >
     )

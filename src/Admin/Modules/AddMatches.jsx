@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { onLoadMatches } from '../../Redux/Thunks';
 
@@ -8,6 +8,8 @@ import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../../Firebase/config';
 
 import { Grid, Select, InputLabel, MenuItem, FormControl, Button, TextField } from '@mui/material';
+import { EmojiEvents, Gamepad, Security, SportsEsports } from '@mui/icons-material';
+import { AdminPanelLayout } from '../Layout/AdminPanelLayout';
 import { TittleComponent } from "../../Ui/Components";
 import { MatchItem } from '../Components';
 
@@ -21,15 +23,16 @@ const initialForm = {
     puntosLocal: "",
     puntosRival: "",
     plataform: "",
+    league: "",
 }
 
 export const AddMatches = () => {
 
     const dispatch = useDispatch();
 
-    const { matches, rivals, esports } = useSelector(state => state.mainData);
+    const { matches, rivals, esports, leagues } = useSelector(state => state.mainData);
 
-    const { formState, teamName, game, puntosRival, puntosLocal, plataform, onInputChange } = useForm(initialForm);
+    const { formState, teamName, game, league, puntosRival, puntosLocal, plataform, onInputChange } = useForm(initialForm);
 
     const [dateMatch, setDateMatch] = useState(null);
 
@@ -47,139 +50,162 @@ export const AddMatches = () => {
     }
 
     const onDeteleMatch = async (id) => {
-        await deleteDoc(doc(FirebaseDB, "matches", `${id}`))
+        await deleteDoc(doc(FirebaseDB, "matches", id))
         dispatch(onLoadMatches());
     }
 
     const { logoRival } = rivals.find(logo => logo.teamName === teamName) || {};
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
+    const values = [];
+    for (let i = 0; i <= 10; i++) {
+        values.push(i)
+    }
+
     return (
-        <Grid container spacing={2}>
+        <AdminPanelLayout>
+            <Grid container spacing={2} className="animate__animated animate__fadeIn">
 
-            <Grid item xs={12} lg={8} >
-                <TittleComponent tittle="AGREGAR PARTIDO" />
-                <form onSubmit={onAddMatch} >
-                    <Grid container direction="column" bgcolor="backgraunds.main" gap={1} >
-                        <Grid
-                            container
-                            justifyContent="center"
-                            padding={2}
-                            alignItems={{ sm: "center" }}
-                        >
+                <Grid item xs={12}>
+                    <TittleComponent tittle="AGREGAR PARTIDO" />
+                    <form onSubmit={onAddMatch} >
+                        <Grid container direction="column" bgcolor="backgraunds.main" gap={1} >
+                            <Grid container padding={2} spacing={2} alignItems={{ sm: "center" }}>
+                                <Grid item xs={12} md={4}>
+                                    <FormControl fullWidth>
+                                        <InputLabel>Rival</InputLabel>
+                                        <Select
+                                            required={true}
+                                            name="teamName"
+                                            value={teamName}
+                                            onChange={onInputChange}
+                                            label="Rival"
+                                            endAdornment={<Security sx={{ mr: 2 }} />}
+                                        >
+                                            {
+                                                rivals.map(rival => (<MenuItem value={rival.teamName} key={rival.id} >{rival.teamName}</MenuItem>))
+                                            }
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
 
-                            <Grid item xs={12} md={6} padding={1}>
-                                <FormControl fullWidth>
-                                    <InputLabel>Rival</InputLabel>
-                                    <Select
-                                        required={true}
-                                        name="teamName"
-                                        value={teamName}
-                                        onChange={onInputChange}
-                                        label="Rival"
-                                    >
-                                        {
-                                            rivals.map(rival => (<MenuItem value={rival.teamName} key={rival.id} >{rival.teamName}</MenuItem>))
-                                        }
-                                    </Select>
-                                </FormControl>
-                            </Grid>
+                                <Grid item xs={12} md={4}>
+                                    <FormControl fullWidth>
+                                        <InputLabel >Esport</InputLabel>
+                                        <Select
+                                            required={true}
+                                            name="game"
+                                            value={game}
+                                            onChange={onInputChange}
+                                            label="Esport"
+                                            endAdornment={<SportsEsports sx={{ mr: 2 }} />}
+                                        >
+                                            {
+                                                esports.map(item => (<MenuItem value={item.game} key={item.id}> {item.game} </MenuItem>))
+                                            }
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
 
-                            <Grid item xs={12} md={6} padding={1}>
-                                <FormControl fullWidth>
-                                    <InputLabel >Esport</InputLabel>
-                                    <Select
-                                        required={true}
-                                        name="game"
-                                        value={game}
-                                        onChange={onInputChange}
-                                        label="Esport"
-                                    >
-                                        {
-                                            esports.map(item => (<MenuItem value={item.game} key={item.id}> {item.game} </MenuItem>))
-                                        }
-                                    </Select>
-                                </FormControl>
-                            </Grid>
+                                <Grid item xs={12} md={4}>
+                                    <FormControl fullWidth>
+                                        <InputLabel>Plataforma</InputLabel>
+                                        <Select
+                                            required={true}
+                                            name="plataform"
+                                            value={plataform}
+                                            onChange={onInputChange}
+                                            label="Plataforma"
+                                            endAdornment={<Gamepad sx={{ mr: 2 }} />}
+                                        >
+                                            <MenuItem value="PC">PC</MenuItem>
+                                            <MenuItem value="XBOX">XBOX</MenuItem>
+                                            <MenuItem value="PLAY">PLAY</MenuItem>
+                                            <MenuItem value="MOBILE">MOBILE</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
 
-                            <Grid item xs={12} md={6} padding={1}>
-                                <FormControl fullWidth>
-                                    <InputLabel>Plataforma</InputLabel>
-                                    <Select
-                                        required={true}
-                                        name="plataform"
-                                        value={plataform}
-                                        onChange={onInputChange}
-                                        label="Plataforma"
-                                    >
-                                        <MenuItem value="PC">PC</MenuItem>
-                                        <MenuItem value="XBOX">XBOX</MenuItem>
-                                        <MenuItem value="PLAY">PLAY</MenuItem>
-                                        <MenuItem value="MOBILE">MOBILE</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
+                                <Grid item xs={12} md={6}>
+                                    <FormControl fullWidth>
+                                        <InputLabel>Liga</InputLabel>
+                                        <Select
+                                            required={true}
+                                            name="league"
+                                            value={league}
+                                            onChange={onInputChange}
+                                            label="Liga"
+                                            endAdornment={<EmojiEvents sx={{ mr: 2 }} />}
+                                        >
+                                            {leagues.map(league => (<MenuItem key={league.id} value={league.league}> {league.league} </MenuItem>))}
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
 
-                            <Grid item xs={12} sm={6} padding={1}>
-                                <LocalizationProvider dateAdapter={AdapterMoment}>
-                                    <DateTimePicker
-                                        inputProps={{ placeholder: 'Seleciona Fecha y Hora' }}
-                                        renderInput={(props) => <TextField fullWidth sx={{ "& .MuiSvgIcon-root": { color: "white" } }} {...props} />}
-                                        label="Fecha y Hora"
-                                        value={dateMatch}
-                                        onChange={(newDateMatch) => {
-                                            setDateMatch(newDateMatch);
-                                        }}
+                                <Grid item xs={12} md={6}>
+                                    <LocalizationProvider dateAdapter={AdapterMoment}>
+                                        <DateTimePicker
+                                            inputProps={{ placeholder: 'Seleciona Fecha y Hora' }}
+                                            renderInput={(props) => <TextField fullWidth sx={{ "& .MuiSvgIcon-root": { color: "white" } }} {...props} />}
+                                            label="Fecha y Hora"
+                                            value={dateMatch}
+                                            onChange={(newDateMatch) => {
+                                                setDateMatch(newDateMatch);
+                                            }}
 
-                                    />
-                                </LocalizationProvider>
-                            </Grid>
+                                        />
+                                    </LocalizationProvider>
+                                </Grid>
 
-                            <Grid item xs={12} md={2} textAlign="center" padding={1}>
-                                <img src="/assets/images/Logo.png" alt="" width="100px" />
-                            </Grid>
+                                <Grid item xs={12} md={2} textAlign="center" padding={1}>
+                                    <img src="/assets/images/Logo.png" alt="" width="100px" />
+                                </Grid>
 
-                            <Grid item xs={12} md={3} padding={1}>
-                                <FormControl fullWidth>
-                                    <InputLabel>Puntos Local</InputLabel>
-                                    <Select
-                                        required={true}
-                                        name="puntosLocal"
-                                        value={puntosLocal}
-                                        onChange={onInputChange}
-                                        label="Puntos Local"
-                                    >
-                                        <MenuItem value={0}>0</MenuItem>
-                                        <MenuItem value={1}>1</MenuItem>
-                                        <MenuItem value={2}>2</MenuItem>
-                                        <MenuItem value={3}>3</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
+                                <Grid item xs={12} md={3}>
+                                    <FormControl fullWidth>
+                                        <InputLabel>Puntos Local</InputLabel>
+                                        <Select
+                                            required={true}
+                                            name="puntosLocal"
+                                            value={puntosLocal}
+                                            onChange={onInputChange}
+                                            label="Puntos Local"
+                                        >
+                                            {
+                                                values.map(value => (<MenuItem key={value} value={value}> {value} </MenuItem>))
+                                            }
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
 
-                            <Grid item xs={12} md={2} display="flex" justifyContent="center" padding={1}>
-                                <img src="/assets/images/swords1.png" alt="" width="40px" />
-                            </Grid>
+                                <Grid item xs={12} md={2} display="flex" justifyContent="center" padding={1}>
+                                    <img src="/assets/images/swords1.png" alt="" width="40px" />
+                                </Grid>
 
-                            <Grid item xs={12} md={3} padding={1}>
-                                <FormControl fullWidth >
-                                    <InputLabel>Puntos Rival</InputLabel>
-                                    <Select
-                                        required={true}
-                                        name="puntosRival"
-                                        value={puntosRival}
-                                        onChange={onInputChange}
-                                        label="Puntos Rival"
-                                    >
-                                        <MenuItem value={0}>0</MenuItem>
-                                        <MenuItem value={1}>1</MenuItem>
-                                        <MenuItem value={2}>2</MenuItem>
-                                        <MenuItem value={3}>3</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
+                                <Grid item xs={12} md={3}>
+                                    <FormControl fullWidth >
+                                        <InputLabel>Puntos Rival</InputLabel>
+                                        <Select
+                                            required={true}
+                                            name="puntosRival"
+                                            value={puntosRival}
+                                            onChange={onInputChange}
+                                            label="Puntos Rival"
+                                        >
+                                            {
+                                                values.map(value => (<MenuItem key={value} value={value}> {value} </MenuItem>))
+                                            }
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
 
-                            <Grid item xs={12} md={2} textAlign="center" padding={1}>
-                                <img src={logoRival} alt="" style={{ maxWidth: "70px" }} />
+                                <Grid item xs={12} md={2} textAlign="center">
+                                    <img src={logoRival} alt="" style={{ maxWidth: "70px" }} />
+                                </Grid>
+
                             </Grid>
 
                             <Grid item xs={12} display="flex" justifyContent="end" padding={1}>
@@ -187,21 +213,21 @@ export const AddMatches = () => {
                                     Agregar
                                 </Button>
                             </Grid>
+
                         </Grid>
-
-                    </Grid>
-                </form >
-            </Grid>
-
-            <Grid item xs={12} lg={4}>
-                <TittleComponent tittle="HISTORIAL" />
-                <Grid container direction="column">
-                    {
-                        matches.map(match => (<MatchItem match={match} key={match.id} onDeteleMatch={onDeteleMatch} />))
-                    }
+                    </form >
                 </Grid>
-            </Grid>
 
-        </Grid >
+                <Grid item xs={12}>
+                    <TittleComponent tittle="HISTORIAL" />
+                    <Grid container direction="column">
+                        {
+                            matches.slice(0, 4).map(match => (<MatchItem match={match} key={match.id} onDeteleMatch={onDeteleMatch} />))
+                        }
+                    </Grid>
+                </Grid>
+
+            </Grid >
+        </AdminPanelLayout>
     );
 }

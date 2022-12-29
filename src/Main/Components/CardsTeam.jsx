@@ -1,9 +1,8 @@
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
-import { useEffect } from "react";
 import OwlCarousel from 'react-owl-carousel';
-import { Box, Button, Grid, Link } from "@mui/material"
+import { Box, Button, Grid, Link, Typography } from "@mui/material"
 
 
 export const CardsTeam = ({ onClickTeam }) => {
@@ -50,7 +49,7 @@ export const CardsTeam = ({ onClickTeam }) => {
                                 <img src="//cdn.shopify.com/s/files/1/0548/8554/8183/files/360-lol-logo-1-1_x180.png?v=1623163955" alt="Logo" className="logo-image" width="250px" />
                             </Box>
                             <Box className="description-wrapper">
-                                Broken Blade, Jankos, Caps, Flakked, Targamas
+                                ¡Aunque quieran imitarnos, somos diferentes!
                             </Box>
                             <Box >
                                 <Button
@@ -64,7 +63,7 @@ export const CardsTeam = ({ onClickTeam }) => {
                     </Link>
                 </Grid>
 
-                <Grid item onClick={() => onClickTeam("COUNTER-STRIKE", "csgobgteam")}>
+                <Grid item onClick={() => onClickTeam("COUNTER STRIKE", "csgobgteam")}>
                     <Box className="team-page__team-item">
                         <Link href="#team">
                             <Box className="team-page__image-wrapper">
@@ -78,10 +77,10 @@ export const CardsTeam = ({ onClickTeam }) => {
 
                             </Box>
                             <Box className="logo-wrapper">
-                                <img src="/assets/images/esports/counter-strike.png" alt="Logo" className="logo-image" width="240px" />
+                                <img src="/assets/images/esports/COUNTER STRIKE.png" alt="Logo" className="logo-image" width="240px" />
                             </Box>
                             <Box className="description-wrapper">
-                                Broken Blade, Jankos, Caps, Flakked, Targamas
+                                ¡No importa ni la hora ni el día, porque siempre te sigo!
                             </Box>
                             <Box >
                                 <Button
@@ -112,7 +111,7 @@ export const CardsTeam = ({ onClickTeam }) => {
                                 <img src="/assets/images/esports/logo-freefire.png" alt="Logo" className="logo-image" width="250px" />
                             </Box>
                             <Box className="description-wrapper">
-                                Broken Blade, Jankos, Caps, Flakked, Targamas
+                                ¡Esta es la banda de lxs Piratas!
                             </Box>
                             <Box >
                                 <Button
@@ -143,7 +142,7 @@ export const CardsTeam = ({ onClickTeam }) => {
                                 <img src="/assets/images/esports/logo-fifa.png" alt="Logo" className="logo-image" width="250px" />
                             </Box>
                             <Box className="description-wrapper">
-                                Broken Blade, Jankos, Caps, Flakked, Targamas
+                                ¡Tengo la ilusión! ¡Quiero ser campeón!
                             </Box>
                             <Box >
                                 <Button
@@ -157,7 +156,7 @@ export const CardsTeam = ({ onClickTeam }) => {
                     </Box>
                 </Grid>
 
-                <Grid item onClick={() => onClickTeam("FORMULA 1", "f1bgteam")}>
+                <Grid item onClick={() => onClickTeam("FORMULA1", "f1bgteam")}>
                     <Box className="team-page__team-item">
                         <Link href="#team">
                             <Box className="team-page__image-wrapper">
@@ -171,10 +170,10 @@ export const CardsTeam = ({ onClickTeam }) => {
 
                             </Box>
                             <Box className="logo-wrapper">
-                                <img src="/assets/images/esports/formula 1.png" alt="Logo" className="logo-image" width="250px" />
+                                <img src="/assets/images/esports/FORMULA1.png" alt="Logo" className="logo-image" width="250px" />
                             </Box>
                             <Box className="description-wrapper">
-                                Broken Blade, Jankos, Caps, Flakked, Targamas
+                                ¡Es la primera barra, la que viene por el sentimiento!
                             </Box>
                             <Box >
                                 <Button

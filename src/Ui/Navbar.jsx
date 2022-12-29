@@ -7,7 +7,7 @@ import { AuthButtons, Logo, UserButtons } from "./Components";
 import { Container, AppBar, Box, Button, Divider, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Link } from "@mui/material"
 import { GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, NearMe, SportsEsports } from '@mui/icons-material'
 
-const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "CONTACTO", ref: "/" }]
+const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "CONTACTO", ref: "contact" }]
 
 export const Navbar = () => {
 

@@ -1,51 +1,107 @@
-import { Favorite, ModeComment } from "@mui/icons-material"
-import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Divider, Grid, Typography } from "@mui/material"
+import { useState } from "react"
+
+import { Add, Close, Instagram, } from "@mui/icons-material"
+import { Box, Button, Card, CardContent, CardMedia, Divider, Fab, Grid, Link, Modal, Typography } from "@mui/material"
 
 export const NewItem = ({ post }) => {
 
+    const [openModal, setOpenModal] = useState(false);
+
+    const styleModal = {
+        width: "100%",
+        maxWidth: "700px",
+        height: "auto",
+        backgroundColor: "backgraunds.main",
+    }
+
     return (
-        <Grid item xs={12} sm={6}>
-            <Card sx={{ backgroundColor: "backgraunds.secondary", borderRadius: "0px" }}>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        height="350"
-                        crossOrigin="anonymous"
-                        image={`https://cors-anywhere.herokuapp.com/${post.display_url}`}
-                        alt="Belgrano"
-                    />
-                    <CardContent sx={{ height: "100px" }}>
+        <>
+            <Grid item xs={12} sm={6}>
+                <Card sx={{ backgroundColor: "backgraunds.secondary", borderRadius: "0px" }}>
+                    <Box overflow="hidden">
+                        <CardMedia
+                            component="img"
+                            height="350"
+                            crossOrigin="anonymous"
+                            image={post.media_url}
+                            alt="Belgrano"
+                            sx={{
+                                transition: "all 0.3s",
+                                "&:hover": {
+                                    transform: "scale(1.1)",
+                                }
+                            }}
+                        />
+                    </Box>
+                    <CardContent sx={{ height: "110px", position: "relative", pt: "30px" }}  >
+
+                        <Box position="absolute" top={-28} right={30}>
+                            <Fab color="primary" aria-label="add" onClick={() => setOpenModal(true)}>
+                                <Add />
+                            </Fab>
+                        </Box>
+
                         <Typography
                             variant="body2"
                             color="gray"
+                            fontWeight="bold"
                             sx={{
-                                width: "100 %",
                                 overflow: "hidden",
                                 display: "-webkit-box",
                                 WebkitLineClamp: 4,
                                 WebkitBoxOrient: "vertical",
                             }}
                         >
-                            {post.text}
+                            {post.caption}
                         </Typography>
                     </CardContent>
                     <Divider sx={{ mt: 2 }} />
-                    <Box display="flex" justifyContent="end" padding={1}>
-                        <Button
-                            component="span"
-                            startIcon={<Favorite />}
-                        >
-                            {post.likes}
+                    <Link href="https://www.instagram.com/belgrano_esports/" underline="none" target="_blank">
+                        <Box display="flex" alignItems="center" p={1} ml={1} >
+                            <img src="assets/images/profile_instagram_logo.jpg" alt="instagram-belgrano" width="40px" style={{ borderRadius: "50%" }} />
+                            <Typography color="gray" ml={1}>@{post.username} </Typography>
+                        </Box>
+                    </Link>
+                </Card>
+            </Grid>
+
+
+            <Modal
+                sx={{ m: 2, overflowY: "scroll", display: "flex", justifyContent: "center", alignItems: { xs: "start", xl: "center" } }}
+                className="animate__animated animate__fadeIn CustomScrollBar"
+                open={openModal}
+                onClose={() => setOpenModal(false)}
+            >
+                <Grid container sx={styleModal} >
+                    <Grid container justifyContent="space-between">
+                        <Box display="flex" alignItems="center" p={1} ml={1} >
+                            <img src="assets/images/profile_instagram_logo.jpg" alt="instagram-belgrano" width="40px" style={{ borderRadius: "50%" }} />
+                            <Typography color="gray" ml={1}>@{post.username} </Typography>
+                        </Box>
+                        <Button onClick={() => setOpenModal(false)}>
+                            <Close fontSize="medium" sx={{ color: "white" }} />
                         </Button>
+                    </Grid>
+
+                    <img src={post.media_url} alt="" width="100%" />
+
+                    <Typography color="gray" p="20px 20px 0px">
+                        {post.caption}
+                    </Typography>
+
+                    <Grid container justifyContent="end" pb={2} pr={2}>
                         <Button
-                            component="span"
-                            startIcon={<ModeComment />}
+                            href="https://www.instagram.com/belgrano_esports/"
+                            target="_blank"
+                            variant="outlined"
+                            startIcon={<Instagram />}
                         >
-                            {post.comments}
+                            Seguinos!
                         </Button>
-                    </Box>
-                </CardActionArea>
-            </Card>
-        </Grid>
+                    </Grid>
+
+                </Grid>
+            </Modal>
+        </>
     )
 }

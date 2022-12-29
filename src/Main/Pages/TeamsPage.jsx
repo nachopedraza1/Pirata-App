@@ -5,8 +5,7 @@ import { useSelector } from "react-redux"
 
 import { Grid, Typography } from "@mui/material"
 import { MainLayout } from "../Layout/MainLayout"
-import { CardsTeam } from "../Components"
-import { CardsTeamDetail } from "../Components/CardsTeamDetail"
+import { CardsTeam, CardsTeamDetail } from "../Components"
 
 
 export const TeamsPage = () => {

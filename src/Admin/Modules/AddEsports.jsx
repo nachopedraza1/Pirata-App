@@ -7,8 +7,10 @@ import { addDoc, collection, deleteDoc, doc, updateDoc } from "firebase/firestor
 import { FirebaseDB } from "../../Firebase/config"
 
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select, } from "@mui/material"
+import { Gamepad, SportsEsports } from "@mui/icons-material"
 import { TittleComponent } from "../../Ui/Components";
 import { EsportItem } from "../Components/EsportItem"
+import { AdminPanelLayout } from "../Layout/AdminPanelLayout"
 
 const initialState = {
     game: "",
@@ -53,21 +55,21 @@ export const AddEsports = () => {
     }
 
     return (
-        <Grid container spacing={2}>
+        <AdminPanelLayout>
+            <Grid container spacing={2} className="animate__animated animate__fadeIn">
 
-            <Grid item xs={12} lg={8} >
-                <TittleComponent tittle="AGREGAR EQUIPO" />
-                <form autoComplete="off" onSubmit={onAddEsport} >
-                    <Grid
-                        container
-                        direction="column"
-                        alignItems="center"
-                        bgcolor="backgraunds.main"
-                    >
+                <Grid item xs={12} lg={8} >
+                    <TittleComponent tittle="AGREGAR EQUIPO" />
+                    <form autoComplete="off" onSubmit={onAddEsport} >
+                        <Grid
+                            container
+                            direction="column"
+                            alignItems="center"
+                            bgcolor="backgraunds.main"
+                        >
 
-                        <Grid container padding={2} spacing={2} >
-                            <Grid item xs={12} sm={6} >
-                                <FormControl fullWidth>
+                            <Grid container padding={2} spacing={2} >
+                                <Grid item xs={12} md={6} >
                                     <FormControl fullWidth>
                                         <InputLabel>Juego</InputLabel>
                                         <Select
@@ -76,57 +78,59 @@ export const AddEsports = () => {
                                             value={game}
                                             label="Juego"
                                             onChange={onInputChange}
+                                            endAdornment={<SportsEsports sx={{ mr: 2 }} />}
                                         >
                                             <MenuItem value="FREEFIRE BATTLEGROUNDS">FREEFIRE BATTLEGROUNDS</MenuItem>
                                             <MenuItem value="LEAGUE OF LEGENDS">LEAGUE OF LEGENDS</MenuItem>
-                                            <MenuItem value="COUNTER-STRIKE">COUNTER-STRIKE</MenuItem>
-                                            <MenuItem value="FORMULA 1">FORMULA 1</MenuItem>
+                                            <MenuItem value="COUNTER STRIKE">COUNTER STRIKE</MenuItem>
+                                            <MenuItem value="FORMULA1">FORMULA1</MenuItem>
                                             <MenuItem value="FIFA 23">FIFA 23</MenuItem>
                                             <MenuItem value="PES 23">PES 23</MenuItem>
                                         </Select>
                                     </FormControl>
-                                </FormControl>
+                                </Grid>
+
+                                <Grid item xs={12} md={6} >
+                                    <FormControl fullWidth>
+                                        <InputLabel>Plataforma</InputLabel>
+                                        <Select
+                                            required={true}
+                                            name="plataform"
+                                            value={plataform}
+                                            label="plataforma"
+                                            onChange={onInputChange}
+                                            endAdornment={<Gamepad sx={{ mr: 2 }} />}
+                                        >
+                                            <MenuItem value="PC">PC</MenuItem>
+                                            <MenuItem value="XBOX">XBOX</MenuItem>
+                                            <MenuItem value="PLAY">PLAY</MenuItem>
+                                            <MenuItem value="MOBILE">MOBILE</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
                             </Grid>
 
-                            <Grid item xs={12} sm={6} >
-                                <FormControl fullWidth>
-                                    <InputLabel>Plataforma</InputLabel>
-                                    <Select
-                                        required={true}
-                                        name="plataform"
-                                        value={plataform}
-                                        label="plataforma"
-                                        onChange={onInputChange}
-                                    >
-                                        <MenuItem value="PC">PC</MenuItem>
-                                        <MenuItem value="XBOX">XBOX</MenuItem>
-                                        <MenuItem value="PLAY">PLAY</MenuItem>
-                                        <MenuItem value="MOBILE">MOBILE</MenuItem>
-                                    </Select>
-                                </FormControl>
+
+                            <Grid container justifyContent="end" padding={2}>
+                                <Button variant="outlined" type="submit" >
+                                    Agregar
+                                </Button>
                             </Grid>
+
                         </Grid>
-
-
-                        <Grid container justifyContent="end" padding={2}>
-                            <Button variant="outlined" type="submit" >
-                                Agregar
-                            </Button>
-                        </Grid>
-
-                    </Grid>
-                </form >
-            </Grid>
-
-            <Grid item xs={12} lg={4}>
-                <TittleComponent tittle="EQUIPOS" />
-                <Grid container direction="column">
-                    {
-                        esports.map(esport => (<EsportItem key={esport.id} esport={esport} onDeteleEsport={onDeteleEsport} updateTeam={updateTeam} />))
-                    }
+                    </form >
                 </Grid>
-            </Grid>
 
-        </Grid >
+                <Grid item xs={12} lg={4}>
+                    <TittleComponent tittle="EQUIPOS" />
+                    <Grid container direction="column">
+                        {
+                            esports.map(esport => (<EsportItem key={esport.id} esport={esport} onDeteleEsport={onDeteleEsport} updateTeam={updateTeam} />))
+                        }
+                    </Grid>
+                </Grid>
+
+            </Grid >
+        </AdminPanelLayout>
     )
 }

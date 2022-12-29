@@ -1,0 +1,21 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+    transition-delay: background-color 5000s, color 5000s;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+    background-color: #000000;
+}
+
+.CustomScrollBar::-webkit-scrollbar {
+    width: 0px;
+    background-color: #000000;
+}
+
+.hiddenscroll {
+    overflow-y: hidden;
+}

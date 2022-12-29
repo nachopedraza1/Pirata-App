@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { startFacebookLogin, startGitHubLogin, startLoginGoogle, startTwitterLogin } from "../../Redux/Thunks"
 
 import { CheckingAuth, SocialButtons, TittleComponent } from "../../Ui/Components"
-import { Grid, Typography, Divider, Button } from "@mui/material"
 import { Facebook, GitHub, Google, Twitter } from "@mui/icons-material"
+import { Grid, Typography, Divider, Button } from "@mui/material"
 
 export const AuthLayout = ({ children, tittle }) => {
 
@@ -38,7 +38,7 @@ export const AuthLayout = ({ children, tittle }) => {
                 minHeight: "100vh",
                 width: "100%",
                 height: "100%",
-                backgroundImage: "url(/assets/images/background1.png)",
+                backgroundImage: "url(/assets/images/background1.jpg)",
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed",
                 backgroundRepeat: "no-repeat",

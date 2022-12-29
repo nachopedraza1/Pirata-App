@@ -14,18 +14,17 @@ export const MatchItem = ({ match }) => {
             className="animate__animated animate__fadeIn"
             container
             direction="column"
-            fontFamily="Poppins-reg"
             bgcolor="backgraunds.main"
             margin="5px"
         >
             <Grid container alignItems="start" padding={2} borderBottom={`1px solid gray`}>
                 <Grid item xs={8} display="flex" flexDirection="column">
                     <Typography variant="p" color="white" fontFamily="Oswald" > {match.game} </Typography>
-                    <Typography variant="p" color="gray" fontFamily="Poppins-reg" > VPA league 2022</Typography>
+                    <Typography variant="p" color="gray"  > {match.league} </Typography>
                 </Grid>
                 <Grid item xs={4} display="flex" flexDirection="column" textAlign="end">
                     <Typography variant="p" color="white" fontSize="1.6 rem" fontFamily="Oswald" > {match.time} AR </Typography>
-                    <Typography variant="p" color="gray" fontSize="1.1 rem" fontFamily="Poppins-reg" > {match.date} </Typography>
+                    <Typography variant="p" color="gray" fontSize="1.1 rem"  > {match.date} </Typography>
                 </Grid>
             </Grid>
             <Grid container >
