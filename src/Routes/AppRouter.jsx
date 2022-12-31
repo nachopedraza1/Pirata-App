@@ -28,7 +28,7 @@ export const AppRouter = () => {
         {
           status === "authenticated" &&
             displayName === "adminbelgrano" &&
-            uid === "MxMcbyiHMxeOHTSoXIs1Kmsqic33"
+            uid === "wPFAuUclMjQxkBKoQQP0wbP4DT73"
             ?
             <Route path="/admincp/*" element={<AdminRoutes />} /> : null
         }

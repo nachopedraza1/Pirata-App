@@ -74,19 +74,13 @@ export const UserButtons = () => {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem>
-                    <ListItemIcon>
+                <MenuItem disabled>
+                    <ListItemIcon >
                         <PersonAdd fontSize="small" />
                     </ListItemIcon>
                     Perfil
                 </MenuItem>
-                <MenuItem>
-                    <ListItemIcon>
-                        <PersonAdd fontSize="small" />
-                    </ListItemIcon>
-                    Cambiar de Cuenta
-                </MenuItem>
-                <MenuItem>
+                <MenuItem disabled>
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>

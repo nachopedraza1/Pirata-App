@@ -8,9 +8,8 @@ import { startLogin } from "../../Redux/Thunks"
 import { useForm } from "../../hooks"
 
 import { AuthLayout } from "../Layout/AuthLayout"
-import { alertError } from "../../Ui/Alerts/Alerts"
 import { AccountCircle, LoginRounded, Visibility, VisibilityOff } from "@mui/icons-material"
-import { Grid, TextField, Link, Button, Typography, Alert, InputAdornment, IconButton } from "@mui/material"
+import { Grid, TextField, Link, Button, Alert, InputAdornment, IconButton } from "@mui/material"
 
 
 
@@ -46,11 +45,10 @@ export const LoginPage = () => {
 
     return (
         <AuthLayout tittle={"INICIAR SESION"}>
-            <form onSubmit={onLogin} autoComplete="off" >
+            <form onSubmit={onLogin}>
                 <Grid container direction="column" className="animate__animated animate__fadeIn">
                     <Grid item xs={12}>
                         <TextField
-                            autoComplete="off"
                             sx={{ mb: 2 }}
                             type="email"
                             placeholder="Email"
@@ -70,7 +68,6 @@ export const LoginPage = () => {
 
                     <Grid item xs={12}>
                         <TextField
-                            autoComplete="off"
                             sx={{ mb: 2 }}
                             type={showPassword ? 'text' : 'password'}
                             placeholder="Contraseña"
@@ -95,7 +92,11 @@ export const LoginPage = () => {
                     <Grid item xs={12} mb={1}
                         display={!!errorMessage ? "" : "none"}>
                         <Alert severity='error' >
-                            {errorMessage}
+                            {
+                                errorMessage === "Firebase: Error (auth/popup-closed-by-user)."
+                                    ? "Por favor, no cierres la ventana de autenticación."
+                                    : "Usuario o contraseña invalido."
+                            }
                         </Alert>
                     </Grid>
 

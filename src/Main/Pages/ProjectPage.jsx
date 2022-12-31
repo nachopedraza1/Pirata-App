@@ -52,6 +52,7 @@ export const ProjectPage = () => {
             </Grid>
 
             <Box width="100%" bgcolor="backgraunds.black" paddingBottom={10}>
+                <img src="/assets/images/Linea.png" alt="" width="100%" style={{ position: "absolute", left: 0 }} />
                 <Container maxWidth="lg" id="team">
                     <Grid container justifyContent="center" paddingTop={10}>
                         <Grid item xs={12} sm={11} md={8} lg={7} padding={3} borderRadius={1} bgcolor="backgraunds.main" data-aos="fade">
@@ -73,10 +74,10 @@ export const ProjectPage = () => {
                         </Grid>
 
                         <Grid container justifyContent="center" paddingTop={3} gap={3}>
-                            <SocialBanner type="twitch" icon={faTwitch} color="#6441a5" banner="bg-twitch" />
-                            <SocialBanner type="twitter" icon={faTwitter} color="#1DA1F2" banner="bg-twitter" />
-                            <SocialBanner type="instagram" icon={faInstagram} color="#C13584" banner="bg-instagram" />
-                            <SocialBanner type="youtube" icon={faYoutube} color="red" banner="bg-youtube" />
+                            <SocialBanner type="twitch" icon={faTwitch} color="#6441a5" banner="bg-twitch" link="https://www.twitch.tv/cabesportsok" />
+                            <SocialBanner type="twitter" icon={faTwitter} color="#1DA1F2" banner="bg-twitter" link="https://twitter.com/CABesportsok" />
+                            <SocialBanner type="instagram" icon={faInstagram} color="#C13584" banner="bg-instagram" link="https://www.instagram.com/belgrano_esports/" />
+                            <SocialBanner type="youtube" icon={faYoutube} color="red" banner="bg-youtube" link="https://www.youtube.com/playlist?list=PLQqbH6zMsNGoR5kURc-TZX25HkaiEvx5o" />
                         </Grid>
                     </Grid>
                 </Container >

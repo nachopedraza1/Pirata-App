@@ -1,9 +1,12 @@
 import { Box } from "@mui/material"
+import { Link } from "react-router-dom"
 
 export const Logo = ({ size, p, pt, pb }) => {
     return (
         <Box textAlign="center" padding={p} paddingTop={pt} paddingBottom={pb} >
-            <img src="/assets/images/Logo.png" alt="Belgrano Esports" width={size} />
+            <Link to="/">
+                <img src="/assets/images/Logo.png" alt="Belgrano Esports" width={size} />
+            </Link>
         </Box>
     )
 }

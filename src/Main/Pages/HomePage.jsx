@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import { MainLayout } from "../Layout/MainLayout";
 import { Grid } from "@mui/material";
-import { TwitterContainer, NewsContainer, BannerHome, TabMatches, TwitchContainer, DiscordContainer } from "../Components";
+import { TwitterContainer, NewsContainer, HeaderHome, TabMatches, TwitchContainer, DiscordContainer } from "../Components";
 
 
 export const HomePage = () => {
@@ -13,11 +13,11 @@ export const HomePage = () => {
 
     return (
         <>
-            <BannerHome />
+            <HeaderHome />
 
-            <img src="/assets/images/Linea.png" alt="" width="100%" />
 
             <MainLayout bgColor="backgraunds.black">
+                <img src="/assets/images/Linea.png" alt="" width="100%" style={{ position: "absolute", left:0 }} />
 
                 <Grid container justifyContent="center" spacing={2} id="home" pt={6}>
 

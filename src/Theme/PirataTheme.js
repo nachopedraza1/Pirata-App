@@ -5,7 +5,7 @@ export const PirataTheme = createTheme({
     components: {
         MuiCssBaseline: {
             styleOverrides: `
-            @font-face {font-family: Poppins;src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap'}
+            @font-face {font-family: Poppins;src: url(''https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap'}
             @font-face {font-family: Aldrich ;src: url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap')}
             @font-face {font-family: Oswald;src: url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap'}`,
         },

@@ -2,12 +2,18 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link as RouterLink } from "react-router-dom"
 
-import { AuthButtons, Logo, UserButtons } from "./Components";
+import { AuthButtons, Logo, SocialButtons, UserButtons } from "./Components";
 
 import { Container, AppBar, Box, Button, Divider, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Link } from "@mui/material"
-import { GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, NearMe, SportsEsports } from '@mui/icons-material'
+import { EmojiEvents, GroupsRounded, HomeRounded, MenuOpenOutlined, MenuOutlined, NearMe, SportsEsports } from '@mui/icons-material'
 
-const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "CONTACTO", ref: "contact" }]
+const navItems = [
+    { text: "INICIO", ref: "" },
+    { text: "EL PROYECTO", ref: "project" },
+    { text: "ESPORTS", ref: "teams" },
+    { text: "SUMATE AL EQUIPO", ref: "join" },
+    { text: "CONTACTO", ref: "contact" },
+];
 
 export const Navbar = () => {
 
@@ -22,6 +28,7 @@ export const Navbar = () => {
     return (
         <>
             <AppBar
+                className="animate__animated animate__fadeInDown"
                 color="background"
                 position="fixed"
                 sx={{
@@ -49,7 +56,7 @@ export const Navbar = () => {
                                 <Grid item sx={{ display: { xs: 'none', md: 'flex', borderLeft: "2px solid #2192FF", paddingLeft: "5px" } }}>
                                     {navItems.map((item) => (
                                         <Link component={RouterLink} to={`/${item.ref}`} underline="none" key={item.text}>
-                                            <Button disableTouchRipple sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
+                                            <Button disableTouchRipple sx={{ color: '#fff', "&:hover": { color: "primary.main" }, fontWeight: "500" }}>
                                                 {item.text}
                                             </Button>
                                         </Link>
@@ -97,7 +104,8 @@ export const Navbar = () => {
                                             (item.text === "INICIO") ? < HomeRounded /> :
                                                 (item.text === "EL PROYECTO") ? < GroupsRounded /> :
                                                     (item.text === "ESPORTS") ? < SportsEsports /> :
-                                                        < NearMe />
+                                                        (item.text === "SUMATE AL EQUIPO") ? < EmojiEvents /> :
+                                                            < NearMe />
                                         }
                                     </ListItemIcon>
                                     <Grid container>

@@ -36,7 +36,7 @@ export const PlayerCard = ({ player }) => {
                                     return;
                                 } else {
                                     return (
-                                        <Link className="follow__link" href={link.url} title={`${player.player} en ${link.plataform}`} target="_blank">
+                                        <Link key={link.plataform} className="follow__link" href={link.url} title={`${player.player} en ${link.plataform}`} target="_blank">
                                             <i className={link.icon}></i>
                                         </Link>
                                     );

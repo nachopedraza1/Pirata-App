@@ -8,6 +8,7 @@ import { useForm, useUploadImage } from "../../hooks";
 
 import { AdminPanelLayout } from "../Layout/AdminPanelLayout";
 import { TittleComponent } from "../../Ui/Components";
+import { alert } from "../../Ui/Alerts/Alerts";
 import { RivalItem } from "../Components";
 
 import { Button, Grid, IconButton, InputAdornment, TextField } from "@mui/material";
@@ -25,7 +26,7 @@ export const AddRivals = () => {
 
     const { uploadImg, imageURL } = useUploadImage(rival);
 
-    const onSubmit = async (event) => {
+    const onAddRival = async (event) => {
         event.preventDefault();
 
         const newRival = { teamName: rival, logoRival: imageURL };
@@ -33,10 +34,12 @@ export const AddRivals = () => {
         const queryRef = collection(FirebaseDB, "rivals");
         await addDoc(queryRef, newRival);
         dispatch(onLoadRivals());
+        alert("success", "Rival Agregado")
     }
     const onDeteleRival = async (id) => {
         await deleteDoc(doc(FirebaseDB, "rivals", id))
         dispatch(onLoadRivals());
+        alert("error", "Rival Eliminado")
     }
 
     return (
@@ -45,7 +48,7 @@ export const AddRivals = () => {
 
                 <Grid item xs={12} lg={8} >
                     <TittleComponent tittle="AGREGAR RIVAL" />
-                    <form autoComplete="off" onSubmit={onSubmit}>
+                    <form autoComplete="off" onSubmit={onAddRival}>
                         <Grid
                             container
                             justifyContent="space-between"
@@ -60,7 +63,7 @@ export const AddRivals = () => {
                                     placeholder="Nombre del Rival"
                                     label="Rival"
                                     name="rival"
-                                    value={rival.toUpperCase()}
+                                    value={rival}
                                     onChange={onInputChange}
                                     InputProps={{
                                         endAdornment:
@@ -96,6 +99,6 @@ export const AddRivals = () => {
                 </Grid>
 
             </Grid >
-        </AdminPanelLayout>
+        </AdminPanelLayout >
     )
 }

@@ -159,6 +159,7 @@ export const AdminPanelLayout = (props) => {
                 <Drawer
                     variant="permanent"
                     sx={{
+                        zIndex:"10000",
                         display: { xs: 'none', sm: 'block' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}

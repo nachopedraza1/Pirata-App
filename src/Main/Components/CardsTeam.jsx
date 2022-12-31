@@ -51,14 +51,6 @@ export const CardsTeam = ({ onClickTeam }) => {
                             <Box className="description-wrapper">
                                 ¡Aunque quieran imitarnos, somos diferentes!
                             </Box>
-                            <Box >
-                                <Button
-                                    className="join-now-button"
-                                    variant="outlined"
-                                >
-                                    unete ahora!
-                                </Button>
-                            </Box>
                         </Box>
                     </Link>
                 </Grid>
@@ -81,14 +73,6 @@ export const CardsTeam = ({ onClickTeam }) => {
                             </Box>
                             <Box className="description-wrapper">
                                 ¡No importa ni la hora ni el día, porque siempre te sigo!
-                            </Box>
-                            <Box >
-                                <Button
-                                    className="join-now-button"
-                                    variant="outlined"
-                                >
-                                    unete ahora!
-                                </Button>
                             </Box>
                         </Link>
                     </Box>
@@ -113,14 +97,6 @@ export const CardsTeam = ({ onClickTeam }) => {
                             <Box className="description-wrapper">
                                 ¡Esta es la banda de lxs Piratas!
                             </Box>
-                            <Box >
-                                <Button
-                                    className="join-now-button"
-                                    variant="outlined"
-                                >
-                                    unete ahora!
-                                </Button>
-                            </Box>
                         </Link>
                     </Box>
                 </Grid>
@@ -144,14 +120,6 @@ export const CardsTeam = ({ onClickTeam }) => {
                             <Box className="description-wrapper">
                                 ¡Tengo la ilusión! ¡Quiero ser campeón!
                             </Box>
-                            <Box >
-                                <Button
-                                    className="join-now-button"
-                                    variant="outlined"
-                                >
-                                    unete ahora!
-                                </Button>
-                            </Box>
                         </Link>
                     </Box>
                 </Grid>
@@ -174,14 +142,6 @@ export const CardsTeam = ({ onClickTeam }) => {
                             </Box>
                             <Box className="description-wrapper">
                                 ¡Es la primera barra, la que viene por el sentimiento!
-                            </Box>
-                            <Box >
-                                <Button
-                                    className="join-now-button"
-                                    variant="outlined"
-                                >
-                                    unete ahora!
-                                </Button>
                             </Box>
                         </Link>
                     </Box>

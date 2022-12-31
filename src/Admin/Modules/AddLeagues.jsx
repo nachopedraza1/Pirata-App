@@ -11,6 +11,7 @@ import { EmojiEvents, SportsEsports } from "@mui/icons-material";
 import { AdminPanelLayout } from "../Layout/AdminPanelLayout"
 import { TittleComponent } from "../../Ui/Components";
 import { LeagueItem } from "../Components/LeagueItem";
+import { alert } from "../../Ui/Alerts/Alerts";
 
 
 export const AddLeagues = () => {
@@ -27,11 +28,13 @@ export const AddLeagues = () => {
         const queryRef = collection(FirebaseDB, "leagues");
         await addDoc(queryRef, { ...formState });
         dispatch(onLoadLeagues())
+        alert("success", "Liga agregada")
     }
 
     const onDeleteLeague = async (id) => {
         await deleteDoc(doc(FirebaseDB, "leagues", id))
         dispatch(onLoadLeagues())
+        alert("error", "Liga eliminada")
     }
 
     return (
@@ -50,7 +53,7 @@ export const AddLeagues = () => {
                                         placeholder="Liga"
                                         label="Liga"
                                         name="league"
-                                        value={league.toUpperCase()}
+                                        value={league}
                                         onChange={onInputChange}
                                         InputProps={{
                                             endAdornment:

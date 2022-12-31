@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { Navigate, Route, Routes, Link } from "react-router-dom"
 
-import { ContactPage, HomePage, ProjectPage, TeamsPage } from "../Pages"
+import { ContactPage, HomePage, JoinTeamPage, ProjectPage, TeamsPage } from "../Pages"
 
 import { Footer, Navbar } from "../../Ui"
 import { Settings } from "@mui/icons-material"
@@ -18,6 +18,7 @@ export const MainRoutes = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/project" element={<ProjectPage />} />
                 <Route path="/teams" element={<TeamsPage />} />
+                <Route path="/join" element={<JoinTeamPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
@@ -26,7 +27,7 @@ export const MainRoutes = () => {
             {
                 status === "authenticated" &&
                     displayName === "adminbelgrano" &&
-                    uid === "MxMcbyiHMxeOHTSoXIs1Kmsqic33"
+                    uid === "wPFAuUclMjQxkBKoQQP0wbP4DT73"
                     ?
                     <Box component={Link} to="/admincp/*" position="fixed" zIndex={1} color="white" top="13vh" right={30}>
                         <Fab color="primary" aria-label="add" >

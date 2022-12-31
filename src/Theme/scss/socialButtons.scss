@@ -38,7 +38,7 @@
             a {
                 &:hover {
                     .fab {
-                        color: #3b5998;
+                        color: #00aced;
                     }
                 }
             }
@@ -48,7 +48,7 @@
             a {
                 &:hover {
                     .fab {
-                        color: #00aced;
+                        color: red;
                     }
                 }
             }
@@ -58,23 +58,13 @@
             a {
                 &:hover {
                     .fab {
-                        color: red;
-                    }
-                }
-            }
-        }
-
-        &:nth-child(4) {
-            a {
-                &:hover {
-                    .fab {
                         color: #6441a5;
                     }
                 }
             }
         }
 
-        &:nth-child(5) {
+        &:nth-child(4) {
             a {
                 &:hover {
                     .fab {

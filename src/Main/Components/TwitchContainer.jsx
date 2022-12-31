@@ -5,7 +5,7 @@ export const TwitchContainer = () => {
         <Grid container spacing={2}>
 
             <Grid item xs={12} md={8}>
-                <iframe src="https://player.twitch.tv/?channel=cabesportsok&parent=belgranoesports.com"
+                <iframe src="https://player.twitch.tv/?channel=cabesportsok&parent=belgranoesports.com.ar"
                     allowFullScreen={true}
                     autoPlay={false}
                     height="450" width="100%">

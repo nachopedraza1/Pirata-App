@@ -11,6 +11,7 @@ import { Gamepad, SportsEsports } from "@mui/icons-material"
 import { TittleComponent } from "../../Ui/Components";
 import { EsportItem } from "../Components/EsportItem"
 import { AdminPanelLayout } from "../Layout/AdminPanelLayout"
+import { alert } from "../../Ui/Alerts/Alerts"
 
 const initialState = {
     game: "",
@@ -37,14 +38,16 @@ export const AddEsports = () => {
             const queryRef = collection(FirebaseDB, "esports");
             await addDoc(queryRef, esport);
             dispatch(onLoadEsports());
+            alert("success", "Esport Agregado")
         } else {
-            console.log("existe");
+            alert("warning", `${game} ya existe`)
         }
     }
 
     const onDeteleEsport = async (id) => {
         await deleteDoc(doc(FirebaseDB, "esports", id))
         dispatch(onLoadEsports());
+        alert("error", "Esport eliminado")
     }
 
     const updateTeam = async (id, players) => {
@@ -52,6 +55,7 @@ export const AddEsports = () => {
         await updateDoc(queryRef, {
             players: players
         })
+        alert("success", "Cambios guardados")
     }
 
     return (

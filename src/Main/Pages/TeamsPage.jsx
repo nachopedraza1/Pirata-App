@@ -38,7 +38,7 @@ export const TeamsPage = () => {
 
     return (
         <>
-            <MainLayout bgImg="/assets/images/background1.jpg">
+            <MainLayout bgImg="/assets/images/background1.jpg" bgImgMobile="/assets/images/background1-mobile.jpg">
                 <Grid sx={{
                     textAlign: "center",
                     display: { xs: "none", lg: "block" },

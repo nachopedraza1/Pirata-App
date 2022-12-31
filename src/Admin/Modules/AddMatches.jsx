@@ -11,6 +11,7 @@ import { Grid, Select, InputLabel, MenuItem, FormControl, Button, TextField } fr
 import { EmojiEvents, Gamepad, Security, SportsEsports } from '@mui/icons-material';
 import { AdminPanelLayout } from '../Layout/AdminPanelLayout';
 import { TittleComponent } from "../../Ui/Components";
+import { alert } from '../../Ui/Alerts/Alerts';
 import { MatchItem } from '../Components';
 
 import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
@@ -47,11 +48,13 @@ export const AddMatches = () => {
         const queryRef = collection(FirebaseDB, "matches");
         await addDoc(queryRef, match);
         dispatch(onLoadMatches());
+        alert("success", "Resultado Agregado")
     }
 
     const onDeteleMatch = async (id) => {
         await deleteDoc(doc(FirebaseDB, "matches", id))
         dispatch(onLoadMatches());
+        alert("error", "Resultado eliminado")
     }
 
     const { logoRival } = rivals.find(logo => logo.teamName === teamName) || {};
@@ -86,7 +89,7 @@ export const AddMatches = () => {
                                             endAdornment={<Security sx={{ mr: 2 }} />}
                                         >
                                             {
-                                                rivals.map(rival => (<MenuItem value={rival.teamName} key={rival.id} >{rival.teamName}</MenuItem>))
+                                                rivals.map(rival => (<MenuItem value={rival.teamName} key={rival.id} >{rival.teamName.toUpperCase()}</MenuItem>))
                                             }
                                         </Select>
                                     </FormControl>
@@ -140,7 +143,7 @@ export const AddMatches = () => {
                                             label="Liga"
                                             endAdornment={<EmojiEvents sx={{ mr: 2 }} />}
                                         >
-                                            {leagues.map(league => (<MenuItem key={league.id} value={league.league}> {league.league} </MenuItem>))}
+                                            {leagues.map(league => (<MenuItem key={league.id} value={league.league}> {league.league.toUpperCase()} </MenuItem>))}
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -149,7 +152,7 @@ export const AddMatches = () => {
                                     <LocalizationProvider dateAdapter={AdapterMoment}>
                                         <DateTimePicker
                                             inputProps={{ placeholder: 'Seleciona Fecha y Hora' }}
-                                            renderInput={(props) => <TextField fullWidth sx={{ "& .MuiSvgIcon-root": { color: "white" } }} {...props} />}
+                                            renderInput={(props) => <TextField required={true} fullWidth sx={{ "& .MuiSvgIcon-root": { color: "white" } }} {...props} />}
                                             label="Fecha y Hora"
                                             value={dateMatch}
                                             onChange={(newDateMatch) => {

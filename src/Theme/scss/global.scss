@@ -11,6 +11,14 @@ body::-webkit-scrollbar {
     background-color: #000000;
 }
 
+.customAlert {
+    z-index: 1000;
+}
+
+.map {
+    filter: grayscale(100%) invert(92%) contrast(83%);
+}
+
 .CustomScrollBar::-webkit-scrollbar {
     width: 0px;
     background-color: #000000;

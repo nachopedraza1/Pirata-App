@@ -35,19 +35,14 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
         setPlayers(esport.players)
     }, []);
 
-    const AddPlayer = () => {
-        setPlayers([...players, { id: uuidv4(), ...formState }]);
-    }
-
     const onDeletePlayer = (id) => {
         const newPlayers = players.filter(player => player.id !== id);
         setPlayers(newPlayers);
     }
 
-
-    const onSubmit = (event) => {
+    const onAddPlayer = (event) => {
         event.preventDefault();
-        AddPlayer(esport.id)
+        setPlayers([...players, { id: uuidv4(), ...formState }]);
     }
 
 
@@ -105,7 +100,7 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
                         <img src={`/assets/images/esports/${esport.game}.png`} width="200px" alt="" className="animate__animated animate__fadeInDown" />
                     </Grid>
 
-                    <form onSubmit={onSubmit}>
+                    <form onSubmit={onAddPlayer}>
                         <Grid container spacing={3} >
                             <Grid item xs={12} md={6}>
                                 <TittleComponent tittle="AGREGAR JUGADOR" />
@@ -296,7 +291,7 @@ export const EsportItem = ({ esport, onDeteleEsport, updateTeam }) => {
                         </Button>
 
                         <Button
-                            onClick={() => updateTeam(esport.id, players)}
+                            onClick={() => { updateTeam(esport.id, players); setOpenModal(false) }}
                             variant="outlined"
                         >
                             Guardar

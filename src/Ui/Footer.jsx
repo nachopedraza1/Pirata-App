@@ -1,11 +1,17 @@
 import { Link as RouterLink } from 'react-router-dom'
 
 import { Box, Container, Divider, Grid, List, Typography, Link, Button } from '@mui/material'
-import { Email, Phone } from '@mui/icons-material'
+import { Email, Favorite, Phone } from '@mui/icons-material'
 
 import { Glitch, Logo, SocialButtons } from './Components'
 
-const navItems = [{ text: "INICIO", ref: "" }, { text: "EL PROYECTO", ref: "project" }, { text: "ESPORTS", ref: "teams" }, { text: "CONTACTO", ref: "contact" }]
+const navItems = [
+    { text: "INICIO", ref: "" },
+    { text: "EL PROYECTO", ref: "project" },
+    { text: "ESPORTS", ref: "teams" },
+    { text: "SUMATE AL EQUIPO", ref: "join" },
+    { text: "CONTACTO", ref: "contact" }
+]
 
 export const Footer = () => {
     return (
@@ -19,7 +25,7 @@ export const Footer = () => {
                         <List sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
                             {navItems.map((item) => (
                                 <Link component={RouterLink} to={`/${item.ref}`} underline="none" key={item.text}>
-                                    <Button disableTouchRipple sx={{ color: '#fff', "&:hover": { color: "primary.main" } }}>
+                                    <Button disableTouchRipple sx={{ color: '#fff', "&:hover": { color: "primary.main" }, fontWeight: "500" }}>
                                         {item.text}
                                     </Button>
                                 </Link>
@@ -28,11 +34,20 @@ export const Footer = () => {
 
                         <List sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", position: "absolute", top: "80%" }}>
 
-                            <Button size='small' href='mailto:belgranoegames@gmail.com' disableTouchRipple startIcon={<Email sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" }, fontSize: "12px" }}>
+                            <Button
+                                size='small'
+                                href='mailto:belgranoegames@gmail.com'
+                                disableTouchRipple
+                                startIcon={<Email sx={{ color: "primary.main" }} />}
+                                sx={{ color: 'gray', "&:hover": { color: "primary.main" }, fontSize: "12px", fontWeight: "500" }}>
                                 belgranoegames@gmail.com
                             </Button>
 
-                            <Button size='small' disableTouchRipple startIcon={<Phone sx={{ color: "primary.main" }} />} sx={{ color: 'gray', "&:hover": { color: "primary.main" } }}>
+                            <Button
+                                size='small'
+                                disableTouchRipple
+                                startIcon={<Phone sx={{ color: "primary.main" }} />}
+                                sx={{ color: 'gray', "&:hover": { color: "primary.main" }, fontWeight: "500" }}>
                                 0351-4967008
                             </Button>
 
@@ -40,7 +55,9 @@ export const Footer = () => {
                     </Grid>
 
                     <Grid item xs={12} md={3} display="flex" justifyContent="center" paddingTop={{ xs: 5, md: 0 }}>
-                        <img src="/assets/images/logocabrepublica.png" alt="" width="100%" style={{ maxWidth: "250px" }} />
+                        <Link href='https://republicadealberdi.ar/' target="_blank">
+                            <img src="/assets/images/logocabrepublica.png" alt="" width="100%" style={{ maxWidth: "250px" }} />
+                        </Link>
                     </Grid>
                 </Grid>
 
@@ -63,8 +80,15 @@ export const Footer = () => {
 
                 </Grid>
             </Container>
-            <Box height="25px" bgcolor="backgraunds.black" textAlign="end">
-                <Typography></Typography>
+            <Box height="25px" bgcolor="backgraunds.black" textAlign="center">
+                <Link href='https://wa.me/3513295515' target="_blank" underline='none'>
+                    <Typography variant='p' fontSize={12} fontWeight="bold" color="gray">DESARROLLADO CON
+                        <Typography component="span" mx="5px">
+                            <Favorite fontSize='small' sx={{ color: 'primary.main' }} />
+                        </Typography>
+                        POR NACHOJS
+                    </Typography>
+                </Link>
             </Box>
         </Box >
     )

@@ -68,6 +68,7 @@ export const AuthLayout = ({ children, tittle }) => {
                     item
                     xs={12}
                     md={5}
+                    mt={{ xs: 4, md: 0 }}
                     padding={1}
                 >
 

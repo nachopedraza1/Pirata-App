@@ -16,7 +16,7 @@ const formData = {
 }
 
 const formValidations = {
-    displayName: [(value) => value.length >= 1, "Ingresa un nombre de usuario valido."],
+    displayName: [(value) => value.length >= 5, "Ingresa un nombre de usuario valido."],
     email: [(value) => value.includes("@"), "Ingresa un Email valido."],
     password: [(value) => value.length >= 6, "La contraseñas debe tener 6 caracteres."],
 }
@@ -46,10 +46,11 @@ export const RegisterPage = () => {
 
     return (
         <AuthLayout tittle={"REGISTRO"}>
-            <form onSubmit={onSubmit} autoComplete="off" >
+            <form onSubmit={onSubmit} >
                 <Grid container className="animate__animated animate__fadeIn">
                     <Grid item xs={12}>
                         <TextField
+                            required={true}
                             sx={{ mb: 2 }}
                             type="text"
                             placeholder="Nombre de Usuario"
@@ -59,18 +60,18 @@ export const RegisterPage = () => {
                             value={displayName}
                             onChange={onInputChange}
                             error={!!displayNameValidate && formSubmitted}
-                            helperText={formSubmitted && displayNameValidate}
                             InputProps={{
                                 endAdornment:
                                     <InputAdornment position="end">
                                         <AccountCircle sx={{ color: "gray" }} />
-                                    </InputAdornment>,
+                                    </InputAdornment>
                             }}
                         />
                     </Grid>
 
                     <Grid item xs={12}>
                         <TextField
+                            required={true}
                             sx={{ mb: 2 }}
                             type="text"
                             placeholder="Ingresa tu Email"
@@ -80,7 +81,6 @@ export const RegisterPage = () => {
                             value={email}
                             onChange={onInputChange}
                             error={!!emailValidate && formSubmitted}
-                            helperText={formSubmitted && emailValidate}
                             InputProps={{
                                 endAdornment:
                                     <InputAdornment position="end">
@@ -92,6 +92,7 @@ export const RegisterPage = () => {
 
                     <Grid item xs={12}>
                         <TextField
+                            required={true}
                             sx={{ mb: 2 }}
                             type={showPassword ? 'text' : 'password'}
                             placeholder="Ingresa una Contraseña"
@@ -101,7 +102,6 @@ export const RegisterPage = () => {
                             value={password}
                             onChange={onInputChange}
                             error={!!passwordValidate && formSubmitted}
-                            helperText={formSubmitted && passwordValidate}
                             InputProps={{
                                 endAdornment:
                                     <InputAdornment position="end">
@@ -118,7 +118,14 @@ export const RegisterPage = () => {
                     <Grid item xs={12} mb={1}
                         display={formSubmitted && !!errorMessage ? "" : "none"}>
                         <Alert severity='error' >
-                            {errorMessage}
+                            {
+                                (errorMessage === "Firebase: Error (auth/invalid-email).")
+                                    ? "El email ingresado no es valido."
+                                    : (errorMessage === "Firebase: Password should be at least 6 characters (auth/weak-password).")
+                                        ? "La contraseña debe tener 6 caracteres o mas."
+                                        : (errorMessage === "Firebase: Error (auth/email-already-in-use).")
+                                            ? "El email ingresado ya se encuentra registrado." : null
+                            }
                         </Alert>
                     </Grid>
 
