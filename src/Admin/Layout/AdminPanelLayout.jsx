@@ -33,7 +33,7 @@ const navlinks2 = [
     { text: 'Agregar Rivales', ref: "addrivals" },
     { text: 'Agregar Liga', ref: "addleague" },
     { text: 'Agregar Esports', ref: "addesports" },
-    { text: 'Postulantes', ref: "addmatches" },
+    { text: 'Postulantes', ref: "applicants" },
     { text: 'Ajustes', ref: "addmatches" },
 ];
 
@@ -159,7 +159,7 @@ export const AdminPanelLayout = (props) => {
                 <Drawer
                     variant="permanent"
                     sx={{
-                        zIndex:"10000",
+                        zIndex: "10000",
                         display: { xs: 'none', sm: 'block' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}

@@ -19,6 +19,8 @@ export const UserButtons = () => {
 
     const { photoURL, displayName } = useSelector(state => state.auth);
 
+    const defaultImage = "https://futboleterno.com/_next/image?url=https%3A%2F%2Ffe-prod.mypinata.cloud%2Fipfs%2FQmV6msJxLoBaQweu1pe7WkL2SFzLvSBu9re1g935EYsSUS%2FHEAD_46.png&w=384&q=75";
+
     const onLogout = () => {
         dispatch(startLogout())
     }
@@ -28,12 +30,13 @@ export const UserButtons = () => {
         <>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                 <Button
+                    disableTouchRipple
                     onClick={handleClick}
                     size="small"
                     sx={{ p: 0 }}
                 >
                     <Box display="flex" alignItems="center" gap={1}>
-                        <img src={photoURL} alt="" width="40px" style={{ borderRadius: "50%", marginInline: "10px" }} />
+                        <img src={!!photoURL ? photoURL : defaultImage} alt="" width="40px" style={{ borderRadius: "50%", marginInline: "10px" }} />
                         <Typography variant="p" color="white" noWrap sx={{ display: { xs: "none", sm: "block" } }}> {displayName} </Typography>
                         <ManageAccountsOutlined />
                     </Box>

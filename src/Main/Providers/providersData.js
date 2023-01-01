@@ -4,8 +4,8 @@ import { collection, doc, getDocs, orderBy, query } from "firebase/firestore/lit
 import { FirebaseDB } from "../../Firebase/config";
 
 export const providerPosts = async () => {
-    const { data: { data } } = await axios.get("(ig)");
-    const postsData = data.filter(post => post.media_type === "IMAGE");
+    const { data: { data } } = await axios.get("https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,timestamp,username&access_token=IGQVJXTXFXRW9VaUNkaWk3b3NrUmZA1dEhxeFd6aU43WGlTSzBILUVtYUg1alVfRlhrYWpERzEzTlhuV0NOYW1SUWJHSkJTbF9LR0pXcllMdHJFazEydmVZAQlZAaZAjdUX3ZAvMGNLZA2VB");
+    const postsData = data.filter(({ media_type }) => media_type === "IMAGE" || media_type === "CAROUSEL_ALBUM");
     return postsData;
 }
 
