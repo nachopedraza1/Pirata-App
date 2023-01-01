@@ -18,9 +18,12 @@ export const useCheckAuth = () => {
             if (!user) return dispatch(logout());
             const { uid, displayName, photoURL, email } = user;
             dispatch(login({ uid, displayName, photoURL, email }))
-            displayName == null
-                ? alert("success", "Tu cuenta ha sido creada con exito.")
-                : alert("success", `Bienvenido de nuevo ${displayName}`)
+            setTimeout(() => {
+                displayName == null
+                    ? alert("success", "Tu cuenta ha sido creada con exito.")
+                    : alert("success", `Bienvenido de nuevo ${displayName}`)
+            }, 1500);
+
         });
     }, []);
 

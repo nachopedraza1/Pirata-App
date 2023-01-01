@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, Link } from "react-router-dom"
 
 import { ContactPage, HomePage, JoinTeamPage, ProjectPage, TeamsPage } from "../Pages"
 
+import { Preloader } from "../../Ui/Components"
 import { Footer, Navbar } from "../../Ui"
 import { Settings } from "@mui/icons-material"
 import { Box, Fab } from "@mui/material"
@@ -13,6 +14,7 @@ export const MainRoutes = () => {
 
     return (
         <>
+            <Preloader />
             <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />

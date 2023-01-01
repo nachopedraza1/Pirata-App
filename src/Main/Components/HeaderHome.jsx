@@ -11,6 +11,7 @@ export const HeaderHome = () => {
                 flexDirection="column"
                 alignItems="center"
                 height="100vh"
+                minHeight="100vh"
                 pt={7}
             >
 
