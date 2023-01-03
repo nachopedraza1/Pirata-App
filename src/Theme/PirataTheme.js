@@ -1,5 +1,6 @@
 
 import { createTheme, drawerClasses } from "@mui/material";
+import { borderColor } from "@mui/system";
 
 export const PirataTheme = createTheme({
     components: {
@@ -64,6 +65,21 @@ export const PirataTheme = createTheme({
             styleOverrides: {
                 root: {
                     fontWeight: "bold"
+                }
+            }
+        },
+        MuiTable: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: "#16171b",
+                }
+            }
+        },
+        MuiTableCell: {
+            styleOverrides: {
+                root: {
+                    color: "gray",
+                    borderColor: "gray"
                 }
             }
         }

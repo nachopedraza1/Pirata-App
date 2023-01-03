@@ -4,7 +4,7 @@ import { collection, doc, getDocs, orderBy, query } from "firebase/firestore/lit
 import { FirebaseDB } from "../../Firebase/config";
 
 export const providerPosts = async () => {
-    const { data: { data } } = await axios.get("");
+    const { data: { data } } = await axios.get("-");
 
     const postsData = data.filter(({ media_type }) => media_type === "IMAGE" || media_type === "CAROUSEL_ALBUM");
     return postsData;
@@ -75,4 +75,13 @@ export const getLeagues = async () => {
     } catch (error) {
         console.log(error);
     }
+}
+
+export const getApplicants = async () => {
+    const queryRef = collection(FirebaseDB, "applicants");
+    const { docs } = await getDocs(queryRef);
+    const applicants = docs.map(doc => {
+        return { id: doc.id, ...doc.data() }
+    });
+    return applicants;
 }

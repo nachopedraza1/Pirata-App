@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 
 import { addDoc, collection } from "firebase/firestore/lite"
 import { FirebaseDB } from "../../Firebase/config"
-import { uuidv4 } from "@firebase/util"
 
 import { useForm } from "../../hooks/useForm"
 
@@ -18,6 +17,36 @@ import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers"
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import moment from "moment"
 
+
+const plataforms = [
+    "Play Station 5",
+    "Play Station 4",
+    "Mobile",
+    "XBOX",
+    "PC"
+];
+
+const esports = [
+    "Pro evolution soccer",
+    "League of Legends",
+    "Counter Strike",
+    "Formula 1",
+    "Fortnite",
+    "Valorant",
+    "Free fire",
+    "Fifa",
+    "No soy gamer"
+];
+
+const roles = [
+    "Gamer",
+    "Caster",
+    "Streamer",
+    "Diseñador",
+    "Community Manager",
+    "Nuevo proyecto de Esports",
+];
+
 const initialForm = {
     name: "",
     lastname: "",
@@ -27,6 +56,7 @@ const initialForm = {
     rol: "",
     esport: "",
     plataform: "",
+    checked: false,
 }
 
 export const JoinTeamPage = () => {
@@ -39,13 +69,13 @@ export const JoinTeamPage = () => {
 
     const { name, lastname, phone, email, rol, esport, plataform, onInputChange, formState } = useForm(initialForm);
 
-    const date = moment(dateMatch).format('ll');
+    const date = moment(dateMatch).format('L');
 
     const onSubmitForm = async (event) => {
         event.preventDefault();
         setSubmitted(true);
         const queryRef = collection(FirebaseDB, "applicants");
-        const formData = { ...formState, fecha: date, id: uuidv4() }
+        const formData = { ...formState, fecha: date }
         await addDoc(queryRef, formData);
         navigate("/", { replace: true })
         alert("success", "Formulario enviado con exito")
@@ -139,7 +169,7 @@ export const JoinTeamPage = () => {
                                             endAdornment:
                                                 <InputAdornment position="end">
                                                     <Email sx={{ color: "primary.main" }} />
-                                                </InputAdornment>,
+                                                </InputAdornment>
                                         }}
                                     />
                                 </Grid>
@@ -147,7 +177,7 @@ export const JoinTeamPage = () => {
                                 <Grid item xs={12}>
                                     <LocalizationProvider dateAdapter={AdapterMoment}>
                                         <DesktopDatePicker
-                                            inputProps={{ placeholder: 'Seleciona Fecha' }}
+                                            inputProps={{ placeholder: 'MES/DIA/AÑO', minLength: 10, maxLength: 10 }}
                                             renderInput={(props) => <TextField required={true} fullWidth sx={{ "& .MuiSvgIcon-root": { color: "primary.main" } }} {...props} />}
                                             label="Fecha de nacimiento"
                                             value={dateMatch}
@@ -171,12 +201,9 @@ export const JoinTeamPage = () => {
                                             label="Seleccionar"
                                             endAdornment={<EmojiEvents sx={{ mr: 2, color: "primary.main" }} />}
                                         >
-                                            <MenuItem value="Gamer">Gamer</MenuItem>
-                                            <MenuItem value="Caster">Caster</MenuItem>
-                                            <MenuItem value="Streamer">Streamer</MenuItem>
-                                            <MenuItem value="Diseñador">Diseñador</MenuItem>
-                                            <MenuItem value="Community Manager">Community Manager</MenuItem>
-                                            <MenuItem value="Nuevo proyecto de Esports">Nuevo proyecto de Esports</MenuItem>
+                                            {
+                                                roles.map(rol => (<MenuItem key={rol} value={rol} > {rol} </MenuItem>))
+                                            }
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -194,15 +221,9 @@ export const JoinTeamPage = () => {
                                             label="Esport"
                                             endAdornment={<SportsEsports sx={{ mr: 2, color: "primary.main" }} />}
                                         >
-                                            <MenuItem value="Pro evolution soccer">Pro evolution soccer</MenuItem>
-                                            <MenuItem value="League of Legends">League of Legends</MenuItem>
-                                            <MenuItem value="Counter Strike">Counter Strike</MenuItem>
-                                            <MenuItem value="Formula 1">Formula 1</MenuItem>
-                                            <MenuItem value="Fortnite">Fortnite</MenuItem>
-                                            <MenuItem value="Valorant">Valorant</MenuItem>
-                                            <MenuItem value="Free fire">Free fire</MenuItem>
-                                            <MenuItem value="Fifa">Fifa</MenuItem>
-                                            <MenuItem value="No soy gamer">No soy gamer</MenuItem>
+                                            {
+                                                esports.map(esport => (<MenuItem key={esport} value={esport} > {esport} </MenuItem>))
+                                            }
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -220,11 +241,9 @@ export const JoinTeamPage = () => {
                                             onChange={onInputChange}
                                             endAdornment={<Gamepad sx={{ mr: 2, color: "primary.main" }} />}
                                         >
-                                            <MenuItem value="Play Station 5">Play Station 5</MenuItem>
-                                            <MenuItem value="Play Station 4">Play Station 4</MenuItem>
-                                            <MenuItem value="Mobile">Mobile</MenuItem>
-                                            <MenuItem value="XBOX">XBOX</MenuItem>
-                                            <MenuItem value="PC">PC</MenuItem>
+                                            {
+                                                plataforms.map(plataform => (<MenuItem key={plataform} value={plataform} > {plataform} </MenuItem>))
+                                            }
                                         </Select>
                                     </FormControl>
                                 </Grid>

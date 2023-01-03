@@ -9,7 +9,7 @@ export const mainDataSlice = createSlice({
         esports: [],
         leagues: [],
         upcomingMatches: [],
-
+        applicants: []
     },
     reducers: {
         setMatches: (state, { payload }) => {
@@ -31,8 +31,12 @@ export const mainDataSlice = createSlice({
         setLeagues: (state, { payload }) => {
             state.isLoading = false;
             state.leagues = payload;
+        },
+        setApplicants: (state, { payload }) => {
+            state.isLoading = false;
+            state.applicants = payload;
         }
     },
 })
 
-export const { setMatches, setRivals, setEsports, setLeagues, setUpcomingMatches } = mainDataSlice.actions
+export const { setMatches, setRivals, setEsports, setLeagues, setUpcomingMatches, setApplicants } = mainDataSlice.actions

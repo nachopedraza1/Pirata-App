@@ -6,7 +6,7 @@ import 'sweetalert2/src/sweetalert2.scss'
 export const alert = (type, message) => {
     Swal.fire({
         position: 'bottom-end',
-        background: "#16171b",
+        background: "#1f2024",
         icon: type,
         title: `<p>${message}.</p>`.toUpperCase(),
         showConfirmButton: false,

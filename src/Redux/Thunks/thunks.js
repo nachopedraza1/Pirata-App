@@ -1,8 +1,8 @@
 
 import { facebookLogin, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Auth/Providers/providersAuth";
 
-import { checkingCredentials, login, logout, setEsports, setLeagues, setMatches, setPosts, setRivals, setUpcomingMatches } from "../Slices"
-import { getEsports, getLeagues, getMatches, getRivals, getUpcomingMatches, providerPosts } from "../../Main/Providers/providersData";
+import { checkingCredentials, login, logout, setApplicants, setEsports, setLeagues, setMatches, setPosts, setRivals, setUpcomingMatches } from "../Slices"
+import { getApplicants, getEsports, getLeagues, getMatches, getRivals, getUpcomingMatches, providerPosts } from "../../Main/Providers/providersData";
 
 
 export const startTwitterLogin = () => {
@@ -107,6 +107,13 @@ export const onLoadLeagues = () => {
     return async (dispatch) => {
         const leagues = await getLeagues();
         dispatch(setLeagues(leagues))
+    }
+}
+
+export const onLoadApplicants = () => {
+    return async (dispatch) => {
+        const applicants = await getApplicants();
+        dispatch(setApplicants(applicants))
     }
 }
 

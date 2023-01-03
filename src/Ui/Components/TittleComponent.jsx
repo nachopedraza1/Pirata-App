@@ -1,10 +1,11 @@
 import { Box, Typography } from "@mui/material"
 
-export const TittleComponent = ({ tittle }) => {
+export const TittleComponent = ({ tittle, component }) => {
     return (
         <Box
             display="flex"
             alignItems="center"
+            justifyContent="space-between"
             padding={4}
             sx={{
                 width: "100%",
@@ -16,6 +17,7 @@ export const TittleComponent = ({ tittle }) => {
                 marginTop: "13px",
             }}>
             <Typography variant="h6" color="white" fontFamily="Aldrich" data-aos="fade-left"> {tittle} </Typography>
+            {component}
         </Box>
     )
 }
