@@ -9,7 +9,7 @@ import { useForm } from "../../hooks"
 
 import { AuthLayout } from "../Layout/AuthLayout"
 import { AccountCircle, LoginRounded, Visibility, VisibilityOff } from "@mui/icons-material"
-import { Grid, TextField, Link, Button, Alert, InputAdornment, IconButton } from "@mui/material"
+import { Grid, TextField, Link, Button, Alert, InputAdornment, IconButton, Typography } from "@mui/material"
 
 
 
@@ -108,8 +108,9 @@ export const LoginPage = () => {
                         </Grid>
 
                         <Grid container justifyContent="end" mt={2}>
+                            <Typography sx={{ mr: 1, color: "gray" }}>¿No estas registrado?</Typography>
                             <Link component={RouterLink} to="/auth/register">
-                                Crear una cuenta
+                                Registrate
                             </Link>
                         </Grid>
                     </Grid>

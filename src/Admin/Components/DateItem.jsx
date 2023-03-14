@@ -34,7 +34,7 @@ export const DateItem = ({ match, onDeteleDate }) => {
                     <img src={`/assets/images/${match.plataform}.png`} alt="" width="100%" style={{ maxWidth: "30px" }} />
                 </Grid>
                 <Grid item xs={2} textAlign="center">
-                    <img src="/assets/images/Logo.png" alt="" width="100%" style={{ maxWidth: "70px" }} />
+                    <img src="/assets/images/logo.png" alt="" width="100%" style={{ maxWidth: "70px" }} />
                 </Grid>
                 <Grid item xs={1}>
 

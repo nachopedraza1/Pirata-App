@@ -134,7 +134,7 @@ export const RegisterPage = () => {
                     </Button>
 
                     <Grid container direction="row" justifyContent="end" sx={{ mt: 1 }}>
-                        <Typography sx={{ mr: 1, color: "gray" }}>¿Ya tienes cuenta?</Typography>
+                        <Typography sx={{ mr: 1, color: "gray" }}>¿Ya estas registrado?</Typography>
                         <Link component={RouterLink} to="/auth/login">
                             Ingresar
                         </Link>

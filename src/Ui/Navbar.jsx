@@ -43,7 +43,7 @@ export const Navbar = () => {
                         </IconButton>
 
                         <Grid container width="93%" display={{ xs: "flex", md: "none" }} position="absolute" justifyContent="center" zIndex="-1">
-                            <img src="/assets/images/Logo.png" alt="" width="70px" />
+                            <img src="/assets/images/logo.png" alt="" width="70px" />
                         </Grid>
 
                         <Grid container direction="row" wrap="nowrap" justifyContent={{ xs: "center", md: "space-between" }} alignItems="center">
@@ -81,8 +81,8 @@ export const Navbar = () => {
             <Drawer
                 variant="temporary"
                 open={menuState}
-                sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: "270px", backgroundColor: "black" } }}
                 onClose={handleDrawerToggle}
+                sx={{ "& .MuiDrawer-paper": { boxSizing: "border-box", width: "270px", backgroundColor: "black" }, display: { xs: "flex", md: "none" } }}
             >
                 <Toolbar sx={{ pl: "24px", justifyContent: "space-between" }} >
                     <IconButton sx={{ mr: 2, p: 0 }} onClick={handleDrawerToggle}>

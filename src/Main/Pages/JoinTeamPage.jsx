@@ -89,7 +89,7 @@ export const JoinTeamPage = () => {
         <>
             <HeaderJoinTeam />
             <MainLayout bgColor="backgraunds.black">
-                <img src="/assets/images/Linea.png" alt="" width="100%" style={{ position: "absolute", left: 0 }} />
+                <img src="/assets/images/Linea.jpg" alt="" width="100%" style={{ position: "absolute", left: 0 }} />
                 <Grid container justifyContent="center" alignItems="center" minHeight="100vh" pt={10} id="join">
                     <Grid item xs={12} sm={11} md={8} lg={7} padding={3} borderRadius={1} bgcolor="backgraunds.main" data-aos="fade">
                         <Logo size="170px" pb={"20px"} />

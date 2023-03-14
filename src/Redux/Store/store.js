@@ -7,4 +7,5 @@ export const store = configureStore({
         posts: postsSlice.reducer,
         mainData: mainDataSlice.reducer,
     },
+    devTools: false,
 })

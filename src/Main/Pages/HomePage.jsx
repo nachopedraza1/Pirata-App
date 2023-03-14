@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 
 import { MainLayout } from "../Layout/MainLayout";
 import { Grid } from "@mui/material";
-import { TwitterContainer, NewsContainer, HeaderHome, TabMatches, TwitchContainer, DiscordContainer } from "../Components";
+import { TwitterContainer, NewsContainer, HeaderHome, TabMatches, DiscordContainer } from "../Components";
+
+const TwitchContainer = lazy(() => import("../Components/TwitchContainer"))
 
 
 export const HomePage = () => {
@@ -15,9 +17,8 @@ export const HomePage = () => {
         <>
             <HeaderHome />
 
-
             <MainLayout bgColor="backgraunds.black">
-                <img src="/assets/images/Linea.png" alt="" width="100%" style={{ position: "absolute", left:0 }} />
+                <img src="/assets/images/Linea.jpg" alt="" width="100%" style={{ position: "absolute", left: 0 }} />
 
                 <Grid container justifyContent="center" spacing={2} id="home" pt={6}>
 

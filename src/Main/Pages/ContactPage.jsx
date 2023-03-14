@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import emailjs from '@emailjs/browser';
 
-import { Box, Button, Divider, Grid, IconButton, InputAdornment, Link, TextField, Toolbar, Typography } from "@mui/material"
+import { Button, Divider, Grid, IconButton, InputAdornment, TextField, Toolbar, Typography } from "@mui/material"
 import { Email, LocationOn, Person, Phone, Send } from "@mui/icons-material"
 import { MainLayout } from "../Layout/MainLayout"
 import { alert } from "../../Ui/Alerts/Alerts";
@@ -36,7 +36,7 @@ export const ContactPage = () => {
 
     return (
         <>
-            <MainLayout bgImg="/assets/images/background1.jpg" bgImgMobile="/assets/images/background1-mobile.jpg" bgColor="backgraunds.black">
+            <MainLayout bgImg="/assets/images/bg-main-desk.webp" bgColor="backgraunds.black">
 
                 <Grid sx={{
                     textAlign: "center",
@@ -74,7 +74,7 @@ export const ContactPage = () => {
                     >
 
                         <Grid position="absolute" top="-65px" zIndex={1} display={{ xs: "none", md: "block" }}>
-                            <img src="/assets/images/Logo.png" alt="" width="150px" />
+                            <img src="/assets/images/logo.png" alt="" width="150px" />
                         </Grid>
 
                         <Grid item xs={12} md={5} display="flex" flexDirection="column" justifyContent="start" alignItems="center">
@@ -104,7 +104,6 @@ export const ContactPage = () => {
                             <Typography variant="h6" color="white" fontFamily="Aldrich"> SIGUENOS EN NUESTRAS REDES! </Typography>
                             <SocialButtons />
 
-                            {/* <iframe className="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.491385057111!2d-64.2085820432221!3d-31.400584968028582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432988e27e605e9%3A0xca5a6701c330c816!2sEstadio%20Julio%20C%C3%A9sar%20Villagra%20Club%20Atl%C3%A9tico%20Belgrano!5e0!3m2!1ses!2sar!4v1672385782846!5m2!1ses!2sar" width="100%" height="200" style={{ borderRadius: "5px" }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe> */}
                         </Grid>
 
                         <Divider

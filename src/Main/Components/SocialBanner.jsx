@@ -9,7 +9,7 @@ export const SocialBanner = ({ type, icon, color, banner, link }) => {
                 <Button
                     fullWidth
                     sx={{
-                        backgroundImage: `url("/assets/images/${banner}.png")`,
+                        backgroundImage: `url("/assets/images/${banner}.jpg")`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         padding: 0

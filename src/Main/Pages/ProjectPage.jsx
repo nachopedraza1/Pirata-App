@@ -30,7 +30,7 @@ export const ProjectPage = () => {
                     width="100%"
                     height="100vh"
                     sx={{
-                        backgroundImage: `url(${"/assets/images/quienessomos.jpg"})`,
+                        backgroundImage: "url(https://res.cloudinary.com/dlrynazbm/image/upload/v1676518091/belgrano-esports/quienessomos_bnckgi.jpg)",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",
@@ -52,7 +52,7 @@ export const ProjectPage = () => {
             </Grid>
 
             <Box width="100%" bgcolor="backgraunds.black" paddingBottom={10}>
-                <img src="/assets/images/Linea.png" alt="" width="100%" style={{ position: "absolute", left: 0 }} />
+                <img src="/assets/images/Linea.jpg" alt="" width="100%" style={{ position: "absolute", left: 0 }} />
                 <Container maxWidth="lg" id="team">
                     <Grid container justifyContent="center" paddingTop={10}>
                         <Grid item xs={12} sm={11} md={8} lg={7} padding={3} borderRadius={1} bgcolor="backgraunds.main" data-aos="fade">

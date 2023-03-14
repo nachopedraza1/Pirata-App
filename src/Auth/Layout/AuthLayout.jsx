@@ -38,7 +38,7 @@ export const AuthLayout = ({ children, tittle }) => {
                 minHeight: "100vh",
                 width: "100%",
                 height: "100%",
-                backgroundImage: "url(/assets/images/background1.jpg)",
+                backgroundImage: "url(/assets/images/bg-main-desk.jpg)",
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed",
                 backgroundRepeat: "no-repeat",
@@ -61,7 +61,7 @@ export const AuthLayout = ({ children, tittle }) => {
                 }}>
 
                 <Grid position="absolute" top="-60px" zIndex={1} >
-                    <img src="/assets/images/Logo.png" alt="" width="150px" />
+                    <img src="/assets/images/logo.png" alt="" width="150px" />
                 </Grid>
 
                 <Grid
@@ -73,7 +73,6 @@ export const AuthLayout = ({ children, tittle }) => {
                 >
 
                     <Typography variant="h5" sx={{ mb: 1 }} fontFamily="Aldrich" color="white"> {tittle} </Typography>
-                    {/* <TittleComponent tittle={tittle} /> */}
 
                     {(status === "checking") ? <CheckingAuth /> : children}
 

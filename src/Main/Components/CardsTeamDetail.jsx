@@ -12,8 +12,8 @@ export const CardsTeamDetail = ({ team, bannerTeam, matches, players }) => {
         <>
             <Grid container bgcolor="backgraunds.black" id="team">
                 <Grid item height={{ xs: "auto", md: "100vh" }} position="relative">
-                    <img src="/assets/images/Linea.png" alt="" width="100%" />
-                    <img src={`/assets/images/${bannerTeam}.png`} alt="" width="100%" />
+                    <img src="/assets/images/Linea.jpg" alt="" width="100%" />
+                    <img src={`/assets/images/${bannerTeam}.webp`} alt="" width="100%" />
 
                     <Box position="absolute" top="85vh" width="100%" textAlign="center" display={{ xs: "none", md: "block" }}>
                         <Box display="flex" justifyContent="center">

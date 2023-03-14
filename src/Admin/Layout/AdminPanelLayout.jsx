@@ -59,7 +59,7 @@ export const AdminPanelLayout = (props) => {
                 <IconButton sx={{ mr: 2, p: 0 }} onClick={handleDrawerToggle}>
                     <MenuOpenOutlined sx={{ fontSize: 30, color: "white" }} />
                 </IconButton>
-                <img src="/assets/images/Logo.png" alt="" width="65px" />
+                <img src="/assets/images/logo.png" alt="" width="65px" />
             </Toolbar>
             <Divider />
             <List >

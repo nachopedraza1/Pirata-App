@@ -3,7 +3,7 @@ import { MainLayout } from "../Layout/MainLayout"
 
 export const HeaderJoinTeam = () => {
     return (
-        <MainLayout bgImg="/assets/images/background-csgo.png" bgColor="backgraunds.black">
+        <MainLayout bgImg="/assets/images/bg-join.webp" bgColor="backgraunds.black">
 
             <Grid sx={{
                 textAlign: "center",
@@ -36,7 +36,7 @@ export const HeaderJoinTeam = () => {
                 <Grid container direction="column" padding={2} height="80vh" justifyContent="center" gap={4}>
                     <Grid container justifyContent="center" alignItems="center">
                         <Grid item xs={6} textAlign="center">
-                            <img src="/assets/images/logoheadercab.gif" width="100%" alt="" style={{ maxWidth: "250px" }} />
+                            <img src="/assets/images/logo.png" width="100%" alt="" style={{ maxWidth: "250px" }} />
                         </Grid>
                     </Grid>
 

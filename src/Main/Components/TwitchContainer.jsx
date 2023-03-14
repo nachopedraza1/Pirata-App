@@ -1,7 +1,8 @@
-import { Box, Grid } from "@mui/material"
+import { Grid } from "@mui/material"
 import { TittleComponent } from "../../Ui/Components"
 
-export const TwitchContainer = () => {
+const TwitchContainer = () => {
+
     return (
         <Grid container spacing={2}>
 
@@ -27,3 +28,5 @@ export const TwitchContainer = () => {
         </Grid>
     )
 }
+
+export default TwitchContainer;

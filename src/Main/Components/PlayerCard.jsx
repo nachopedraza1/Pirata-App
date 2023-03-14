@@ -13,7 +13,7 @@ export const PlayerCard = ({ player }) => {
 
     return (
         <div className="memb__team-item" key={player.id}>
-            <img className=" lazyloaded" src="assets\images\GenericPlayer.jpg" data-src="https://cdn.shopify.com/s/files/1/0548/8554/8183/files/2022-10-27-Pro-Player_Apex_ChaoticMuch.jpg?v=1667906406" alt="Chaotic" />
+            <img className="lazyloaded" src="assets\images\GenericPlayer.jpg"  alt={`${player.player} Belgrano Esport`} />
             <div className="memb__team-det">
                 <a href="/blogs/team-member/chaotic" className="teammate-profile"></a>
                 <div className="teammate-info">

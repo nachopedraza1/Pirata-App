@@ -1,6 +1,6 @@
 import { Box, Container } from "@mui/material"
 
-export const MainLayout = ({ children, bgColor, bgImg, bgImgMobile = bgImg }) => {
+export const MainLayout = ({ children, bgColor, bgImg }) => {
 
     return (
         <>
@@ -10,7 +10,7 @@ export const MainLayout = ({ children, bgColor, bgImg, bgImgMobile = bgImg }) =>
                 backgroundAttachment: "fixed",
                 backgroundColor: bgColor,
                 backgroundImage: {
-                    xs: `url(${bgImgMobile})`, md: `url(${bgImg})`
+                    xs: `url(${bgImg})`
                 },
                 backgroundSize: "cover",
                 backgroundPosition: "center",

@@ -4,8 +4,8 @@ import { collection, doc, getDocs, orderBy, query } from "firebase/firestore/lit
 import { FirebaseDB } from "../../Firebase/config";
 
 export const providerPosts = async () => {
-    const { data: { data } } = await axios.get("-");
-
+    const { data: { data } } = await axios.get(/* instagram api call */);
+    console.log(data);
     const postsData = data.filter(({ media_type }) => media_type === "IMAGE" || media_type === "CAROUSEL_ALBUM");
     return postsData;
 }

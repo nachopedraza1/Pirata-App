@@ -1,10 +1,18 @@
 import { Divider, Grid, Link, Typography } from "@mui/material"
 import { MainLayout } from "../Layout/MainLayout"
 
+
+const logosEsports = [
+    { name: "League of Legends", imgUrl: "/assets/images/esports/LEAGUE OF LEGENDS.png", size: "90%" },
+    { name: "Fifa", imgUrl: "/assets/images/esports/logo-fifa.png", size: "100%" },
+    { name: "Free Fire", imgUrl: "/assets/images/esports/FREEFIRE BATTLEGROUNDS.png", size: "100%" },
+    { name: "Formula1", imgUrl: "/assets/images/esports/FORMULA1.png", size: "100%" },
+];
+
 export const HeaderHome = () => {
 
     return (
-        <MainLayout bgImg="/assets/images/background1.jpg" bgImgMobile="/assets/images/background1-mobile.jpg">
+        <MainLayout bgImg="/assets/images/bg-main-desk.webp">
             <Grid
                 className="animate__animated animate__fadeIn"
                 container
@@ -18,7 +26,7 @@ export const HeaderHome = () => {
                 <Grid container direction="column" padding={2} height="80vh" justifyContent="space-around">
                     <Grid container justifyContent="center" alignItems="center" position="relative">
                         <Grid item xs={6} textAlign="center">
-                            <img src="/assets/images/logoheadercab.gif" width="100%" alt="" style={{ maxWidth: "250px" }} />
+                            <img src="/assets/images/logo.png" width="100%" alt="" style={{ maxWidth: "250px" }} />
                         </Grid>
                         <Grid item xs={12} position="absolute" right={2}>
                             <Link href="https://republicadealberdi.ar/" target="_blank" display={{ xs: "none", md: "block" }} >
@@ -36,18 +44,11 @@ export const HeaderHome = () => {
                     </Grid>
 
                     <Grid container justifyContent="center" alignItems="center">
-                        <Grid item xs={6} sm={3} md={2} textAlign="center">
-                            <img src="/assets/images/esports/LEAGUE OF LEGENDS.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
-                        </Grid>
-                        <Grid item xs={6} sm={3} md={2} textAlign="center">
-                            <img src="/assets/images/esports/logo-fifa.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
-                        </Grid>
-                        <Grid item xs={6} sm={3} md={2} textAlign="center">
-                            <img src="/assets/images/esports/logo-freefire.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
-                        </Grid>
-                        <Grid item xs={6} sm={3} md={2} textAlign="center">
-                            <img src="/assets/images/esports/FORMULA1.png" alt="" width="100%" style={{ maxWidth: "190px" }} />
-                        </Grid>
+                        {logosEsports.map(({ name, imgUrl, size }) => (
+                            <Grid item xs={6} sm={3} md={2} textAlign="center" key={name}>
+                                <img src={imgUrl} alt={`${name} Belgrano Esports`} width={size} style={{ maxWidth: "190px" }} />
+                            </Grid>
+                        ))}
                     </Grid>
                 </Grid>
 
