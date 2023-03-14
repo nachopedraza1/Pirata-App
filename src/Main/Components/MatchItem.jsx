@@ -29,7 +29,7 @@ export const MatchItem = ({ match }) => {
             </Grid>
             <Grid container >
                 <Grid item xs={8} display="flex" justifyContent="space-around" alignItems="center">
-                    <img src="/assets/images/bg-main-desk.jpg" alt="" width="100%" style={{ maxWidth: "65px" }} />
+                    <img src="/assets/images/logo.png" alt="" width="100%" style={{ maxWidth: "65px" }} />
                     <Typography color={bgcolor}> {match.puntosLocal} </Typography>
                     <Typography color={bgcolor}> : </Typography>
                     <Typography color={bgcolor}> {match.puntosRival} </Typography>

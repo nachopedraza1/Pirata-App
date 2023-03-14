@@ -30,7 +30,7 @@ export const ProjectPage = () => {
                     width="100%"
                     height="100vh"
                     sx={{
-                        backgroundImage: "url(https://res.cloudinary.com/dlrynazbm/image/upload/v1676518091/belgrano-esports/quienessomos_bnckgi.jpg)",
+                        backgroundImage: "url(/assets/images/bg-aboutus.jpg)",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",
