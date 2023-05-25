@@ -1,11 +1,11 @@
 import { lazy, useEffect } from "react";
 
 import { MainLayout } from "../Layout/MainLayout";
-import { Grid } from "@mui/material";
 import { TwitterContainer, NewsContainer, HeaderHome, TabMatches, DiscordContainer } from "../Components";
 
-const TwitchContainer = lazy(() => import("../Components/TwitchContainer"))
+import { Grid } from "@mui/material";
 
+const TwitchContainer = lazy(() => import("../Components/TwitchContainer"))
 
 export const HomePage = () => {
 

@@ -74,11 +74,16 @@ export const JoinTeamPage = () => {
     const onSubmitForm = async (event) => {
         event.preventDefault();
         setSubmitted(true);
-        const queryRef = collection(FirebaseDB, "applicants");
-        const formData = { ...formState, fecha: date }
-        await addDoc(queryRef, formData);
-        navigate("/", { replace: true })
-        alert("success", "Formulario enviado con exito")
+        try {
+            const queryRef = collection(FirebaseDB, "applicants");
+            const formData = { ...formState, fecha: date }
+            await addDoc(queryRef, formData);
+            navigate("/", { replace: true })
+            alert("success", "Formulario enviado con exito")
+        } catch (error) {
+            alert("error", "No pudimos procesar tu solicitud, por favor inicia sesion");
+            setSubmitted(false);
+        }
     }
 
     useEffect(() => {
@@ -265,4 +270,3 @@ export const JoinTeamPage = () => {
         </>
     )
 }
-

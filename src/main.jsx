@@ -1,6 +1,6 @@
 import "./Theme/scss/global.scss"
 
-import React, { Suspense } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
@@ -14,11 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
   <Provider store={store}>
     <BrowserRouter>
-      <Suspense fallback={null}>
-        <AppTheme>
-          <App />
-        </AppTheme>
-      </Suspense>
+      <AppTheme>
+        <App />
+      </AppTheme>
     </BrowserRouter>
   </Provider>
 )

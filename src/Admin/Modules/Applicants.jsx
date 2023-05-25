@@ -120,51 +120,54 @@ export const Applicants = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {applicantsFilter.map((player) => (
-                            <TableRow
-                                key={player.id}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row">
-                                    {player.name + " " + player.lastname}
-                                </TableCell>
+                        {applicantsFilter.map((player) => {
+                            if (player.phone === undefined) return;
+                            return (
+                                <TableRow
+                                    key={player.id}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        {player.name + " " + player.lastname}
+                                    </TableCell>
 
-                                <TableCell align="left">
-                                    {calcAge(player.fecha)}
-                                </TableCell>
+                                    <TableCell align="left">
+                                        {calcAge(player.fecha)}
+                                    </TableCell>
 
-                                <TableCell align="left"> {player.fecha} </TableCell>
-                                <TableCell align="left"> {player.rol} </TableCell>
+                                    <TableCell align="left"> {player.fecha} </TableCell>
+                                    <TableCell align="left"> {player.rol} </TableCell>
 
-                                <TableCell align="left">
-                                    {
-                                        (player.esport != "No soy gamer")
-                                            ? <img src={`/assets/images/esports/${findEsportLogo(player.esport)}`} style={{ maxWidth: "100px" }} />
-                                            : player.esport
-                                    }
-                                </TableCell>
+                                    <TableCell align="left">
+                                        {
+                                            (player.esport != "No soy gamer")
+                                                ? <img src={`/assets/images/esports/${findEsportLogo(player.esport)}`} style={{ maxWidth: "100px" }} />
+                                                : player.esport
+                                        }
+                                    </TableCell>
 
-                                <TableCell align="left">
-                                    <Link href={`https://wa.me/${player.phone.replace(/\D/g, '')}`} target="_blank" underline='none'>
-                                        <Tooltip title={player.phone.replace(/\D/g, '')}>
-                                            <WhatsApp />
-                                        </Tooltip>
-                                    </Link>
-                                </TableCell>
+                                    <TableCell align="left">
+                                        <Link href={`https://wa.me/${player.phone.replace(/\D/g, '')}`} target="_blank" underline='none'>
+                                            <Tooltip title={player.phone.replace(/\D/g, '')}>
+                                                <WhatsApp />
+                                            </Tooltip>
+                                        </Link>
+                                    </TableCell>
 
-                                <TableCell align="left">
-                                    <Link href={`mailto:${player.email}`}>
-                                        <Tooltip title={player.email}>
-                                            <Email />
-                                        </Tooltip>
-                                    </Link>
-                                </TableCell>
+                                    <TableCell align="left">
+                                        <Link href={`mailto:${player.email}`}>
+                                            <Tooltip title={player.email}>
+                                                <Email />
+                                            </Tooltip>
+                                        </Link>
+                                    </TableCell>
 
 
-                                <TableCell align="left"> <img src={`/assets/images/${findPlataformLogo(player.plataform)}`} style={{ maxWidth: "30px" }} alt="" /> </TableCell>
-                                <TableCell align="left"> <Switch {...label} onChange={() => onChangeStatus(player.id, player.checked)} defaultChecked={player.checked} /> </TableCell>
-                            </TableRow>
-                        ))}
+                                    <TableCell align="left"> <img src={`/assets/images/${findPlataformLogo(player.plataform)}`} style={{ maxWidth: "30px" }} alt="" /> </TableCell>
+                                    <TableCell align="left"> <Switch {...label} onChange={() => onChangeStatus(player.id, player.checked)} defaultChecked={player.checked} /> </TableCell>
+                                </TableRow>
+                            )
+                        })}
                     </TableBody>
                 </Table>
             </TableContainer>

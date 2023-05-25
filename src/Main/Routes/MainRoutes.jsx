@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux"
 import { Navigate, Route, Routes, Link } from "react-router-dom"
 
-import { ContactPage, HomePage, JoinTeamPage, ProjectPage, TeamsPage } from "../Pages"
-
 import { Preloader } from "../../Ui/Components"
 import { Footer, Navbar } from "../../Ui"
+
 import { Settings } from "@mui/icons-material"
 import { Box, Fab } from "@mui/material"
+
+import { ContactPage, HomePage, JoinTeamPage, ProjectPage, TeamsPage } from "../Pages"
 
 export const MainRoutes = () => {
 
@@ -14,9 +15,9 @@ export const MainRoutes = () => {
 
     return (
         <>
-            <Preloader />
             <Navbar />
-            <Routes>
+            <Preloader />
+            <Routes >
                 <Route path="/" element={<HomePage />} />
                 <Route path="/project" element={<ProjectPage />} />
                 <Route path="/teams" element={<TeamsPage />} />
