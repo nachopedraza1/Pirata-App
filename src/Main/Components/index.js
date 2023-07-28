@@ -3,6 +3,7 @@ export * from './CardsTeam';
 export * from './TabMatches';
 export * from './PlayerCard';
 export * from './HeaderHome';
+export * from './LatestClip';
 export * from './LoadingData';
 export * from './SocialBanner';
 export * from './NewsContainer';

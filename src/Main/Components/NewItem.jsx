@@ -9,7 +9,7 @@ export const NewItem = ({ post }) => {
 
     const styleModal = {
         width: "100%",
-        maxWidth: "700px",
+        maxWidth: "550px",
         height: "auto",
         backgroundColor: "backgraunds.main",
     }
@@ -73,33 +73,7 @@ export const NewItem = ({ post }) => {
                 onClose={() => setOpenModal(false)}
             >
                 <Grid container sx={styleModal} >
-                    <Grid container justifyContent="space-between">
-                        <Box display="flex" alignItems="center" p={1} ml={1} >
-                            <img src="assets/images/profile_instagram_logo.jpg" alt="instagram-belgrano" width="40px" style={{ borderRadius: "50%" }} />
-                            <Typography color="gray" ml={1}>@{post.username} </Typography>
-                        </Box>
-                        <Button onClick={() => setOpenModal(false)}>
-                            <Close fontSize="medium" sx={{ color: "white" }} />
-                        </Button>
-                    </Grid>
-
                     <img src={post.media_url} alt="" width="100%" />
-
-                    <Typography color="gray" p="20px 20px 0px">
-                        {post.caption}
-                    </Typography>
-
-                    <Grid container justifyContent="end" pb={2} pr={2}>
-                        <Button
-                            href="https://www.instagram.com/belgrano_esports/"
-                            target="_blank"
-                            variant="outlined"
-                            startIcon={<Instagram />}
-                        >
-                            Seguinos!
-                        </Button>
-                    </Grid>
-
                 </Grid>
             </Modal>
         </>

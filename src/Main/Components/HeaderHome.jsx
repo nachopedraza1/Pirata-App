@@ -5,7 +5,6 @@ import { MainLayout } from "../Layout/MainLayout"
 const logosEsports = [
     { name: "League of Legends", imgUrl: "/assets/images/esports/LEAGUE OF LEGENDS.png", size: "90%" },
     { name: "Fifa", imgUrl: "/assets/images/esports/logo-fifa.png", size: "100%" },
-    { name: "Free Fire", imgUrl: "/assets/images/esports/FREEFIRE BATTLEGROUNDS.png", size: "100%" },
     { name: "Formula1", imgUrl: "/assets/images/esports/FORMULA1.png", size: "100%" },
 ];
 

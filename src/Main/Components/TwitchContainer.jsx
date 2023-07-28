@@ -8,9 +8,9 @@ const TwitchContainer = () => {
 
             <Grid item xs={12} md={8}>
                 <TittleComponent tittle="STREAM" />
-                <iframe src="https://player.twitch.tv/?channel=cabesportsok&parent=belgranoesports.com.ar"
+                <iframe src="https://player.twitch.tv/?channel=Belgrano_oficial&parent=belgranoesports.com.ar"
                     allowFullScreen={true}
-                    autoPlay={false}
+                    autoPlay={true}
                     height="450" width="100%">
                 </iframe>
             </Grid>
@@ -19,8 +19,8 @@ const TwitchContainer = () => {
                 <TittleComponent tittle="CHAT EN VIVO" />
                 <iframe
                     id="chat_embed"
-                    autoPlay={false}
-                    src="https://www.twitch.tv/embed/cabesportsok/chat?darkpopout&parent=belgranoesports.com.ar"
+                    autoPlay={true}
+                    src="https://www.twitch.tv/embed/Belgrano_oficial/chat?darkpopout&parent=belgranoesports.com.ar"
                     height="450" width="100%">
                 </iframe>
             </Grid>

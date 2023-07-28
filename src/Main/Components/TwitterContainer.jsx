@@ -22,7 +22,7 @@ export const TwitterContainer = () => {
                     options={{
                         width: "100%",
                         height: "520px",
-                        tweetLimit: 5,
+                        tweetLimit: 1,
                         chrome: "noheader, nofooter,noborders,transparent,noscrollbar",
                         theme: "dark"
                     }}

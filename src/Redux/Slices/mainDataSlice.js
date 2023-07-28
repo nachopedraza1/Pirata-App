@@ -9,7 +9,8 @@ export const mainDataSlice = createSlice({
         esports: [],
         leagues: [],
         upcomingMatches: [],
-        applicants: []
+        applicants: [],
+        clipsTwitch: [],
     },
     reducers: {
         setMatches: (state, { payload }) => {
@@ -35,8 +36,12 @@ export const mainDataSlice = createSlice({
         setApplicants: (state, { payload }) => {
             state.isLoading = false;
             state.applicants = payload;
+        },
+        setClipsFromTwitch: (state, { payload }) => {
+            state.isLoading = false;
+            state.clipsTwitch = payload;
         }
     },
 })
 
-export const { setMatches, setRivals, setEsports, setLeagues, setUpcomingMatches, setApplicants } = mainDataSlice.actions
+export const { setMatches, setRivals, setEsports, setLeagues, setUpcomingMatches, setApplicants, setClipsFromTwitch } = mainDataSlice.actions

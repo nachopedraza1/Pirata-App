@@ -1,13 +1,25 @@
 
 import axios from "axios";
-import { collection, doc, getDocs, orderBy, query } from "firebase/firestore/lite";
+import { collection, getDocs, orderBy, query } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../Firebase/config";
 
 export const providerPosts = async () => {
-    const { data: { data } } = await axios.get("/* TOKEN IG */");
+    const { data: { data } } = await axios.get("");
     const postsData = data.filter(({ media_type }) => media_type === "IMAGE" || media_type === "CAROUSEL_ALBUM");
     return postsData;
 }
+
+export const providerClips = async () => {
+    const twitchID = 916822281
+    const { data: { data } } = await axios.get(`https://api.twitch.tv/helix/videos?user_id=${twitchID}`, {
+        'headers': {
+            'Authorization': '',
+            'Client-Id': ''
+        }
+    })
+    return data[0]
+}
+
 
 export const getMatches = async () => {
     try {
@@ -84,3 +96,4 @@ export const getApplicants = async () => {
     });
     return applicants;
 }
+

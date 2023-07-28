@@ -1,7 +1,7 @@
 import { lazy, useEffect } from "react";
 
 import { MainLayout } from "../Layout/MainLayout";
-import { TwitterContainer, NewsContainer, HeaderHome, TabMatches, DiscordContainer } from "../Components";
+import { TwitterContainer, NewsContainer, HeaderHome, TabMatches, DiscordContainer, LatestClip } from "../Components";
 
 import { Grid } from "@mui/material";
 
@@ -21,6 +21,10 @@ export const HomePage = () => {
                 <img src="/assets/images/Linea.jpg" alt="" width="100%" style={{ position: "absolute", left: 0 }} />
 
                 <Grid container justifyContent="center" spacing={2} id="home" pt={6}>
+
+                    <Grid item xs={12}>
+                        <LatestClip />
+                    </Grid>
 
                     <Grid item xs={12} md={8}>
                         <NewsContainer />

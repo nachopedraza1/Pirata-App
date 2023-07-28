@@ -1,15 +1,14 @@
 
 import { facebookLogin, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Auth/Providers/providersAuth";
 
-import { checkingCredentials, login, logout, setApplicants, setEsports, setLeagues, setMatches, setPosts, setRivals, setUpcomingMatches } from "../Slices"
-import { getApplicants, getEsports, getLeagues, getMatches, getRivals, getUpcomingMatches, providerPosts } from "../../Main/Providers/providersData";
+import { checkingCredentials, login, logout, setApplicants, setClipsFromTwitch, setEsports, setLeagues, setMatches, setPosts, setRivals, setUpcomingMatches } from "../Slices"
+import { getApplicants, getEsports, getLeagues, getMatches, getRivals, getUpcomingMatches, providerClips, providerPosts } from "../../Main/Providers/providersData";
 
 
 export const startTwitterLogin = () => {
     return async (dispatch) => {
         dispatch(checkingCredentials());
-        const resp = await twitterLogin();
-        console.log(resp);
+        await twitterLogin();
     }
 }
 
@@ -117,6 +116,12 @@ export const onLoadApplicants = () => {
     }
 }
 
+export const onLoadClipsFromTwitch = () => {
+    return async (dispatch) => {
+        const clips = await providerClips();
+        dispatch(setClipsFromTwitch(clips));
+    }
+}
 
 
 
