@@ -4,7 +4,7 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../Firebase/config";
 
 export const providerPosts = async () => {
-    const { data: { data } } = await axios.get("");
+    const { data: { data } } = await axios.get("SECRET TOKEN");
     const postsData = data.filter(({ media_type }) => media_type === "IMAGE" || media_type === "CAROUSEL_ALBUM");
     return postsData;
 }
@@ -13,8 +13,8 @@ export const providerClips = async () => {
     const twitchID = 916822281
     const { data: { data } } = await axios.get(`https://api.twitch.tv/helix/videos?user_id=${twitchID}`, {
         'headers': {
-            'Authorization': '',
-            'Client-Id': ''
+            'Authorization': 'Bearer SECRET TOKEN',
+            'Client-Id': 'Client ID TOKEN'
         }
     })
     return data[0]
@@ -95,5 +95,15 @@ export const getApplicants = async () => {
         return { id: doc.id, ...doc.data() }
     });
     return applicants;
+}
+
+
+export const getNotes = async () => {
+    const queryRef = collection(FirebaseDB, 'notes');
+    const { docs } = await getDocs(queryRef);
+    const notes = docs.map(doc => {
+        return { id: doc.id, ...doc.data() }
+    })
+    return notes;
 }
 

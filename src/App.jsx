@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux"
-import { onLoadApplicants, onLoadClipsFromTwitch, onLoadEsports, onLoadLeagues, onLoadMatches, onLoadPosts, onLoadRivals, onLoadUpcomingMatches } from "./Redux/Thunks";
+import { onLoadApplicants, onLoadClipsFromTwitch, onLoadEsports, onLoadLeagues, onLoadMatches, onLoadNotes, onLoadPosts, onLoadRivals, onLoadUpcomingMatches } from "./Redux/Thunks";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -21,6 +21,7 @@ export const App = () => {
     dispatch(onLoadUpcomingMatches());
     dispatch(onLoadClipsFromTwitch());
     dispatch(onLoadApplicants());
+    dispatch(onLoadNotes());
   }, [])
 
   return (

@@ -8,6 +8,7 @@ export * from './LoadingData';
 export * from './SocialBanner';
 export * from './NewsContainer';
 export * from './MatchContainer';
+export * from './NotesContainer';
 export * from './HeaderJoinTeam';
 export * from './TwitchContainer';
 export * from './CardsTeamDetail';

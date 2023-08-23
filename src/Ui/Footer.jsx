@@ -81,12 +81,12 @@ export const Footer = () => {
                 </Grid>
             </Container>
             <Box height="25px" bgcolor="backgraunds.black" textAlign="center">
-                <Link href='https://wa.me/3513295515' target="_blank" underline='none'>
-                    <Typography variant='p' fontSize={12} fontWeight="bold" color="gray">DESARROLLADO CON
+                <Link href='https://www.nachirodev.com/' target="_blank" underline='none'>
+                    <Typography variant='p' fontSize={12} fontWeight="bold" color="gray">Desarrollado con
                         <Typography component="span" mx="5px">
                             <Favorite fontSize='small' sx={{ color: 'primary.main' }} />
                         </Typography>
-                        POR NACHOJS
+                        por Nachirodev
                     </Typography>
                 </Link>
             </Box>

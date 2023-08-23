@@ -1,8 +1,8 @@
 
 import { facebookLogin, githubLogin, googleLogin, loginUser, logoutUser, registerUser, twitterLogin } from "../../Auth/Providers/providersAuth";
 
-import { checkingCredentials, login, logout, setApplicants, setClipsFromTwitch, setEsports, setLeagues, setMatches, setPosts, setRivals, setUpcomingMatches } from "../Slices"
-import { getApplicants, getEsports, getLeagues, getMatches, getRivals, getUpcomingMatches, providerClips, providerPosts } from "../../Main/Providers/providersData";
+import { checkingCredentials, login, logout, setApplicants, setClipsFromTwitch, setEsports, setLeagues, setMatches, setNotes, setPosts, setRivals, setUpcomingMatches } from "../Slices"
+import { getApplicants, getEsports, getLeagues, getMatches, getNotes, getRivals, getUpcomingMatches, providerClips, providerPosts } from "../../Main/Providers/providersData";
 
 
 export const startTwitterLogin = () => {
@@ -120,6 +120,13 @@ export const onLoadClipsFromTwitch = () => {
     return async (dispatch) => {
         const clips = await providerClips();
         dispatch(setClipsFromTwitch(clips));
+    }
+}
+
+export const onLoadNotes = () => {
+    return async (dispatch) => {
+        const notes = await getNotes();
+        dispatch(setNotes(notes));
     }
 }
 

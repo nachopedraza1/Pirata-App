@@ -1,12 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Preloader } from "../../Ui/Components"
-import { AddMatches, AddRivals, AddEsports, AddDateMatch, AddLeagues, Applicants } from "../Modules"
+import { AddMatches, AddRivals, AddEsports, AddDateMatch, AddLeagues, Applicants, AddNote } from "../Modules";
 
 export const AdminRoutes = () => {
     return (
         <>
             <Preloader />
             <Routes>
+                <Route path="/addnote" element={< AddNote />} />
                 <Route path="/addmatches" element={< AddMatches />} />
                 <Route path="/addrivals" element={< AddRivals />} />
                 <Route path="/addesports" element={< AddEsports />} />

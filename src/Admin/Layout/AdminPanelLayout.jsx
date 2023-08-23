@@ -24,7 +24,7 @@ const drawerWidth = 240;
 
 
 const navlinks1 = [
-    { text: 'Publicar Noticia', ref: "addmatches" },
+    { text: 'Publicar Noticia', ref: "addnote" },
     { text: 'Publicar Partido', ref: "addmatches" },
     { text: 'Publicar Fecha', ref: "adddate" }
 ];
